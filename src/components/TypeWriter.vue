@@ -129,7 +129,7 @@ export default defineComponent({
 
 
 <style>
-span{
+span {
     font-size:xx-large;
 }
 </style>
