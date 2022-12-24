@@ -1,57 +1,87 @@
 <template>
-    <div>
-        <nav class="center">
-            <ul class="liste">
-                <li @click="retournerPageAccueil">Accueil</li>
-                <li>Projets</li>
-                <li>Cursus</li>
-                <li>Contact</li>
-            </ul>
-        </nav>
-    </div>
+    <div class="square" v-if="!open" @click="openNavBar">&nbsp;</div>
+    <ul v-else>
+        <div class="square" @click="openNavBar"></div>
+        <div class="center">
+            <li @click="retournerPageAccueil">Accueil</li>
+            <li>Projets</li>
+            <li>Cursus</li>
+            <li>Contact</li>
+        </div>
+    </ul>
 </template>
 
 
 <script>
 export default {
-//    name: NavBar
+    name: 'NavBar',
+    data() {
+        return {
+            open: false
+        }
+    },
+    methods: {
+        openNavBar() {
+            if (this.open === true) {
+                this.open = false;
+                document.getElementById("text").style.translate = "10vw 20vh";
+            } else {
+                this.open = true;
+                document.getElementById("text").style.translate = "280px 20vh";
+                document.getElementsByClassName("square")[0].style.translate = "0 0";
+            }
+        }
+    }
 }
 </script>
 
 
 <style scoped>
-nav {
-    left:0;
-    top:0;
-    width: 100%;
-    height:50px;
-    background: #333;
-    color: #f1f1f1;
-    position: fixed;
-    z-index: 1;
+.center {
+    width: 250px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
 }
 
 ul {
-    width: 100%;
-    height: 100%;
+    position: fixed;
+    width: 250px;
+    height: 100vh;
+    translate: 0 0;
     list-style-type: none;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    background-color: rgb(36, 73, 74);
+    margin: 0;
+    padding: 0;
 }
 
 li {
     margin: 0 20px;
     font-size: 20px;
+    color: rgb(133, 133, 133);
+    margin-top: 20px;
 }
 
 li:hover {
-    color: rgb(120, 120, 120);
+    color: rgb(196, 196, 196);
 }
 
-.center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.square {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    display: block;
+    translate: 2.5vw 5vh;
+    border-radius: 10%;
+    background-image: url('./../assets/param.png');
+    z-index: 10;
+}
+
+.square:hover {
+    background-color: rgba(187, 187, 187, 0.2);
 }
 </style>
