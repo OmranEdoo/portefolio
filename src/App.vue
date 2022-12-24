@@ -2,20 +2,25 @@
   <div id="app">
     <NavBar></NavBar>
     <MainPage></MainPage>
+    <CursusPage></CursusPage>
     <DownBar></DownBar>
   </div>
 </template>
 
+
 <script>
+import NavBar from './components/NavBar.vue'
 import DownBar from './components/DownBar.vue'
 import MainPage from './components/MainPage.vue'
-import NavBar from './components/NavBar.vue';
+import CursusPage from './components/CursusPage.vue'
+
 
 export default {
   components: {
+    NavBar,
     DownBar,
     MainPage,
-    NavBar
+    CursusPage
 } 
 }
 </script>
@@ -35,4 +40,9 @@ body {
   margin: 0;
   padding: 0;
 }
+
+NavBar {
+  position: fixed;
+}
+
 </style>

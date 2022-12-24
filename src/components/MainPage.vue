@@ -15,6 +15,7 @@
     import Threebackground from "./ThreeBackground.vue"
 
     export default {
+        name: 'MainPage',
         data () {
             return {
                 text: ["Future ingénieur...", "Passionné de programmation...", "Joueur d'échecs (très) amateur..."]

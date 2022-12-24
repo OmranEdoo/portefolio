@@ -1,14 +1,16 @@
 <template>
-    <div class="square" v-if="!open" @click="openNavBar">&nbsp;</div>
-    <ul v-else>
-        <div class="square" @click="openNavBar"></div>
-        <div class="center">
-            <li @click="retournerPageAccueil">Accueil</li>
-            <li>Projets</li>
-            <li>Cursus</li>
-            <li>Contact</li>
-        </div>
-    </ul>
+    <div id="navBar">
+        <div class="square" v-if="!open" @click="openNavBar">&nbsp;</div>
+        <ul v-else>
+            <div class="square" @click="openNavBar"></div>
+            <div class="center">
+                <li @click="retournerPageAccueil">Accueil</li>
+                <li @click="scrollDown(1)">Cursus</li>
+                <li @click="scrollDown(2)">Projets</li>
+                <li @click="scrollDown(3)">Contact</li>
+            </div>
+        </ul>
+    </div>
 </template>
 
 
@@ -30,6 +32,19 @@ export default {
                 document.getElementById("text").style.translate = "280px 20vh";
                 document.getElementsByClassName("square")[0].style.translate = "0 0";
             }
+        },
+        retournerPageAccueil() {
+            window.open("./index.html");
+        },
+        scrollRec(i, scrollLevel){
+            if (scrollLevel != i*window.innerHeight){
+                window.scrollTo(scrollLevel, scrollLevel+1);
+                scrollLevel++;
+                setTimeout(this.scrollRec(i, scrollLevel), 100);                 
+            }
+        },
+        scrollDown(i){
+            this.scrollRec(i, 0);
         }
     }
 }
@@ -37,6 +52,10 @@ export default {
 
 
 <style scoped>
+
+#navBar {
+    position: fixed;
+}
 .center {
     width: 250px;
     height: 100vh;
@@ -73,8 +92,8 @@ li:hover {
 .square {
     width: 50px;
     height: 50px;
-    position: absolute;
     display: block;
+    position: absolute;
     translate: 2.5vw 5vh;
     border-radius: 10%;
     background-image: url('./../assets/param.png');
