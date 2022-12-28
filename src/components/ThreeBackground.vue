@@ -61,8 +61,6 @@ export default {
       jsonLoader.load('./mountain2.glb', function(gltf){
         mountainMesh1 = gltf.scene;
 
-        console.log(gltf);
-
         mountainMesh1.children[0].children[0].material = new THREE.MeshBasicMaterial( { color: 0x000000, wireframe : false  }  );
 
         mountainMesh1.scale.set(200, 200, 200);
@@ -112,6 +110,13 @@ export default {
         scene.add(mountainMesh4Black);
         scene.add(mountainMesh5Black);
         scene.add(mountainMesh6Black);
+        
+        window.addEventListener( 'resize', function() {
+          camera.aspect = window.innerWidth / window.innerHeight;
+          camera.updateProjectionMatrix();
+
+          renderer.setSize( window.innerWidth, window.innerHeight )
+        })
 
         animate();
       });  
@@ -120,14 +125,12 @@ export default {
         if (parseInt(camera.position.z) == 0) {
           camera.position.z = 1000;
         }
-        //console.log(this.camera.position.z);
         camera.position.z -= 0.5;
-        //cube.rotation.x += 0.01;
-        //cube.rotation.y += 0.01;
+
         renderer.render( scene, camera );
         renderer.setSize( window.innerWidth, window.innerHeight );
         requestAnimationFrame( animate );
-      }      
+      }
     }
   }
 }
@@ -135,11 +138,20 @@ export default {
 
 
 <style scoped>
-    #canvas {
-        width: 100%;
-        height: 100%;
-        overflow-x: hidden;
-        padding: 0;
-        margin: 0;
-    }
+  #background {
+    width: 390px;
+    height: auto;
+    min-height: 350px;
+    position: block;
+  }
+
+  #canvas {
+    width: 390px;
+    height: auto;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+    display: block;
+    min-height: 350px;
+  }
 </style>

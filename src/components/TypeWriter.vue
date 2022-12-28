@@ -1,7 +1,7 @@
 <template>
     <div class="is-typed">
       <slot />
-      <span class="typed">{{ typeValue }}{{ writingChar }}</span>
+      <span id="span" class="typed">{{ typeValue }}{{ writingChar }}</span>
       <span :class="caret + ' ' + { typing: typeStatus }">&nbsp;</span>
     </div>
 </template>
@@ -129,7 +129,19 @@ export default defineComponent({
 
 
 <style>
-span {
-    font-size:xx-large;
-}
+  span {
+      font-size: xx-large;
+  }
+
+  @media screen and (max-width: 600px) {
+    span {
+      font-size: large;
+    }
+  }
+
+  @media screen and (max-width: 300px) {
+    span {
+      font-size: medium;
+    }
+  }
 </style>

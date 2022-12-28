@@ -1,7 +1,7 @@
 <template>
-    <div id="container">
+    <div id="mainPage">
         <div id="text">
-            <h1 class="text-neon">OMRAN EDOO</h1>
+            <h1 id="blaze" class="text-neon">OMRAN EDOO</h1>
             <Typewriter :array="text"></Typewriter>
         </div>
 
@@ -31,15 +31,15 @@
 
 
 <style scoped>
-    #container {
-        width: 100%;
-        background-color: aliceblue;
-        overflow-x: hidden;
+    #mainPage {
+        display: block;
+        height: auto;
+        min-height: 350px;
     }
 
     #text {
         position: absolute;
-        width:fit-content;
+        width:max-content;
         translate: 10vw 20vh;
         text-align: start;
         color: rgb(220, 220, 220);
@@ -52,7 +52,18 @@
     }
 
     .text-neon {
-        /*text-shadow: 0.01em 0.01em 0.02em rgb(179, 22, 22), 0 0 0.5em rgb(84, 20, 204), 0 0 0.2em rgb(84, 20, 204);*/
         text-shadow: 0.01em 0.01em 0.02em rgb(179, 22, 22), 0 0 0.5em rgb(0, 208, 255), 0 0 0.2em rgb(0, 208, 255);
+    }
+
+    @media screen and (max-width: 600px) {
+        h1 {
+            font-size: 50px;
+        }
+    }
+
+    @media screen and (max-width: 300px) {
+        h1 {
+            font-size: 30px;
+        }
     }
 </style>

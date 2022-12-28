@@ -41,6 +41,7 @@ export default {
 
 <style scoped>
 #downBar{
+    width: 100vw;
     padding-right: 80px;
     padding-left: 80px;
     background: #333;
@@ -50,7 +51,7 @@ export default {
 }
 
 #networksBar {
-    width: 100%;
+    width: 100vw;
     height:90px;
     background: #333;
     display: flex;
@@ -62,7 +63,7 @@ export default {
 }
 
 .grayBar{
-    width: 100%;
+    width: 100vw;
     height:90px;
     background: #333;
     display: flex;
