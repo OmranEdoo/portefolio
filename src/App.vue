@@ -4,6 +4,7 @@
     <MainPage></MainPage>
     <CursusPage></CursusPage>
     <SkillsPage></SkillsPage>
+    <ProjectPage></ProjectPage>
     <DownBar></DownBar>
   </div>
 </template>
@@ -15,6 +16,7 @@ import DownBar from './components/DownBar.vue'
 import MainPage from './components/MainPage.vue'
 import CursusPage from './components/CursusPage.vue'
 import SkillsPage from './components/SkillsPage.vue'
+import ProjectPage from './components/ProjectPage.vue'
 
 export default {  
   components: {
@@ -22,10 +24,10 @@ export default {
     DownBar,
     MainPage,
     CursusPage,
-    SkillsPage
+    SkillsPage,
+    ProjectPage
   },
   mounted () {
-    console.log("on scroll "+window.innerWidth);
     window.scrollTo(window.innerWidth, 0);
   }
 }
@@ -57,7 +59,7 @@ body {
   margin: 0;
   padding: 0;
   margin-left: 100vw;
-  overflow-x: hidden;
+  /*overflow-x: hidden;*/
 }
 
 #navBar {

@@ -16,16 +16,41 @@
 
 
 <script>
+//import { throwStatement } from '@babel/types';
+
+/////fair v-for des onglets
 export default {
     name: 'NavBar',
     data() {
         return {
-            open: false
+            open: false,
+            scrollY: 0,
+            isScroll: false,
+            isClick: false
         }
     },
     mounted () {
+        window.addEventListener("mousedown", () => { this.isClick = true });
+        window.addEventListener("mouseup", () => { this.isClick = false })
+        window.addEventListener("scroll", this.scrollEvent);
     },
     methods: {
+        scrollEvent() {
+            if (!this.isScroll && !this.isClick) {
+                this.isScroll = true;
+                if (this.scrollY > 3*window.innerHeight) {
+                    this.scrollDown(3);
+                } else if (this.scrollY < window.scrollY) {
+                    this.scrollDown(Math.floor((window.scrollY+window.innerHeight - 10)/window.innerHeight)+1);
+                } else if (this.scrollY > window.scrollY) {
+                    this.scrollDown(Math.floor((window.scrollY+window.innerHeight - 10)/window.innerHeight)-1);
+                } else {
+                    this.isScroll = false;
+                }
+            }
+            
+            this.scrollY = window.scrollY;
+        },
         getOpen() {
             return this.open;
         },
@@ -60,6 +85,9 @@ export default {
                     }, 1);                 
                 } else {
                     window.scrollTo(window.scrollX, i*window.innerHeight)
+                    setTimeout(() => {
+                        this.isScroll = false;
+                    }, 100); 
                 }
             } else {
                 if (scrollLevel > i*window.innerHeight) {
@@ -69,7 +97,10 @@ export default {
                         this.scrollRec(i, scrollLevel, scrollInit);
                     }, 1);                 
                 } else {
-                    window.scrollTo(window.scrollX, i*window.innerHeight)
+                    window.scrollTo(window.scrollX, i*window.innerHeight);
+                    setTimeout(() => {
+                        this.isScroll = false;
+                    }, 100); 
                 }
             }
             

@@ -19,7 +19,7 @@ export default {
     this.initThree();
   },
   methods: {
-    initThree() {////// il faut pas utiliser background mais le parent qui est "container" je pense mais pour y accéder jsp comment on fait
+    initThree() {
       var scene = new THREE.Scene();
       scene.background = new THREE.Color(0, 0, 0);
       var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -28,6 +28,27 @@ export default {
 
       var renderer = new THREE.WebGLRenderer({ canvas: can, alpha: true, antialias: true });
       renderer.setSize( window.innerWidth, window.innerHeight );
+
+      const sphereGeometry = new THREE.SphereGeometry(63, 13, 13);
+      const sphereMaterial = new THREE.MeshBasicMaterial( { color: 0xccccc, wireframe: true } );
+      
+      var sphere = new THREE.Mesh( sphereGeometry, sphereMaterial );
+      sphere.position.set(600, 300, 300);
+      sphere.rotation.x = Math.PI/8;
+      sphere.rotation.z = Math.PI/8;
+      scene.add( sphere );
+
+      const ringGeometry = new THREE.RingGeometry( 70, 80, 50, 10 );
+      const ringMaterial = new THREE.MeshBasicMaterial( { color: 0xccccc, wireframe: true, side: THREE.DoubleSide } );
+      
+      var ring = new THREE.Mesh( ringGeometry, ringMaterial );
+      ring.position.set(600, 300, 300);
+      ring.rotation.x = 9*Math.PI/16;
+      ring.rotation.y = Math.PI/8;
+      scene.add( ring );
+
+      const axisSphere = new THREE.Vector3(0, 1, 0);
+      const axisRing = new THREE.Vector3(0, 0, 1);
 
       var cubeGeometry = new THREE.BoxGeometry(70, 70, 70, 1, 1, 1);
       var cubeMaterial = new THREE.MeshBasicMaterial( { color: 0xccccc, wireframe: true } );
@@ -122,6 +143,11 @@ export default {
       });  
 
       function animate() {
+        sphere.rotateOnAxis( axisSphere, 0.005 );
+        ring.rotateOnAxis( axisRing, -0.005 );
+        sphere.position.z -= 0.5;
+        ring.position.z -= 0.5;
+
         if (parseInt(camera.position.z) == 0) {
           camera.position.z = 1000;
         }
