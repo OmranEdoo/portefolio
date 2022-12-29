@@ -205,7 +205,6 @@
         },
         setup() {
             onMounted(() => {
-                console.log("tetetet");
                 updateBreakpoints({
                     preset: "bootstrap5"
                 })
@@ -223,18 +222,12 @@
         },
         mounted () {
             this.renderComponent = true;
-            console.log("mounted");
         },
         updated () {
-            console.log("updated");
             this.drawOnCanvas();
-        },
-        unmounted () {
-            console.log("unmounted");
         },
         computed: {
             getArrowLeftColor() {
-                console.log(document.getElementById("mq1"));
                 if (this.isArrowLeftHover == true) {
                     return this.colorHover;
                 }
@@ -259,8 +252,6 @@
         },
         methods: {
             drawOnCanvas() {
-                console.log(document.getElementById("mq1"));
-                console.log(document.getElementById("mq2"));
                 const canvasContainer = document.getElementById('canvasContainer');
                 const textContainer = document.getElementById('textContainer');
                 const h = parseInt(textContainer.clientHeight);
@@ -299,10 +290,8 @@
                 context.arc(25, 300, 5, 0, 2 * Math.PI, false);
                 context.fill();
                 context.stroke();
-                console.log(document.getElementById("mq1"));
             },
             changePage() {
-                console.log(document.getElementById("mq1"));
                 let topMove = "45vh";
                 document.getElementById("leftArrow").style.top = topMove;
                 document.getElementById("rightArrow").style.top = topMove;
