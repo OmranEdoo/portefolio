@@ -188,7 +188,7 @@
                 isArrowRightHover: false,
                 isArrowLeftHover: false,
                 colorInactive: {
-                    color: "rgb(118, 118, 118)"
+                    color: "rgb(150, 150, 150)"
                 },
                 colorActive: {
                     color: "rgb(70, 70, 100)"
