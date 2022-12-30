@@ -281,7 +281,7 @@
     }
 
     #retour {
-      grid-area: 2/1/2/1;
+      grid-area: 3/1/3/1;
       width: 48px;
       height: 48px;
       background-color: rgb(76, 127, 127);
@@ -297,6 +297,6 @@
     }
 
     #descriptionText {
-      grid-area: 3/1/3/1;
+      grid-area: 2/1/2/1;
     }
 </style>
