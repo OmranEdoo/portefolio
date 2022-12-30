@@ -37,7 +37,6 @@ export default {
     methods: {
         scrollEvent() {
             if (!this.isScroll && !this.isClick) {
-                this.isScroll = true;
                 if (this.scrollY > 3*window.innerHeight) {
                     this.scrollDown(3);
                 } else if (this.scrollY < window.scrollY) {
@@ -106,6 +105,7 @@ export default {
             
         },
         scrollDown(i){
+            this.isScroll = true;
             this.scrollRec(i, window.scrollY, window.scrollY);
             this.open = false;
             document.getElementById("blaze").style.color = "rgb(220, 220, 220)";
