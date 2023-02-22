@@ -1,34 +1,24 @@
 <template>
-  <div id="app">
-    <NavBar id="navBar"></NavBar>
-    <MainPage></MainPage>
-    <CursusPage></CursusPage>
-    <SkillsPage></SkillsPage>
-    <ProjectPage></ProjectPage>
-    <DownBar></DownBar>
-  </div>
+  <SideBar></SideBar>
+  <router-view/>
+  <FooterBar></FooterBar>
 </template>
 
 
 <script>
-import NavBar from './components/NavBar.vue'
-import DownBar from './components/DownBar.vue'
-import MainPage from './components/MainPage.vue'
-import CursusPage from './components/CursusPage.vue'
-import SkillsPage from './components/SkillsPage.vue'
-import ProjectPage from './components/ProjectPage.vue'
+import SideBar from './components/SideBar.vue'
+import FooterBar from './components/FooterBar.vue'
 
-export default {  
-  components: {
-    NavBar,
-    DownBar,
-    MainPage,
-    CursusPage,
-    SkillsPage,
-    ProjectPage
+
+export default {
+  name: 'App',
+  data() {
+    return {
+    }
   },
-  mounted () {
-    window.scrollTo(window.innerWidth, 0);
+  components: {
+    SideBar,
+    FooterBar
   }
 }
 
@@ -41,28 +31,19 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin: 0px;
-  padding: 0px;
-  display: flex;
-  align-content: stretch;
-  flex-direction: column;
-  flex-wrap: wrap;
-}
-
-html,
-body {
-    height:auto!important;
-    min-height:100vh;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  margin-left: 100vw;
   /*overflow-x: hidden;*/
 }
 
-#navBar {
-  z-index: 10000;
+nav {
+  padding: 30px;
+}
+
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>

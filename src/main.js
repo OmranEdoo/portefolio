@@ -1,14 +1,11 @@
 import { createApp } from 'vue'
+import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap"
+
 import App from './App.vue'
-const Vue3Mq = require('vue3-mq');
+import router from './router'
 
-const app = createApp(App)
+createApp(App).use(router).mount('#app')
 
-app
-.component('MqResponsive', Vue3Mq.MqResponsive)
-.mount('#app')
+//import "bootstrap/dist/js/bootstrap.js"
 
-// Options
-Vue3Mq.updateBreakpoints({
-  preset: "bootstrap5"
-})
