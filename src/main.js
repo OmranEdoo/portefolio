@@ -1,14 +1,15 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-const Vue3Mq = require('vue3-mq');
 
-const app = createApp(App)
+// Vuetify
+import 'vuetify/styles'
+import { createVuetify } from 'vuetify'
+import * as components from 'vuetify/components'
+import * as directives from 'vuetify/directives'
 
-app
-.component('MqResponsive', Vue3Mq.MqResponsive)
-.mount('#app')
-
-// Options
-Vue3Mq.updateBreakpoints({
-  preset: "bootstrap5"
+const vuetify = createVuetify({
+    components,
+    directives,
 })
+
+createApp(App).use(vuetify).mount('#app')
