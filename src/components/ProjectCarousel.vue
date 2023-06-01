@@ -1,5 +1,4 @@
 <template>
-    <button @click="playVideo">test</button>
     <div style="display: flex !important;">
         <canvas id="canvasInfinity">
             <video id="video" playsinline webkit-playsinline loop autoplay width="1290" height="1040" src="./video.mp4"
@@ -30,14 +29,14 @@ export default {
             var scene = new THREE.Scene();
             scene.background = new THREE.Color('#191918');
 
-            var camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 500);
+            var camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
 
             var can = document.getElementById("canvasInfinity");
 
             var renderer = new THREE.WebGLRenderer({ canvas: can, antialiasing: true });
             renderer.setSize(window.innerWidth, window.innerHeight);
 
-            const cubeGeometry = new THREE.BoxGeometry(270, 270, 270);
+            const cubeGeometry = new THREE.BoxGeometry(700, 270, 170);
 
             this.video = document.getElementById('video');
 
@@ -66,12 +65,12 @@ export default {
             const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
             scene.add(cube);
 
-            cube.position.set(0, 0, 500);
+            cube.position.set(0, 0, 400);
             cube.rotation.y = Math.PI / 8;
             cube.rotation.x = Math.PI / 8;
 
             const dirLight = new THREE.DirectionalLight(0xffffff, 0.5);
-            dirLight.position.set(0, 100, 1000);
+            dirLight.position.set(0, 0, 100);
             scene.add(dirLight);
 
             var raycaster = new THREE.Raycaster();
@@ -132,10 +131,6 @@ export default {
                 renderer.render(scene, camera);
                 requestAnimationFrame(animate);
             }
-        },
-        playVideo() {
-            console.log(this.video)
-            this.video.play();
         }
     }
 }

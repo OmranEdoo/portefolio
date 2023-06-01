@@ -5,12 +5,12 @@
         <div id="presContainer">
           <h1>Omran Edoo</h1>
           <TypeWriter :array="descriptions" />
-          <div v-for="summary in summaries" :key="summary">
-            {{ summary }}
-          </div>
         </div>
-        <div id="projectsContainer">
-          <ProjectCarousel />
+        <div class="rowContainer">
+          <div id="projectsContainer">
+            <ProjectCarousel />
+          </div>
+          <p>{{ projectText }}</p>
         </div>
       </div>
       <div id="cursusContainer">
@@ -38,11 +38,7 @@ export default {
   data() {
     return {
       descriptions: ["Future ingénieur...", "Passionné de programmation...", "Joueur d'échecs (très) amateur..."],
-      summaries: [
-        "iodsjfgiofdgodfnhoifdkjio fdkgiodfgiofgg iodfjgoidsgiodsjfgoi",
-        "iodsjfgiofdgodfnhoifdkjio fdkgiodfgiofgg iodfjgoidsgiodsjfgoi",
-        "iodsjfgiofdgodfnhoifdkjio fdkgiodfgiofgg iodfjgoidsgiodsjfgoi"
-      ]
+      projectText: "Ce projet etieshbsdjhbvk ndvhbjsd kj dvhkdjhb  bj jbj bjbjhvj"
     }
   },
 }
@@ -88,7 +84,7 @@ body,
 }
 
 #projectsContainer {
-  width: 55vw;
+  width: 40vw;
   height: 65vh;
 }
 
