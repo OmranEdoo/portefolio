@@ -1,23 +1,19 @@
 <template>
   <v-app id="appContainer">
     <div class="spotlight"></div>
-    <div class="rowContainer">
-      <div class="columnContainer">
-        <div id="presContainer">
-          <h1 id="blaze">Omran Edoo</h1>
-          <TypeWriter :array="descriptions" />
-        </div>
-        <div class="rowContainer">
-          <div id="projectsContainer">
-            <ProjectCarousel />
-          </div>
-          <div class="columnContainer overflow-y-auto v-navigation-drawer__content mr-8 mt-8" style="height: 50vh;">
-            <h3 class="pb-4">{{ title }}</h3>
-            <p v-for="text in projectText" :key="text" class="pb-4" style="text-align: justify">
-              {{ text }}
-            </p>
-          </div>
-        </div>
+    <div class="fullPad">
+      <div id="presContainer">
+        <h1 id="blaze">Omran Edoo</h1>
+        <TypeWriter :array="descriptions" />
+      </div>
+      <div id="projectsContainer">
+        <ProjectCarousel />
+      </div>
+      <div id="descriptionContainer" class="overflow-y-auto v-navigation-drawer__content">
+        <h3 class="pb-4">{{ title }}</h3>
+        <p v-for="text in projectText" :key="text" class="text-body-2" style="text-align: justify">
+          {{ text }}
+        </p>
       </div>
       <div id="cursusContainer">
         <CursusTimeline />
@@ -57,8 +53,9 @@ export default {
       window.addEventListener('mousemove', e => updateSpotlight(e));
 
       function updateSpotlight(e) {
-        spotlight.style.left = `${e.pageX / window.innerWidth * 100 - 25}%`
-        spotlight.style.top = `${e.pageY / window.innerHeight * 100 - 50}%`
+        console.log(e.pageX)
+        spotlight.style.left = `${e.pageX - 250}px`
+        spotlight.style.top = `${e.pageY - 250}px`
         //spotlight.style.backgroundImage = `radial-gradient(circle at ${e.pageX / window.innerWidth * 100}% ${e.pageY / window.innerHeight * 100}%, ${spotlightSize}`;
       }
     });
@@ -86,13 +83,19 @@ body,
   color: #f2f2f2;
 }
 
+.fullPad {
+  padding: 10vh 6vw 10vh 6vw;
+  display: grid;
+  grid-template: minmax(200px, 22vh) 62vh / 29vw 27vw 26vw;
+  row-gap: 6vh;
+  column-gap: 3vw;
+}
+
 #presContainer {
-  width: 60vw;
-  height: 35vh;
+  grid-area: 1/1/1/2;
   justify-content: start;
   display: flex;
   flex-direction: column;
-  padding: 5vh;
 }
 
 #presContainer * {
@@ -100,24 +103,17 @@ body,
 }
 
 #cursusContainer {
-  width: 40vw;
-  height: 100vh;
-  padding: 30px;
+  grid-area: 1/3/2/3;
+  height: 80vh;
 }
 
 #projectsContainer {
-  width: 40vw;
-  height: 65vh;
+  grid-area: 2/1/2/1;
+  display: block;
 }
 
-.rowContainer {
-  display: flex;
-  flex-direction: row;
-}
-
-.columnContainer {
-  display: flex;
-  flex-direction: column;
+#descriptionContainer {
+  grid-area: 2/2/2/2;
 }
 
 @font-face {
@@ -151,6 +147,6 @@ body,
   height: 500px;
   border-radius: 50%;
   pointer-events: none;
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.5) 50px, transparent 200px);
+  background-image: radial-gradient(circle, rgba(120, 120, 120, 0.5) 50px, transparent 200px);
 }
 </style>

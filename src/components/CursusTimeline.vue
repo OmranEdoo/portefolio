@@ -1,19 +1,18 @@
 <template>
-    <v-timeline align="start" density="comfortable" line-thickness="10"
-        class="overflow-y-auto v-navigation-drawer__content">
+    <v-timeline align="start" density="comfortable" line-thickness="10">
         <v-timeline-item width="100%" v-for="(experience, i) in experiences" :key="i" :dot-color="experience.color"
-            size="x-small">
+            size="xx-small">
             <template v-slot:opposite>
-                <div :class="`pt-1 headline font-weight-bold text-${experience.color}`" style="width: max-content">{{
+                <div :class="`pt-1 headline font-weight-bold text-${experience.color}`" style="width: max-content;">{{
                     experience.year }}</div>
             </template>
             <div>
                 <v-card variant="tonal" class="elevation-2">
-                    <v-card-title :class="`text-h6 text-${experience.color}`">
+                    <v-card-title :class="`text-body-1 font-weight-bold text-${experience.color}`">
                         {{ experience.title }}
                     </v-card-title>
                     <v-card-text>
-                        <p v-for="ligne in experience.value" :key="ligne" style="text-align: left">
+                        <p v-for="ligne in experience.value" :key="ligne" class="text-caption text-left">
                             {{ ligne }}
                         </p>
                     </v-card-text>

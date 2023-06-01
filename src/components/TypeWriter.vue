@@ -1,9 +1,9 @@
 <template>
-    <div class="is-typed">
-      <slot />
-      <span id="span" class="typed">{{ typeValue }}{{ writingChar }}</span>
-      <span :class="caret + ' ' + { typing: typeStatus }">&nbsp;</span>
-    </div>
+  <div class="is-typed">
+    <slot />
+    <span id="span" class="typed">{{ typeValue }}{{ writingChar }}</span>
+    <span :class="caret + ' ' + { typing: typeStatus }">&nbsp;</span>
+  </div>
 </template>
 
 
@@ -49,7 +49,7 @@ export default defineComponent({
   data() {
     return {
       typeValue: "",
-      writingChar:"|",
+      writingChar: "|",
       count: 0,
       typeStatus: false,
       arrayIndex: 0,
@@ -80,7 +80,7 @@ export default defineComponent({
         }
 
         this.typeStatus = false;
-        
+
         let i = 0;
 
         this.waitWritingChar(i);
@@ -108,17 +108,17 @@ export default defineComponent({
       this.$emit("typed", typedString);
     },
     waitWritingChar(i) {
-        if (i<6){
-            if (i%2 == 0){
-                this.writingChar = "";
-            } else {
-                this.writingChar = "|";
-            }
-            setTimeout(this.waitWritingChar, this.delayAfter/3, i+1);
+      if (i < 6) {
+        if (i % 2 == 0) {
+          this.writingChar = "";
         } else {
-            this.writingChar = "|";
-            this.eraser();
+          this.writingChar = "|";
         }
+        setTimeout(this.waitWritingChar, this.delayAfter / 3, i + 1);
+      } else {
+        this.writingChar = "|";
+        this.eraser();
+      }
     }
   },
   created() {
@@ -129,19 +129,19 @@ export default defineComponent({
 
 
 <style>
+span {
+  font-size: x-large;
+}
+
+@media screen and (max-width: 600px) {
   span {
-      font-size: xx-large;
+    font-size: large;
   }
+}
 
-  @media screen and (max-width: 600px) {
-    span {
-      font-size: large;
-    }
+@media screen and (max-width: 300px) {
+  span {
+    font-size: medium;
   }
-
-  @media screen and (max-width: 300px) {
-    span {
-      font-size: medium;
-    }
-  }
+}
 </style>
