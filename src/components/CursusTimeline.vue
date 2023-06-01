@@ -1,5 +1,6 @@
 <template>
-    <v-timeline align="start" density="comfortable" line-thickness="10">
+    <v-timeline align="start" density="comfortable" line-thickness="10" height="80vh"
+        class="overflow-y-auto v-navigation-drawer__content">
         <v-timeline-item width="100%" v-for="(experience, i) in experiences" :key="i" :dot-color="experience.color"
             size="xx-small">
             <template v-slot:opposite>

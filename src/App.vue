@@ -76,6 +76,7 @@ body,
 #app {
   margin: 0;
   background-color: #191918;
+  height: 100vh;
 }
 
 #appContainer {
@@ -86,8 +87,8 @@ body,
 .fullPad {
   padding: 10vh 6vw 10vh 6vw;
   display: grid;
-  grid-template: minmax(200px, 22vh) 62vh / 29vw 27vw 26vw;
-  row-gap: 6vh;
+  grid-template: minmax(200px, 18vh) 58vh / 29vw 27vw 26vw;
+  row-gap: 4vh;
   column-gap: 3vw;
 }
 
