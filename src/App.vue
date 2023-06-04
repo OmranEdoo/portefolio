@@ -76,7 +76,6 @@ body,
 #app {
   margin: 0;
   background-color: #191918;
-  height: 100vh;
 }
 
 #appContainer {
@@ -85,15 +84,13 @@ body,
 }
 
 .fullPad {
-  padding: 10vh 6vw 10vh 6vw;
   display: grid;
-  grid-template: minmax(200px, 18vh) 58vh / 29vw 27vw 26vw;
-  row-gap: 4vh;
+  grid-template: 6vh minmax(200px, 18vh) 70vh 6vh / 3vw 29vw 27vw 26vw 3vw;
   column-gap: 3vw;
 }
 
 #presContainer {
-  grid-area: 1/1/1/2;
+  grid-area: 2/2/2/3;
   justify-content: start;
   display: flex;
   flex-direction: column;
@@ -104,17 +101,20 @@ body,
 }
 
 #cursusContainer {
-  grid-area: 1/3/2/3;
-  height: 80vh;
+  grid-area: 2/4/3/4;
+  height: 88vh;
 }
 
 #projectsContainer {
-  grid-area: 2/1/2/1;
+  grid-area: 3/2/3/2;
   display: block;
 }
 
 #descriptionContainer {
-  grid-area: 2/2/2/2;
+  grid-area: 3/3/3/3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 @font-face {
