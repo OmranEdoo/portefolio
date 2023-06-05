@@ -16,6 +16,12 @@
                         <p v-for="ligne in experience.value" :key="ligne" class="text-caption text-left">
                             {{ ligne }}
                         </p>
+                        <div class="d-flex flex-wrap justify-left mt-1">
+                            <v-chip color="secondary" :ripple="false" link v-for="chip in experience.chips" :key="chip"
+                                size="small" class="mr-2 mt-1">
+                                {{ chip }}
+                            </v-chip>
+                        </div>
                     </v-card-text>
                 </v-card>
             </div>
@@ -35,37 +41,43 @@ export default defineComponent({
                 color: "teal-lighten-3",
                 year: '2018',
                 title: 'Baccalauréat',
-                value: ['Série générale scientifique', 'Lycéee Lavoisier', 'Paris 5e arrondissement']
+                value: ['Série générale scientifique', 'Lycéee Lavoisier', 'Paris 5e arrondissement'],
+                chips: []
             },
             {
                 color: 'teal-lighten-3',
                 year: '2018 - 2020',
                 title: 'CPGE',
-                value: ['Classe Préparatoire Aux Grandes Écoles', 'Filière MP (Mathématiques et Physique)', 'Lycée Fénelon', 'Paris 6e arrondissement']
+                value: ['Classe Préparatoire Aux Grandes Écoles', 'Filière MP (Mathématiques et Physique)', 'Lycée Fénelon', 'Paris 6e arrondissement'],
+                chips: []
             },
             {
                 color: 'teal-lighten-3',
                 year: '2020 - 2023',
                 title: 'École d\'ingénieurs',
-                value: ['École National des Sciences Géographiques (ENSG)', 'Filière des Technologie des Sciences de l\'Information (TSI)']
+                value: ['École National des Sciences Géographiques (ENSG)', 'Filière des Technologie des Sciences de l\'Information (TSI)'],
+                chips: []
             },
             {
                 color: 'teal-lighten-3',
                 year: '2022',
                 title: 'Stage Veolia (Runéo)',
-                value: ['Stage de deuxième année d\'École d\'ingénieurs', 'À l\'île de la Réunion', 'Levées GPS, Étude d\'incohérences de données, programmation d\'un plugin QGIS en Python']
+                value: ['Stage de deuxième année d\'École d\'ingénieurs', 'À l\'île de la Réunion', 'Levées GPS, Étude d\'incohérences de données, programmation d\'un plugin QGIS en Python'],
+                chips: ['QGIS Plugin', 'Python']
             },
             {
                 color: 'teal-lighten-3',
                 year: '2023',
                 title: 'Tuteur pédagogique',
-                value: ['Association Euréka', 'Goussainville', 'Accompagnement Maths et Physique', 'Cours en groupe']
+                value: ['Association Euréka', 'Goussainville', 'Accompagnement Maths et Physique', 'Cours en groupe'],
+                chips: []
             },
             {
                 color: 'teal-lighten-3',
                 year: '2023',
                 title: 'Stage Clearance',
-                value: ['Stage PFE (de fin d\'étude)', 'Programmation Web Fullstack', 'Backend : Python, Django API REST', 'Frontend : Vue, Vuex']
+                value: ['Stage PFE (de fin d\'étude)', 'Programmation Web Fullstack', 'Backend : Python, Django API REST', 'Frontend : Vue, Vuex'],
+                chips: ['Python', 'Django', 'API REST', 'Agile', 'Vue']
             }
         ],
     }),

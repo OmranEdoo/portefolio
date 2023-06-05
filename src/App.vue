@@ -10,7 +10,10 @@
         <ProjectCarousel />
       </div>
       <div id="descriptionContainer" class="overflow-y-auto v-navigation-drawer__content">
-        <h3 class="pb-4">{{ title }}</h3>
+        <h3 id="title" class="pb-4">
+          {{ title }}
+          <v-icon id="icon" icon="north_east" size="x-small" class="ml-1" />
+        </h3>
         <p v-for="text in projectText" :key="text" class="text-body-2" style="text-align: justify">
           {{ text }}
         </p>
@@ -53,7 +56,6 @@ export default {
       window.addEventListener('mousemove', e => updateSpotlight(e));
 
       function updateSpotlight(e) {
-        console.log(e.pageX)
         spotlight.style.left = `${e.pageX - 250}px`
         spotlight.style.top = `${e.pageY - 250}px`
         //spotlight.style.backgroundImage = `radial-gradient(circle at ${e.pageX / window.innerWidth * 100}% ${e.pageY / window.innerHeight * 100}%, ${spotlightSize}`;
@@ -149,5 +151,12 @@ body,
   border-radius: 50%;
   pointer-events: none;
   background-image: radial-gradient(circle, rgba(120, 120, 120, 0.5) 50px, transparent 200px);
+}
+
+#title:hover,
+#icon:hover {
+  color: #80cbc4;
+  bottom: 4px;
+  left: 4px;
 }
 </style>
