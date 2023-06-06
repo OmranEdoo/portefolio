@@ -23,8 +23,8 @@
       <div id="cursusContainer">
         <CursusTimeline />
       </div>
+      <FooterBar id="footer" />
     </div>
-    <FooterBar />
   </v-app>
 </template>
 
@@ -100,7 +100,7 @@ body,
 }
 
 #presContainer * {
-  width: fit-content;
+  width: 59vw;
 }
 
 #cursusContainer {
@@ -128,7 +128,7 @@ body,
 #blaze {
   text-transform: uppercase;
   font-family: title;
-  font-size: 50px;
+  font-size: 60px;
 }
 
 .v-navigation-drawer__content::-webkit-scrollbar-track {
@@ -168,5 +168,10 @@ body,
 #link {
   text-decoration: none;
   color: #b8d8ba;
+}
+
+#footer {
+  grid-area: 4/1/4/3;
+  width: 100vw;
 }
 </style>

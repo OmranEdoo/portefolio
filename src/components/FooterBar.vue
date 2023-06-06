@@ -1,21 +1,20 @@
 <template>
     <v-footer class="bg-indigo-lighten-1 text-center d-flex flex-column">
-        <div>
-            <v-btn v-for="icon in icons" :key="icon" class="mx-4" :icon="icon" variant="text"></v-btn>
-        </div>
-
-        <div class="pt-0">
-            Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet. Mauris cursus commodo interdum. Praesent ut
-            risus eget metus luctus accumsan id ultrices nunc. Sed at orci sed massa consectetur dignissim a sit amet dui.
-            Duis commodo vitae velit et faucibus. Morbi vehicula lacinia malesuada. Nulla placerat augue vel ipsum ultrices,
-            cursus iaculis dui sollicitudin. Vestibulum eu ipsum vel diam elementum tempor vel ut orci. Orci varius natoque
-            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-        </div>
-
-        <v-divider></v-divider>
-
-        <div>
-            {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+        <div class="hwrap">
+            <div class="hmove">
+                <div class="hslide">
+                    <h3>Omran Edoo</h3>
+                    <p>The episode orbits? The panic overwhelms a fuse.</p>
+                </div>
+                <div class="hslide">
+                    <h3>See more</h3>
+                    <p>The lasting astronomer balances the counter reminder.</p>
+                </div>
+                <div class="hslide">
+                    <h3>Contact me</h3>
+                    <p>Her birthday calculates past a juice!</p>
+                </div>
+            </div>
         </div>
     </v-footer>
 </template>
@@ -35,3 +34,47 @@ export default defineComponent({
     }),
 })
 </script>
+
+<style>
+/* (A) FORCE SLIDES INTO SINGLE ROW */
+.hmove {
+    display: flex;
+}
+
+.hslide {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+/* (B) OUTER WRAPPER HIDE SCROLLBAR */
+.hwrap {
+    overflow: hidden;
+}
+
+/* (C) SHIFT SLIDES WITH CSS ANIMATION */
+/* (C1) SLIDES POSITION */
+.hmove {
+    position: relative;
+    top: 0;
+    right: 0;
+}
+
+@keyframes slideh {
+    0% {
+        right: 0;
+    }
+
+    100% {
+        right: 200%;
+    }
+}
+
+/* (C2) MOVE SLIDES */
+.hmove {
+    animation: slideh linear 15s infinite;
+}
+
+.hmove:hover {
+    animation-play-state: paused;
+}
+</style>
