@@ -10,11 +10,13 @@
         <ProjectCarousel />
       </div>
       <div id="descriptionContainer" class="overflow-y-auto v-navigation-drawer__content">
-        <h3 id="title" class="pb-4">
-          {{ title }}
-          <v-icon id="icon" icon="north_east" size="x-small" class="ml-1" />
-        </h3>
-        <p v-for="text in projectText" :key="text" class="text-body-2" style="text-align: justify">
+        <a href="https://github.com/zumbalove974/oxfam-trailwalker" id="link">
+          <h3 id="title" class="pb-4">
+            {{ title }}
+            <v-icon id="icon" icon="north_east" size="x-small" class="ml-1" />
+          </h3>
+        </a>
+        <p v-for="text in projectText" :key="text" class="text-body-2 mb-4" style="text-align: justify">
           {{ text }}
         </p>
       </div>
@@ -56,8 +58,8 @@ export default {
       window.addEventListener('mousemove', e => updateSpotlight(e));
 
       function updateSpotlight(e) {
-        spotlight.style.left = `${e.pageX - 250}px`
-        spotlight.style.top = `${e.pageY - 250}px`
+        spotlight.style.left = `${e.pageX - 400}px`
+        spotlight.style.top = `${e.pageY - 400}px`
         //spotlight.style.backgroundImage = `radial-gradient(circle at ${e.pageX / window.innerWidth * 100}% ${e.pageY / window.innerHeight * 100}%, ${spotlightSize}`;
       }
     });
@@ -77,12 +79,11 @@ html,
 body,
 #app {
   margin: 0;
-  background-color: #191918;
 }
 
 #appContainer {
-  background-color: #191918;
-  color: #f2f2f2;
+  background-color: #0b2a39;
+  color: #b8d8ba;
 }
 
 .fullPad {
@@ -146,17 +147,26 @@ body,
 
 .spotlight {
   position: absolute;
-  width: 500px;
-  height: 500px;
+  width: 800px;
+  height: 800px;
   border-radius: 50%;
   pointer-events: none;
-  background-image: radial-gradient(circle, rgba(120, 120, 120, 0.5) 50px, transparent 200px);
+  background-image: radial-gradient(circle, rgba(120, 199, 198, 0.1) 50px, transparent 400px);
 }
 
-#title:hover,
+#title:hover {
+  color: #80cbc4;
+}
+
+#title:hover #icon,
 #icon:hover {
   color: #80cbc4;
   bottom: 4px;
   left: 4px;
+}
+
+#link {
+  text-decoration: none;
+  color: #b8d8ba;
 }
 </style>
