@@ -31,14 +31,14 @@ export default {
             scene.background = new THREE.Color('#0b2a39');
 
             var camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
-            camera.position.z = 600;
+            camera.position.z = 800;
 
             var can = document.getElementById("canvasInfinity");
 
             var renderer = new THREE.WebGLRenderer({ canvas: can, antialiasing: true });
             renderer.setSize(window.innerWidth, window.innerHeight);
 
-            const cubeGeometry = new THREE.BoxGeometry(750, 300, 170);
+            const cubeGeometry = new THREE.BoxGeometry(750, 300, 500);
 
             this.video = document.getElementById('video');
 
@@ -46,22 +46,22 @@ export default {
 
             const cubeMaterial = [
                 new THREE.MeshStandardMaterial({
-                    color: '#F0FFFF',
+                    color: '##48D1CC',
                 }),
                 new THREE.MeshStandardMaterial({
-                    color: '#F0FFFF',
+                    color: '##48D1CC',
                 }),
                 new THREE.MeshStandardMaterial({
-                    color: '#F0FFFF',
+                    color: '##48D1CC',
                 }),
                 new THREE.MeshStandardMaterial({
-                    color: '#F0FFFF',
+                    color: '##48D1CC',
                 }),
                 new THREE.MeshBasicMaterial({
                     map: videoTexture
                 }),
                 new THREE.MeshStandardMaterial({
-                    color: '#F0FFFF',
+                    color: '##48D1CC',
                 })
             ];
             const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
@@ -71,7 +71,7 @@ export default {
             cube.position.set(0, 0, 0);
 
             const dirLight = new THREE.DirectionalLight(0xffffff, 0.5);
-            dirLight.position.set(0, 0, 100);
+            dirLight.position.set(0, 0, 200);
             scene.add(dirLight);
 
             var raycaster = new THREE.Raycaster();
@@ -99,15 +99,15 @@ export default {
             animate();
 
             function animate() {
-                if (mouseX > 300 && cube.rotation.y < Math.PI / 8)
-                    cube.rotation.y += 0.05;
-                else if (mouseX < 300 && -Math.PI / 8 < cube.rotation.y)
-                    cube.rotation.y -= 0.05;
+                if (mouseX > window.innerWidth / 2 && cube.rotation.y < Math.PI / 12)
+                    cube.rotation.y += (Math.PI / 12 - cube.rotation.y) / 20;
+                else if (mouseX < window.innerWidth / 2 && -Math.PI / 12 < cube.rotation.y)
+                    cube.rotation.y -= (cube.rotation.y + Math.PI / 12) / 20;
 
-                if (mouseY > 300 && cube.rotation.x < Math.PI / 12)
-                    cube.rotation.x += 0.05;
-                else if (mouseY < 300 && -Math.PI / 12 < cube.rotation.x)
-                    cube.rotation.x -= 0.05;
+                if (mouseY > window.innerHeight / 2 && cube.rotation.x < Math.PI / 12)
+                    cube.rotation.x += (Math.PI / 12 - cube.rotation.x) / 20;
+                else if (mouseY < window.innerHeight / 2 && -Math.PI / 12 < cube.rotation.x)
+                    cube.rotation.x -= (cube.rotation.x + Math.PI / 12) / 20;
 
                 renderer.render(scene, camera);
                 requestAnimationFrame(animate);

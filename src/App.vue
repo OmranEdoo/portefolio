@@ -3,14 +3,14 @@
     <div class="spotlight"></div>
     <div class="fullPad">
       <div id="presContainer">
-        <h1 id="blaze">Omran Edoo</h1>
+        <h1 id="blaze" class="d-flex justify-content-start">Omran Edoo</h1>
         <TypeWriter :array="descriptions" />
       </div>
       <div id="projectsContainer">
         <ProjectCarousel />
       </div>
       <div id="descriptionContainer" class="overflow-y-auto v-navigation-drawer__content">
-        <a href="https://github.com/zumbalove974/oxfam-trailwalker" id="link">
+        <a href="https://github.com/zumbalove974/oxfam-trailwalker" target="_blank" id="link">
           <h3 id="title" class="pb-4">
             {{ title }}
             <v-icon id="icon" icon="north_east" size="x-small" class="ml-1" />
@@ -20,8 +20,10 @@
           {{ text }}
         </p>
       </div>
-      <div id="cursusContainer">
-        <CursusTimeline />
+      <div id="rightContainer">
+        <div id="cursusContainer">
+          <CursusTimeline />
+        </div>
       </div>
       <FooterBar id="footer" />
     </div>
@@ -79,16 +81,19 @@ html,
 body,
 #app {
   margin: 0;
+  min-height: 100vh;
 }
 
 #appContainer {
   background-color: #0b2a39;
-  color: #b8d8ba;
+  /* #0b2a39;*/
+  color: #e5e7eb
+    /*#b8d8ba;*/
 }
 
 .fullPad {
   display: grid;
-  grid-template: 6vh minmax(200px, 18vh) 70vh 6vh / 3vw 29vw 27vw 26vw 3vw;
+  grid-template: 6vh 16vh 68vh 6vh 4vh / 3vw 29vw 27vw 26vw 3vw;
   column-gap: 3vw;
 }
 
@@ -105,16 +110,28 @@ body,
 
 #cursusContainer {
   grid-area: 2/4/3/4;
-  height: 88vh;
+  height: 82vh;
+  width: 22vw;
+}
+
+#rightContainer {
+  background: rgba(19, 15, 42, 0.5);
+  /*rgb(52, 59, 59);*/
+  grid-area: 2/4/3/4;
+  height: 84vh;
+  width: 26vw;
+  border-radius: 5px;
+  padding-left: 2vw;
+  padding-right: 2vw;
 }
 
 #projectsContainer {
-  grid-area: 3/2/3/2;
+  grid-area: 3/3/3/3;
   display: block;
 }
 
 #descriptionContainer {
-  grid-area: 3/3/3/3;
+  grid-area: 3/2/3/2;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -122,13 +139,13 @@ body,
 
 @font-face {
   font-family: "title";
-  src: url("./fonts/MontserratBlack.ttf");
+  src: url("./fonts/limo.ttf");
 }
 
 #blaze {
   text-transform: uppercase;
   font-family: title;
-  font-size: 60px;
+  font-size: 80px;
 }
 
 .v-navigation-drawer__content::-webkit-scrollbar-track {
@@ -167,11 +184,12 @@ body,
 
 #link {
   text-decoration: none;
-  color: #b8d8ba;
+  color: #e5e7eb;
 }
 
 #footer {
-  grid-area: 4/1/4/3;
+  grid-area: 5/1/5/3;
   width: 100vw;
+  background: #E0FFFF;
 }
 </style>
