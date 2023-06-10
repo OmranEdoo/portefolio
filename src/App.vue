@@ -115,7 +115,7 @@ body,
 
 .fullPad {
   display: grid;
-  grid-template: 6vh 16vh 68vh 6vh 4vh / 3vw 29vw 27vw 26vw 3vw;
+  grid-template: 6vh minmax(150px, 16vh) 68vh 6vh 4vh / 3vw 29vw 27vw 26vw 3vw;
   column-gap: 3vw;
 }
 
@@ -167,7 +167,7 @@ body,
 #blaze {
   text-transform: uppercase;
   font-family: title;
-  font-size: 80px;
+  font-size: 6vw;
 }
 
 .v-navigation-drawer__content::-webkit-scrollbar-track {
