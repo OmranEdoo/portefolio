@@ -116,6 +116,7 @@ body,
 #app {
   margin: 0;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 @media only screen and (min-width: 1280px) {
@@ -156,9 +157,15 @@ body,
   display: flex !important;
   flex-direction: row;
   justify-content: center;
-  height: 50vh;
   flex-wrap: wrap;
 }
+
+@media only screen and (min-width: 1280px) {
+  #descriptionContainer {
+    height: 50vh;
+  }
+}
+
 
 @font-face {
   font-family: "title";
