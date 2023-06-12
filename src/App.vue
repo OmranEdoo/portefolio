@@ -137,10 +137,15 @@ body,
 
 #rightContainer {
   background: rgba(19, 15, 42, 0.5);
-  height: 90vh;
   width: auto;
   border-radius: 5px;
   padding: 5%
+}
+
+@media only screen and (min-width: 1280px) {
+  #rightContainer {
+    height: 90vh;
+  }
 }
 
 #projectsContainer {
