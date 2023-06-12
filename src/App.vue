@@ -1,24 +1,24 @@
 <template>
   <v-app id="appContainer">
     <div class="spotlight"></div>
-    <v-container id="gridContainer">
+    <v-container>
       <v-row no-gutters>
         <v-col xxl="9" xl="9" lg="8" md="12" sm="12" xs="12">
           <div id="presContainer">
             <h1 id="blaze" class="d-flex justify-content-start">Omran Edoo</h1>
             <TypeWriter :array="descriptions" />
           </div>
-          <v-row no-gutters>
+          <v-row justify="space-around" no-gutters>
             <v-col xxl="5" xl="5" lg="5" md="5" sm="12" xs="12">
               <div id="descriptionContainer" class="overflow-y-auto v-navigation-drawer__content">
-                <div class="d-flex flex-row justify-space-between">
+                <div class="d-flex flex-row justify-space-between" style="width: 100%; height: min-content;">
                   <v-btn density="compact" icon="mdi-plus" @click="changeIndex(1)">
                     <span class="arrow material-icons">
                       chevron_left
                     </span>
                   </v-btn>
                   <a :href="projects[index].url" target="_blank" id="link">
-                    <h3 id="title" class="pb-4">
+                    <h3 id="title" class="pb-2">
                       {{ projects[index].title }}
                       <v-icon id="icon" icon="north_east" size="x-small" class="ml-1" />
                     </h3>
@@ -30,7 +30,7 @@
                   </v-btn>
                 </div>
                 <p v-for="text in projects[index].description" :key="text" class="text-body-2 mb-4"
-                  style="text-align: justify">
+                  style="text-align: justify;">
                   {{ text }}
                 </p>
               </div>
@@ -118,6 +118,12 @@ body,
   min-height: 100vh;
 }
 
+@media only screen and (min-width: 1280px) {
+  body {
+    overflow: hidden;
+  }
+}
+
 #appContainer {
   background-color: #0b2a39;
   color: #e5e7eb
@@ -142,9 +148,11 @@ body,
 }
 
 #descriptionContainer {
-  display: flex;
-  flex-direction: column;
+  display: flex !important;
+  flex-direction: row;
   justify-content: center;
+  height: 600px;
+  flex-wrap: wrap;
 }
 
 @font-face {
@@ -199,12 +207,9 @@ body,
   color: #e5e7eb;
 }
 
-#gridContainer {
-  height: 94vh;
-  margin: 2vh
-}
-
 #footer {
+  position: fixed;
+  bottom: 0;
   width: 100vw;
   background: #E0FFFF;
   height: 2vh;
