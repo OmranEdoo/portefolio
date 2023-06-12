@@ -1,5 +1,5 @@
 <template>
-    <v-timeline align="start" density="comfortable" line-thickness="10" height="80vh"
+    <v-timeline align="start" density="comfortable" line-thickness="10" height="100%"
         class="overflow-y-auto v-navigation-drawer__content">
         <v-timeline-item width="100%" v-for="(experience, i) in experiences" :key="i" :dot-color="experience.color"
             size="xx-small">
@@ -8,7 +8,7 @@
                     experience.year }}</div>
             </template>
             <div>
-                <v-card variant="tonal" class="elevation-2">
+                <v-card variant="tonal" class="elevation-2" width="100%">
                     <v-card-title :class="`text-body-1 font-weight-bold text-${experience.color}`">
                         {{ experience.title }}
                     </v-card-title>

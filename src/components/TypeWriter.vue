@@ -130,6 +130,7 @@ export default defineComponent({
 
 <style>
 span {
+  padding-top: 2%;
   font-size: x-large;
 }
 

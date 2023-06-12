@@ -1,44 +1,56 @@
 <template>
   <v-app id="appContainer">
     <div class="spotlight"></div>
-    <div class="fullPad">
-      <div id="presContainer">
-        <h1 id="blaze" class="d-flex justify-content-start">Omran Edoo</h1>
-        <TypeWriter :array="descriptions" />
-      </div>
-      <div id="projectsContainer">
-        <ProjectCarousel />
-      </div>
-      <div id="descriptionContainer" class="overflow-y-auto v-navigation-drawer__content">
-        <div class="d-flex flex-row justify-space-between">
-          <v-btn density="compact" icon="mdi-plus" @click="changeIndex(1)">
-            <span class="arrow material-icons">
-              chevron_left
-            </span>
-          </v-btn>
-          <a :href="projects[index].url" target="_blank" id="link">
-            <h3 id="title" class="pb-4">
-              {{ projects[index].title }}
-              <v-icon id="icon" icon="north_east" size="x-small" class="ml-1" />
-            </h3>
-          </a>
-          <v-btn density="compact" icon="mdi-plus" @click="changeIndex(-1)">
-            <span class="arrow material-icons">
-              chevron_right
-            </span>
-          </v-btn>
-        </div>
-        <p v-for="text in projects[index].description" :key="text" class="text-body-2 mb-4" style="text-align: justify">
-          {{ text }}
-        </p>
-      </div>
-      <div id="rightContainer">
-        <div id="cursusContainer">
-          <CursusTimeline />
-        </div>
-      </div>
-      <FooterBar id="footer" />
-    </div>
+    <v-container id="gridContainer">
+      <v-row no-gutters>
+        <v-col xxl="9" xl="9" lg="8" md="12" sm="12" xs="12">
+          <div id="presContainer">
+            <h1 id="blaze" class="d-flex justify-content-start">Omran Edoo</h1>
+            <TypeWriter :array="descriptions" />
+          </div>
+          <v-row no-gutters>
+            <v-col xxl="5" xl="5" lg="5" md="5" sm="12" xs="12">
+              <div id="descriptionContainer" class="overflow-y-auto v-navigation-drawer__content">
+                <div class="d-flex flex-row justify-space-between">
+                  <v-btn density="compact" icon="mdi-plus" @click="changeIndex(1)">
+                    <span class="arrow material-icons">
+                      chevron_left
+                    </span>
+                  </v-btn>
+                  <a :href="projects[index].url" target="_blank" id="link">
+                    <h3 id="title" class="pb-4">
+                      {{ projects[index].title }}
+                      <v-icon id="icon" icon="north_east" size="x-small" class="ml-1" />
+                    </h3>
+                  </a>
+                  <v-btn density="compact" icon="mdi-plus" @click="changeIndex(-1)">
+                    <span class="arrow material-icons">
+                      chevron_right
+                    </span>
+                  </v-btn>
+                </div>
+                <p v-for="text in projects[index].description" :key="text" class="text-body-2 mb-4"
+                  style="text-align: justify">
+                  {{ text }}
+                </p>
+              </div>
+            </v-col>
+            <v-col offset-xxl="1" offset-xl="1" offset-lg="1" offset-md="1" xxl="6" xl="6" lg="6" md="6" sm="12" xs="12">
+              <div id="projectsContainer">
+                <ProjectCarousel />
+              </div>
+            </v-col>
+          </v-row>
+        </v-col>
+
+        <v-col>
+          <div id="rightContainer">
+            <CursusTimeline />
+          </div>
+        </v-col>
+      </v-row>
+    </v-container>
+    <FooterBar id="footer" />
   </v-app>
 </template>
 
@@ -76,8 +88,8 @@ export default {
       window.addEventListener('mousemove', e => updateSpotlight(e));
 
       function updateSpotlight(e) {
-        spotlight.style.left = `${e.pageX - 400}px`
-        spotlight.style.top = `${e.pageY - 400}px`
+        spotlight.style.left = `${e.pageX - 300}px`
+        spotlight.style.top = `${e.pageY - 300}px`
         //spotlight.style.backgroundImage = `radial-gradient(circle at ${e.pageX / window.innerWidth * 100}% ${e.pageY / window.innerHeight * 100}%, ${spotlightSize}`;
       }
     });
@@ -108,52 +120,28 @@ body,
 
 #appContainer {
   background-color: #0b2a39;
-  /* #0b2a39;*/
   color: #e5e7eb
-    /*#b8d8ba;*/
-}
-
-.fullPad {
-  display: grid;
-  grid-template: 6vh minmax(150px, 16vh) 68vh 6vh 4vh / 3vw 29vw 27vw 26vw 3vw;
-  column-gap: 3vw;
 }
 
 #presContainer {
-  grid-area: 2/2/2/3;
   justify-content: start;
   display: flex;
   flex-direction: column;
 }
 
-#presContainer * {
-  width: 59vw;
-}
-
-#cursusContainer {
-  grid-area: 2/4/3/4;
-  height: 82vh;
-  width: 22vw;
-}
-
 #rightContainer {
   background: rgba(19, 15, 42, 0.5);
-  /*rgb(52, 59, 59);*/
-  grid-area: 2/4/3/4;
-  height: 84vh;
-  width: 26vw;
+  height: 90vh;
+  width: auto;
   border-radius: 5px;
-  padding-left: 2vw;
-  padding-right: 2vw;
+  padding: 5%
 }
 
 #projectsContainer {
-  grid-area: 3/3/3/3;
   display: block;
 }
 
 #descriptionContainer {
-  grid-area: 3/2/3/2;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -165,9 +153,11 @@ body,
 }
 
 #blaze {
+  padding-bottom: 100px;
   text-transform: uppercase;
   font-family: title;
-  font-size: 6vw;
+  font-size: calc(40px + 4vw);
+  height: 6vw;
 }
 
 .v-navigation-drawer__content::-webkit-scrollbar-track {
@@ -186,11 +176,11 @@ body,
 
 .spotlight {
   position: absolute;
-  width: 800px;
-  height: 800px;
+  width: 600px;
+  height: 600px;
   border-radius: 50%;
   pointer-events: none;
-  background-image: radial-gradient(circle, rgba(120, 199, 198, 0.1) 50px, transparent 400px);
+  background-image: radial-gradient(circle, rgba(120, 199, 198, 0.1) 50px, transparent 300px);
 }
 
 #title:hover {
@@ -209,10 +199,15 @@ body,
   color: #e5e7eb;
 }
 
+#gridContainer {
+  height: 94vh;
+  margin: 2vh
+}
+
 #footer {
-  grid-area: 5/1/5/3;
   width: 100vw;
   background: #E0FFFF;
+  height: 2vh;
 }
 
 .arrow {

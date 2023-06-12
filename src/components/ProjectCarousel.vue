@@ -20,6 +20,7 @@ export default {
         return {
             angle: 0,
             video: null,
+            phone: false
         }
     },
     mounted() {
