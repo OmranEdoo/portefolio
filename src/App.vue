@@ -189,6 +189,7 @@ body,
 
 .spotlight {
   position: absolute;
+  pointer-events: none;
   width: 600px;
   height: 600px;
   border-radius: 50%;
