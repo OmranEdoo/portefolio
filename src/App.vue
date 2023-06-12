@@ -10,7 +10,7 @@
           </div>
           <v-row justify="space-around" no-gutters>
             <v-col xxl="5" xl="5" lg="5" md="5" sm="12" xs="12">
-              <div id="descriptionContainer" class="overflow-y-auto v-navigation-drawer__content">
+              <div id="descriptionContainer" class="d-flex align-end overflow-y-auto v-navigation-drawer__content">
                 <div class="d-flex flex-row justify-space-between" style="width: 100%; height: min-content;">
                   <v-btn density="compact" icon="mdi-plus" @click="changeIndex(1)">
                     <span class="arrow material-icons">
@@ -29,7 +29,7 @@
                     </span>
                   </v-btn>
                 </div>
-                <p v-for="text in projects[index].description" :key="text" class="text-body-2 mb-4"
+                <p v-for="text in projects[index].description" :key="text" class="text-body-2 mb-2"
                   style="text-align: justify;">
                   {{ text }}
                 </p>
@@ -217,7 +217,7 @@ body,
   bottom: 0;
   width: 100vw;
   background: #E0FFFF;
-  height: 2vh;
+  height: 3vh;
 }
 
 .arrow {

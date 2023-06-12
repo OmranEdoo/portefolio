@@ -100,15 +100,20 @@ export default {
             animate();
 
             function animate() {
-                if (mouseX > window.innerWidth / 2 && cube.rotation.y < Math.PI / 12)
-                    cube.rotation.y += (Math.PI / 12 - cube.rotation.y) / 20;
-                else if (mouseX < window.innerWidth / 2 && -Math.PI / 12 < cube.rotation.y)
-                    cube.rotation.y -= (cube.rotation.y + Math.PI / 12) / 20;
+                if (window.innerWidth > 960) {
+                    if (mouseX > window.innerWidth / 2 && cube.rotation.y < Math.PI / 12)
+                        cube.rotation.y += (Math.PI / 12 - cube.rotation.y) / 20;
+                    else if (mouseX < window.innerWidth / 2 && -Math.PI / 12 < cube.rotation.y)
+                        cube.rotation.y -= (cube.rotation.y + Math.PI / 12) / 20;
 
-                if (mouseY > window.innerHeight / 2 && cube.rotation.x < Math.PI / 12)
-                    cube.rotation.x += (Math.PI / 12 - cube.rotation.x) / 20;
-                else if (mouseY < window.innerHeight / 2 && -Math.PI / 12 < cube.rotation.x)
-                    cube.rotation.x -= (cube.rotation.x + Math.PI / 12) / 20;
+                    if (mouseY > window.innerHeight / 2 && cube.rotation.x < Math.PI / 12)
+                        cube.rotation.x += (Math.PI / 12 - cube.rotation.x) / 20;
+                    else if (mouseY < window.innerHeight / 2 && -Math.PI / 12 < cube.rotation.x)
+                        cube.rotation.x -= (cube.rotation.x + Math.PI / 12) / 20;
+                } else {
+                    cube.rotation.y = 0
+                    cube.rotation.x = 0
+                }
 
                 renderer.render(scene, camera);
                 requestAnimationFrame(animate);
