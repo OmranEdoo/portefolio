@@ -156,7 +156,7 @@ body,
   display: flex !important;
   flex-direction: row;
   justify-content: center;
-  height: 600px;
+  height: 50vh;
   flex-wrap: wrap;
 }
 
