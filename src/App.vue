@@ -2,7 +2,7 @@
   <v-app id="appContainer">
     <div class="spotlight"></div>
     <v-container>
-      <v-row no-gutters>
+      <v-row>
         <v-col xxl="9" xl="9" lg="8" md="12" sm="12" xs="12">
           <div id="presContainer">
             <h1 id="blaze" class="d-flex justify-content-start">Omran Edoo</h1>
