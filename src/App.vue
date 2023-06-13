@@ -116,11 +116,13 @@ body,
 #app {
   margin: 0;
   min-height: 100vh;
-  overflow: hidden;
 }
 
 @media only screen and (min-width: 1280px) {
-  body {
+
+  html,
+  body,
+  #app {
     overflow: hidden;
   }
 }
@@ -233,5 +235,4 @@ body,
 
 .arrow:hover {
   color: #80cbc4
-}
-</style>
+}</style>
