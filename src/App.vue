@@ -9,7 +9,7 @@
             <TypeWriter :array="descriptions" />
           </div>
           <v-row justify="space-around" no-gutters>
-            <v-col xxl="5" xl="5" lg="5" md="5" sm="12" xs="12">
+            <v-col class="d-flex align-center" xxl="5" xl="5" lg="5" md="5" sm="12" xs="12">
               <div id="descriptionContainer" class="d-flex align-end overflow-y-auto v-navigation-drawer__content">
                 <div class="d-flex flex-row justify-space-between" style="width: 100%; height: min-content;">
                   <v-btn density="compact" icon="mdi-plus" @click="changeIndex(1)">
@@ -165,7 +165,6 @@ body,
     height: 50vh;
   }
 }
-
 
 @font-face {
   font-family: "title";
