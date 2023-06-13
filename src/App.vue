@@ -116,6 +116,7 @@ body,
 #app {
   margin: 0;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 @media only screen and (min-width: 1280px) {
@@ -123,7 +124,7 @@ body,
   html,
   body,
   #app {
-    overflow: hidden;
+    overflow-y: hidden;
   }
 }
 
@@ -205,6 +206,12 @@ body,
   background-image: radial-gradient(circle, rgba(120, 199, 198, 0.1) 50px, transparent 300px);
 }
 
+@media only screen and (min-width: 960px) {
+  .spotlight {
+    height: 0;
+  }
+}
+
 #title:hover {
   color: #80cbc4;
 }
@@ -235,4 +242,5 @@ body,
 
 .arrow:hover {
   color: #80cbc4
-}</style>
+}
+</style>
