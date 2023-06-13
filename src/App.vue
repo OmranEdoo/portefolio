@@ -206,7 +206,7 @@ body,
   background-image: radial-gradient(circle, rgba(120, 199, 198, 0.1) 50px, transparent 300px);
 }
 
-@media only screen and (min-width: 960px) {
+@media only screen and (max-width: 960px) {
   .spotlight {
     height: 0;
   }
