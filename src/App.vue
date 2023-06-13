@@ -1,7 +1,7 @@
 <template>
   <v-app id="appContainer">
     <div class="spotlight"></div>
-    <v-container>
+    <v-container class="overflow-hidden">
       <v-row>
         <v-col xxl="9" xl="9" lg="8" md="12" sm="12" xs="12">
           <div id="presContainer">
@@ -116,7 +116,7 @@ body,
 #app {
   margin: 0;
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 @media only screen and (min-width: 1280px) {
