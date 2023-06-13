@@ -208,7 +208,7 @@ body,
 
 @media only screen and (max-width: 960px) {
   .spotlight {
-    height: 0;
+    height: 0px;
   }
 }
 
