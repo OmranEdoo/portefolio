@@ -4,7 +4,7 @@
         <v-timeline-item width="100%" v-for="(experience, i) in experiences" :key="i" :dot-color="experience.color"
             size="xx-small">
             <template v-slot:opposite>
-                <div :class="`pt-1 headline font-weight-bold text-${experience.color}`" style="width: max-content;">{{
+                <div :class="`pt-1 headline font-weight-bold text-${experience.color}`" id="minContent">{{
                     experience.year }}</div>
             </template>
             <div>
@@ -100,5 +100,17 @@ export default defineComponent({
 .v-navigation-drawer__content::-webkit-scrollbar-thumb {
     -webkit-box-shadow: inset 0 0 6px #424242;
     background-color: #424242;
+}
+
+@media only screen and (max-width: 600px) {
+    #minContent {
+        width: min-content;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    #minContent {
+        width: max-content;
+    }
 }
 </style>
