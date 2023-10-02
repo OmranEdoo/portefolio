@@ -33,7 +33,7 @@ export default {
 
             var camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
             camera.position.z = 800;
-
+            //camera.lookAt(0, 0, 0)
             var can = document.getElementById("canvasInfinity");
 
             var renderer = new THREE.WebGLRenderer({ canvas: can, antialiasing: true });
