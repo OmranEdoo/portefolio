@@ -29,17 +29,17 @@ export default {
     methods: {
         initThree() {
             var scene = new THREE.Scene();
-            scene.background = new THREE.Color('#0b2a39');
+            scene.background = new THREE.Color('#000000');
 
-            var camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
-            camera.position.z = 800;
-            //camera.lookAt(0, 0, 0)
+            var camera = new THREE.PerspectiveCamera(25, window.innerWidth / window.innerHeight, 0.1, 1400);
+            camera.position.z = 400
+
             var can = document.getElementById("canvasInfinity");
 
             var renderer = new THREE.WebGLRenderer({ canvas: can, antialiasing: true });
             renderer.setSize(window.innerWidth, window.innerHeight);
 
-            const cubeGeometry = new THREE.BoxGeometry(750, 300, 500);
+            const cubeGeometry = new THREE.BoxGeometry(100, 75, 60);
 
             this.video = document.getElementById('video');
 
@@ -47,22 +47,22 @@ export default {
 
             const cubeMaterial = [
                 new THREE.MeshStandardMaterial({
-                    color: '##48D1CC',
+                    color: '#0000ee',
                 }),
                 new THREE.MeshStandardMaterial({
-                    color: '##48D1CC',
+                    color: '#0000ee',
                 }),
                 new THREE.MeshStandardMaterial({
-                    color: '##48D1CC',
+                    color: '#0000ee',
                 }),
                 new THREE.MeshStandardMaterial({
-                    color: '##48D1CC',
+                    color: '#0000ee',
                 }),
                 new THREE.MeshBasicMaterial({
                     map: videoTexture
                 }),
                 new THREE.MeshStandardMaterial({
-                    color: '##48D1CC',
+                    color: '#ddddee',
                 })
             ];
             const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
@@ -100,20 +100,21 @@ export default {
             animate();
 
             function animate() {
-                if (window.innerWidth > 960) {
-                    if (mouseX > window.innerWidth / 2 && cube.rotation.y < Math.PI / 12)
-                        cube.rotation.y += (Math.PI / 12 - cube.rotation.y) / 20;
-                    else if (mouseX < window.innerWidth / 2 && -Math.PI / 12 < cube.rotation.y)
-                        cube.rotation.y -= (cube.rotation.y + Math.PI / 12) / 20;
-
-                    if (mouseY > window.innerHeight / 2 && cube.rotation.x < Math.PI / 12)
-                        cube.rotation.x += (Math.PI / 12 - cube.rotation.x) / 20;
-                    else if (mouseY < window.innerHeight / 2 && -Math.PI / 12 < cube.rotation.x)
-                        cube.rotation.x -= (cube.rotation.x + Math.PI / 12) / 20;
+                if (window.innerWidth > window.innerHeight) {
+                    camera.position.z = 400
                 } else {
-                    cube.rotation.y = 0
-                    cube.rotation.x = 0
+                    camera.position.z = 800
                 }
+
+                if (mouseX > window.innerWidth / 2 && cube.rotation.y < Math.PI / 12)
+                    cube.rotation.y += (Math.PI / 12 - cube.rotation.y) / 20;
+                else if (mouseX < window.innerWidth / 2 && -Math.PI / 12 < cube.rotation.y)
+                    cube.rotation.y -= (cube.rotation.y + Math.PI / 12) / 20;
+
+                if (mouseY > window.innerHeight / 2 && cube.rotation.x < Math.PI / 12)
+                    cube.rotation.x += (Math.PI / 12 - cube.rotation.x) / 20;
+                else if (mouseY < window.innerHeight / 2 && -Math.PI / 12 < cube.rotation.x)
+                    cube.rotation.x -= (cube.rotation.x + Math.PI / 12) / 20;
 
                 renderer.render(scene, camera);
                 requestAnimationFrame(animate);
@@ -130,7 +131,6 @@ export default {
     overflow-x: hidden;
     padding: 0;
     margin: 0;
-    height: 65vh !important;
 }
 
 .center {
