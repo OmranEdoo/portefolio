@@ -55,7 +55,7 @@ export default defineComponent({
 }
 
 #footerBar {
-    background-color: #adadad;
+    background: linear-gradient(45deg, rgb(255, 255, 255), rgb(129, 129, 129));
     position: fixed;
     bottom: 0;
     width: 100vw;
