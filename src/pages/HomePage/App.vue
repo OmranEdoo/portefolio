@@ -14,7 +14,7 @@
         <p class="text-overline">_play</p>
       </v-btn>
     </div>
-    <FooterBar id="footer" />
+    <FooterBar />
   </v-app>
 </template>
 
@@ -89,13 +89,6 @@ body {
 .v-navigation-drawer__content::-webkit-scrollbar-thumb {
   -webkit-box-shadow: inset 0 0 6px #424242;
   background-color: #424242;
-}
-
-#footer {
-  position: fixed;
-  bottom: 0;
-  width: 100vw;
-  height: 3vh;
 }
 
 .canvas {
