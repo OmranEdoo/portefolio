@@ -15,7 +15,7 @@
         </a>
       </div>
     </div>
-    <FooterBar id="footer" />
+    <FooterBar />
   </v-app>
 </template>
 
@@ -107,13 +107,5 @@ body,
 .v-navigation-drawer__content::-webkit-scrollbar-thumb {
   -webkit-box-shadow: inset 0 0 6px #424242;
   background-color: #424242;
-}
-
-#footer {
-  position: fixed;
-  bottom: 0;
-  width: 100vw;
-  background: #E0FFFF;
-  height: 3vh;
 }
 </style>

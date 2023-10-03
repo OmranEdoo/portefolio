@@ -12,7 +12,7 @@
             <a v-for="project in projects" :key="project.index" class="project d-flex flex-column"
               @click="updateDescription(project.index)">
               <div class="d-flex flex-row justify-space-between align-center">
-                <p class="projectTitleText">{{ project.technology }}</p>
+                <p class="projectTitleText ml-1">{{ project.technology }}</p>
                 <h3 class="projectTitleText d-flex justify-end pt-4 pb-4">
                   {{ project.title }}
                   <a :href="project.url" target="_blank" class="pl-4 link">
@@ -33,7 +33,7 @@
       </div>
       <ProjectCarousel id="canvasCarousel"></ProjectCarousel>
     </div>
-    <FooterBar id="footer" />
+    <FooterBar />
   </v-app>
 </template>
 
@@ -159,7 +159,9 @@ body,
 #projectsContainer {
   width: 50vw;
   height: 50vw;
-  align-items: center !important;
+  padding-top: 20vh;
+  margin-bottom: 50px;
+  align-items: start !important;
 }
 
 #textContainer {
@@ -179,7 +181,7 @@ body,
 }
 
 .descriptionText {
-  font-size: 1.25rem !important
+  font-size: 1.1rem !important
 }
 
 .horizontalLine {
@@ -199,7 +201,7 @@ body,
 }
 
 .link:hover {
-  color: cyan;
+  color: rgb(202, 151, 246);
 }
 
 .v-navigation-drawer__content::-webkit-scrollbar-track {
@@ -214,12 +216,5 @@ body,
 .v-navigation-drawer__content::-webkit-scrollbar-thumb {
   -webkit-box-shadow: inset 0 0 6px #424242;
   background-color: #424242;
-}
-
-#footer {
-  position: fixed;
-  bottom: 0;
-  width: 100vw;
-  height: 3vh;
 }
 </style>
