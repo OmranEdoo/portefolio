@@ -1,17 +1,8 @@
 <template>
   <v-app>
-    <div style="display: flex !important;">
-      <canvas id="canvas"></canvas>
-    </div>
+    <StarsBackground class="canvas" />
     <div id="appContainer">
-      <a href="home">
-        <div id="menu" class="d-flex flex-column justify-center align-center">
-          <div class="menuBar" />
-          <div class="menuBar" />
-          <div class="menuBar" />
-          <div class="menuBar" />
-        </div>
-      </a>
+      <MenuButton />
       <div id="projectsContainer"
         class="d-flex flex-row align-start justify-end overflow-y-auto v-navigation-drawer__content">
         <div id="padContainer" class="pb-10 pl-10 pt-10">
@@ -25,7 +16,7 @@
                 <h3 class="projectTitleText d-flex justify-end pt-4 pb-4">
                   {{ project.title }}
                   <a :href="project.url" target="_blank" class="pl-4 link">
-                    <v-icon id="icon" icon="north_east" size="x-small" class="ml-1" />
+                    <v-icon icon="north_east" size="x-small" class="ml-1" />
                   </a>
                 </h3>
               </div>
@@ -47,16 +38,19 @@
 </template>
 
 <script>
-import * as THREE from 'three';
-
 import FooterBar from '@/components/FooterBar.vue'
 import ProjectCarousel from '@/components/ProjectCarousel.vue'
+import StarsBackground from '@/components/StarsBackground.vue'
+import MenuButton from '@/components/MenuButton.vue'
+
 
 export default {
   name: 'ProjectsPage',
   components: {
     FooterBar,
-    ProjectCarousel
+    ProjectCarousel,
+    StarsBackground,
+    MenuButton
   },
   data() {
     return {
@@ -69,81 +63,7 @@ export default {
       ]
     }
   },
-  mounted() {
-    this.initThree();
-  },
   methods: {
-    initThree() {
-      //create scene object
-      const scene = new THREE.Scene();
-      scene.background = new THREE.Color('#000000');
-
-      //setup camera with facing upward
-      const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 600);
-      camera.position.y = 0;
-      camera.rotation.x = Math.PI / 2;
-
-      const can = document.getElementById("canvas");
-
-      //setup renderer
-      const renderer = new THREE.WebGLRenderer({ canvas: can, antialiasing: true });
-      renderer.setSize(window.innerWidth, window.innerHeight);
-
-      const light = new THREE.DirectionalLight(0xffffff, 1);
-      // Where we want to place our light relative to the center of the scene. z value of 1 moves it towards us. Has big effect on shading
-      light.position.set(0, 1, 1);
-      scene.add(light);
-
-      const backLight = new THREE.DirectionalLight(0xffffff, 1);
-      backLight.position.set(0, 0, -1);
-      scene.add(backLight);
-
-      const starGeometry = new THREE.BufferGeometry()
-
-      const sprite = new THREE.TextureLoader().load('img/flash.png');
-      const starMaterial = new THREE.PointsMaterial({
-        map: sprite
-      });
-
-      const starVerticies = []
-      for (let i = 0; i < 3000; i++) {
-        const x = Math.random() * 600 - 300
-        const y = Math.random() * 600 - 300
-        const z = Math.random() * 600 - 300
-        starVerticies.push(x, y, z)
-      }
-
-      starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVerticies, 3))
-
-      const stars = new THREE.Points(starGeometry, starMaterial)
-      scene.add(stars)
-
-      const stars2 = stars.clone()
-      stars2.position.y = 600
-      scene.add(stars2)
-
-      window.addEventListener('resize', function () {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight)
-      })
-
-      animate();
-
-      //rendering loop
-      function animate() {
-        renderer.render(scene, camera);
-        requestAnimationFrame(animate);
-
-        stars.position.y -= 0.1
-        stars2.position.y -= 0.1
-        if (stars.position.y < -300) {
-          stars.position.y = 900
-        } else if (stars2.position.y < -300) {
-          stars2.position.y = 900
-        }
-      }
-    },
     updateDescription(index) {
       if (this.seeDescription) {
         if (this.index == index) {
@@ -174,23 +94,6 @@ body,
   overflow: hidden;
 }
 
-#menu {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  background-color: rgba(80, 80, 80, 0.5);
-  position: fixed;
-  top: 50px;
-  right: 50px;
-  z-index: 10;
-  transition: transform .2s ease-in-out;
-}
-
-#menu:hover {
-  transform: rotate(90deg);
-  background-color: rgba(149, 152, 180, 0.5);
-}
-
 #appContainer {
   position: absolute;
   color: #e5e7eb;
@@ -205,6 +108,7 @@ body,
 @media screen and (orientation: landscape) {
   #appContainer {
     flex-direction: row;
+    justify-content: end !important;
   }
 
   #canvasCarousel {
@@ -247,7 +151,7 @@ body,
   }
 }
 
-#canvas {
+.canvas {
   width: 100vw;
   height: 100vh;
 }
@@ -255,6 +159,7 @@ body,
 #projectsContainer {
   width: 50vw;
   height: 50vw;
+  align-items: center !important;
 }
 
 #textContainer {
@@ -309,14 +214,6 @@ body,
 .v-navigation-drawer__content::-webkit-scrollbar-thumb {
   -webkit-box-shadow: inset 0 0 6px #424242;
   background-color: #424242;
-}
-
-.menuBar {
-  margin-bottom: 3px;
-  margin-top: 3px;
-  width: 30px;
-  height: 2px;
-  background-color: #E0FFFF;
 }
 
 #footer {
