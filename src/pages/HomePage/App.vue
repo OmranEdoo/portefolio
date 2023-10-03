@@ -12,7 +12,7 @@
       <v-btn variant="plain" href="about">
         <p class="text-overline">_about</p>
       </v-btn>
-      <v-btn variant="plain" href="game">
+      <v-btn variant="plain" href="game" disabled="">
         <p class="text-overline">_play</p>
       </v-btn>
     </div>
@@ -34,7 +34,7 @@ export default {
   },
   data() {
     return {
-      descriptions: ["Future ingénieur...", "Passionné de programmation...", "Joueur d'échecs (très) amateur..."],
+      descriptions: ["Développeur freelance...", "Diplomé d'école d'ingénieur...", "Joueur d'échecs (très) amateur..."],
     }
   },
   mounted() {
@@ -173,7 +173,6 @@ body {
   position: fixed;
   bottom: 0;
   width: 100vw;
-  background: #E0FFFF;
   height: 3vh;
 }
 

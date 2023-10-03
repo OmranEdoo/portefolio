@@ -68,7 +68,6 @@ body,
   position: fixed;
   bottom: 0;
   width: 100vw;
-  background: #E0FFFF;
   height: 3vh;
 }
 </style>

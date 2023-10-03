@@ -1,5 +1,5 @@
 <template>
-    <v-footer class="text-center d-flex flex-row justify-center align-center">
+    <v-footer class="footerBartext-center d-flex flex-row justify-center align-center">
         <a href="https://github.com/zumbalove974/" target="_blank" class="link">
             <svg class="svg ml-4 mr-4 mt-2" fill="#142d4c" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30"
                 height="30" viewBox="0 0 30 30">
@@ -51,6 +51,10 @@ export default defineComponent({
 
 #link {
     text-decoration: none;
-    color: #e5e7eb;
+    color: #ffffff;
+}
+
+.footerBar {
+    background-color: #ffffff;
 }
 </style>
