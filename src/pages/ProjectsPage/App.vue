@@ -12,7 +12,7 @@
             <a v-for="project in projects" :key="project.index" class="project d-flex flex-column"
               @click="updateDescription(project.index)">
               <div class="d-flex flex-row justify-space-between align-center">
-                <p class="projectTitleText ml-1">{{ project.technology }}</p>
+                <p class="technologyText ml-1">{{ project.technology }}</p>
                 <h3 class="projectTitleText d-flex justify-end pt-4 pb-4">
                   {{ project.title }}
                   <a :href="project.url" target="_blank" class="pl-4 link">
@@ -169,11 +169,16 @@ body,
 }
 
 .project:hover {
-  background-color: #818098;
+  background-color: #3e3e4c;
 }
 
 .titleText {
   font-size: 2rem
+}
+
+.technologyText {
+  font-size: 1.2rem;
+  color: #818098;
 }
 
 .projectTitleText {
