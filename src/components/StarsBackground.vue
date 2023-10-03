@@ -10,6 +10,22 @@ import * as THREE from 'three';
 
 export default {
     name: 'StarsBackground',
+    props: {
+        isAnimationFast: {
+            type: Boolean,
+            require: false
+        }
+    },
+    watch: {
+        isAnimationFast: function (val) {
+            this.isFast = val
+        }
+    },
+    data() {
+        return {
+            isFast: false
+        }
+    },
     mounted() {
         this.initThree();
     },
@@ -43,7 +59,8 @@ export default {
 
             const sprite = new THREE.TextureLoader().load('img/flash.png');
             const starMaterial = new THREE.PointsMaterial({
-                map: sprite
+                map: sprite,
+                transparent: true
             });
 
             const starVerticies = []

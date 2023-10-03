@@ -1,16 +1,16 @@
 <template>
   <v-app>
-    <StarsBackground class="canvas" />
+    <StarsBackground class="canvas" :is-animation-fast="isFast" />
     <div id="textContainer">
       <h1 id="blaze" class="d-flex justify-content-start">Omran Edoo</h1>
       <TypeWriter :array="descriptions" />
-      <v-btn variant="plain" href="projects">
+      <v-btn variant="plain" @click="increaseSpeed('projects')">
         <p class="text-overline">_projects</p>
       </v-btn>
-      <v-btn variant="plain" href="about">
+      <v-btn variant="plain" @click="increaseSpeed('about')">
         <p class="text-overline">_about</p>
       </v-btn>
-      <v-btn variant="plain" href="game" disabled="">
+      <v-btn variant="plain" @click="increaseSpeed('game')" disabled="">
         <p class="text-overline">_play</p>
       </v-btn>
     </div>
@@ -32,7 +32,17 @@ export default {
   },
   data() {
     return {
+      isFast: false,
       descriptions: ["Développeur freelance...", "Diplomé d'école d'ingénieur...", "Joueur d'échecs (très) amateur..."],
+    }
+  },
+  methods: {
+    increaseSpeed(url) {
+      this.isFast = true
+      setTimeout(() => {
+        window.location.href = url
+      }, 2000)
+
     }
   }
 }
