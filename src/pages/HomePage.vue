@@ -4,14 +4,18 @@
     <div id="textContainer">
       <h1 id="blaze" class="d-flex justify-content-start">Omran Edoo</h1>
       <TypeWriter :array="descriptions" />
-      <v-btn variant="plain" @click="increaseSpeed('projects')">
-        <p class="text-overline">_projects</p>
-      </v-btn>
-      <v-btn variant="plain" @click="increaseSpeed('about')">
-        <p class="text-overline">_about</p>
-      </v-btn>
+      <router-link to="/projects">
+        <v-btn variant="plain" @click="increaseSpeed('projects')">
+          <p class="redirectBtn text-overline">_projects</p>
+        </v-btn>
+      </router-link>
+      <router-link to="/about">
+        <v-btn variant="plain" @click="increaseSpeed('about')">
+          <p class="redirectBtn text-overline">_about</p>
+        </v-btn>
+      </router-link>
       <v-btn variant="plain" @click="increaseSpeed('game')" disabled="">
-        <p class="text-overline">_play</p>
+        <p class="redirectBtn text-overline">_play</p>
       </v-btn>
     </div>
     <FooterBar />
@@ -38,17 +42,17 @@ export default {
   },
   methods: {
     increaseSpeed(url) {
-      this.isFast = true
+      /* this.isFast = true
       setTimeout(() => {
         window.location.href = url
-      }, 2000)
-
+      }, 2000) */
+      console.log(url)
     }
   }
 }
 </script>
 
-<style>
+<style scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -79,12 +83,18 @@ body {
 }
 
 #blaze {
-  margin-bottom: 30px;
   text-transform: uppercase;
   font-family: title;
   font-size: calc(40px + 4vw);
   height: 6vw;
   width: max-content;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.redirectBtn {
+  color: #a9a9a9;
 }
 
 .v-navigation-drawer__content::-webkit-scrollbar-track {
