@@ -49,11 +49,7 @@ export default {
     play() {
       this.speed = 10
       this.isPlay = true
-      setTimeout(this.beginGame, 2000)
     },
-    beginGame() {
-      this.speed = 0.4
-    }
   }
 }
 </script>

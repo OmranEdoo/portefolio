@@ -13,6 +13,13 @@ var actualSpeed = 0.1
 var finalSpeed = 0.1
 var acceleration = 0.2
 var isPlay = false
+var finalLeftSpeed = 0
+var finalRightSpeed = 0
+var actualLeftSpeed = 0
+var actualRightSpeed = 0
+var gameSpeed = 0.4
+var animateCallTime = 150
+var indexAnimate = 0
 
 export default {
     name: 'StarsBackground',
@@ -41,10 +48,25 @@ export default {
             acceleration = val
         }
     },
+    created() {
+        window.addEventListener('keydown', (e) => {
+            if (e.key == 'ArrowLeft') {
+                this.goLeft()
+            } else if (e.key == 'ArrowRight') {
+                this.goRight()
+            }
+        });
+    },
     mounted() {
         this.initThree();
     },
     methods: {
+        goLeft() {
+            finalLeftSpeed += 0.2
+        },
+        goRight() {
+            finalRightSpeed += 0.2
+        },
         initThree() {
             //create scene object
             const scene = new THREE.Scene();
@@ -95,64 +117,43 @@ export default {
             stars2.position.y = 600
             scene.add(stars2)
 
-            const planeGeom = new THREE.PlaneGeometry(4000, 4000, 200, 200);
+            const planeGeom = new THREE.PlaneGeometry(1000, 4000, 200, 200);
             const wireframeMaterial = new THREE.MeshBasicMaterial({ color: 0xccccc, wireframe: true, side: THREE.DoubleSide });
             const ground = new THREE.Mesh(planeGeom, wireframeMaterial);
             scene.add(ground)
             ground.position.z = -20
             ground.position.y = 2750
 
-
-            var mountainMesh1;
-            var mountainMesh2;
-            var mountainMesh3;
-            var mountainMesh4;
-            var mountainMesh5;
-            var mountainMesh6;
-            var mountainMesh1Black;
-            var mountainMesh2Black;
-            var mountainMesh3Black;
-            var mountainMesh4Black;
-            var mountainMesh5Black;
-            var mountainMesh6Black;
+            const mountains = new THREE.Group()
+            const black_mountains = new THREE.Group()
 
             var jsonLoader = new GLTFLoader();
             jsonLoader.load('./mountain2.glb', function (gltf) {
-                mountainMesh1 = gltf.scene;
-                mountainMesh1.children[0].children[0].material = new THREE.MeshBasicMaterial({ color: 0x000000, wireframe: false });
-                mountainMesh1.scale.set(100, 100, 100);
-                mountainMesh1.rotation.x = Math.PI / 2;
-                mountainMesh2 = mountainMesh1.clone();
-                mountainMesh4 = mountainMesh1.clone();
-                mountainMesh5 = mountainMesh1.clone();
-                mountainMesh3 = mountainMesh1.clone();
-                mountainMesh6 = mountainMesh4.clone();
+                const first_mountain = gltf.scene;
+                first_mountain.children[0].children[0].material = new THREE.MeshBasicMaterial({ color: 0x000000, wireframe: false });
+                first_mountain.scale.set(100, 100, 100);
+                first_mountain.rotation.x = Math.PI / 2;
+                const first_black_mountain = first_mountain.clone()
+                first_black_mountain.children[0].children[0].material = new THREE.MeshBasicMaterial({ color: 0xccccc, wireframe: true })
 
-                mountainMesh2.rotation.y = Math.PI / 2;
-                mountainMesh3.rotation.y = Math.PI / 4;
-                mountainMesh4.rotation.y = Math.PI / 8;
-                mountainMesh5.rotation.y = 3 * Math.PI / 4;
+                let x, y, angle;
 
-                mountainMesh1.position.set(100, 2000, -20);
-                mountainMesh2.position.set(-100, 1900, -20);
-                mountainMesh3.position.set(100, 1800, -20);
-                mountainMesh4.position.set(-200, 1900, -20);
-                mountainMesh5.position.set(200, 2100, -20);
-                mountainMesh6.position.set(0, 1750, -20);
+                for (let i = 0; i < 100; i++) {
+                    mountains.add(first_mountain.clone())
+                    black_mountains.add(first_black_mountain.clone())
 
-                mountainMesh1Black = mountainMesh1.clone();
-                mountainMesh2Black = mountainMesh2.clone();
-                mountainMesh3Black = mountainMesh3.clone();
-                mountainMesh4Black = mountainMesh4.clone();
-                mountainMesh5Black = mountainMesh5.clone();
-                mountainMesh6Black = mountainMesh6.clone();
+                    x = Math.round(Math.random() * 1000) - 500
+                    y = 1700 + Math.round(Math.random() * 2000)
+                    angle = Math.random() * 2 * Math.PI
 
-                mountainMesh1Black.children[0].children[0].material = new THREE.MeshBasicMaterial({ color: 0xccccc, wireframe: true });
-                mountainMesh2Black.children[0].children[0].material = new THREE.MeshBasicMaterial({ color: 0xccccc, wireframe: true });
-                mountainMesh3Black.children[0].children[0].material = new THREE.MeshBasicMaterial({ color: 0xccccc, wireframe: true });
-                mountainMesh4Black.children[0].children[0].material = new THREE.MeshBasicMaterial({ color: 0xccccc, wireframe: true });
-                mountainMesh5Black.children[0].children[0].material = new THREE.MeshBasicMaterial({ color: 0xccccc, wireframe: true });
-                mountainMesh6Black.children[0].children[0].material = new THREE.MeshBasicMaterial({ color: 0xccccc, wireframe: true });
+                    mountains.children[i].position.set(x, y, -20)
+                    mountains.children[i].rotation.y = angle
+                    black_mountains.children[i].position.set(x, y, -20)
+                    black_mountains.children[i].rotation.y = angle
+                }
+
+                mountains.position.set(0, 0, 0)
+                black_mountains.position.set(0, 0, 0)
 
                 window.addEventListener('resize', function () {
                     camera.aspect = window.innerWidth / window.innerHeight;
@@ -172,34 +173,40 @@ export default {
                 }
 
                 if (isPlay) {
-                    scene.add(ground);
-
-                    scene.add(mountainMesh1);
-                    scene.add(mountainMesh2);
-                    scene.add(mountainMesh3);
-                    scene.add(mountainMesh4);
-                    scene.add(mountainMesh5);
-                    scene.add(mountainMesh6);
-                    scene.add(mountainMesh1Black);
-                    scene.add(mountainMesh2Black);
-                    scene.add(mountainMesh3Black);
-                    scene.add(mountainMesh4Black);
-                    scene.add(mountainMesh5Black);
-                    scene.add(mountainMesh6Black);
+                    scene.add(ground)
+                    scene.add(mountains)
+                    scene.add(black_mountains)
 
                     ground.position.y -= actualSpeed
-                    mountainMesh1.position.y -= actualSpeed
-                    mountainMesh2.position.y -= actualSpeed
-                    mountainMesh3.position.y -= actualSpeed
-                    mountainMesh4.position.y -= actualSpeed
-                    mountainMesh5.position.y -= actualSpeed
-                    mountainMesh6.position.y -= actualSpeed
-                    mountainMesh1Black.position.y -= actualSpeed
-                    mountainMesh2Black.position.y -= actualSpeed
-                    mountainMesh3Black.position.y -= actualSpeed
-                    mountainMesh4Black.position.y -= actualSpeed
-                    mountainMesh5Black.position.y -= actualSpeed
-                    mountainMesh6Black.position.y -= actualSpeed
+                    mountains.position.y -= actualSpeed
+                    black_mountains.position.y -= actualSpeed
+
+                    if (actualLeftSpeed < finalLeftSpeed) {
+                        actualLeftSpeed += 0.1
+                    } else if (actualLeftSpeed > finalLeftSpeed) {
+                        actualLeftSpeed -= 0.5
+                        finalLeftSpeed = 0
+                    } else if (actualLeftSpeed <= 0.5) {
+                        actualLeftSpeed = 0
+                    }
+
+                    if (actualRightSpeed < finalRightSpeed) {
+                        actualRightSpeed += 0.1
+                    } else if (actualRightSpeed > finalRightSpeed) {
+                        actualRightSpeed -= 0.5
+                        finalRightSpeed = 0
+                    } else if (actualRightSpeed <= 0.5) {
+                        actualRightSpeed = 0
+                    }
+
+                    camera.position.x -= actualLeftSpeed
+                    camera.position.x += actualRightSpeed
+
+                    if (indexAnimate < animateCallTime) {
+                        indexAnimate += 1
+                    } else {
+                        finalSpeed = gameSpeed
+                    }
                 }
 
                 stars.position.y -= actualSpeed
