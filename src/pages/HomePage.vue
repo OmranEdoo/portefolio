@@ -1,20 +1,21 @@
 <template>
   <v-app>
-    <StarsBackground class="canvas" :is-animation-fast="isFast" />
-    <div id="textContainer">
+    <StarsBackground class="canvas" :isPlay="isPlay" :speed="speed" :acceleration="acceleration" />
+    <MenuButton v-if="isPlay"></MenuButton>
+    <div v-else id="textContainer">
       <h1 id="blaze" class="d-flex justify-content-start">Omran Edoo</h1>
       <TypeWriter :array="descriptions" />
       <router-link to="/projects">
-        <v-btn variant="plain" @click="increaseSpeed('projects')">
+        <v-btn variant="plain">
           <p class="redirectBtn text-overline">_projects</p>
         </v-btn>
       </router-link>
       <router-link to="/about">
-        <v-btn variant="plain" @click="increaseSpeed('about')">
+        <v-btn variant="plain">
           <p class="redirectBtn text-overline">_about</p>
         </v-btn>
       </router-link>
-      <v-btn variant="plain" @click="increaseSpeed('game')" disabled="">
+      <v-btn variant="plain" @click="play">
         <p class="redirectBtn text-overline">_play</p>
       </v-btn>
     </div>
@@ -26,27 +27,32 @@
 import TypeWriter from '@/components/TypeWriter.vue'
 import FooterBar from '@/components/FooterBar.vue'
 import StarsBackground from '@/components/StarsBackground.vue'
+import MenuButton from '@/components/MenuButton.vue'
 
 export default {
   name: 'HomePage',
   components: {
     TypeWriter,
     FooterBar,
-    StarsBackground
+    StarsBackground,
+    MenuButton
   },
   data() {
     return {
-      isFast: false,
+      isPlay: false,
+      speed: 0.1,
+      acceleration: 0.2,
       descriptions: ["Développeur freelance...", "Diplomé d'école d'ingénieur...", "Joueur d'échecs (très) amateur..."],
     }
   },
   methods: {
-    increaseSpeed(url) {
-      /* this.isFast = true
-      setTimeout(() => {
-        window.location.href = url
-      }, 2000) */
-      console.log(url)
+    play() {
+      this.speed = 10
+      this.isPlay = true
+      setTimeout(this.beginGame, 2000)
+    },
+    beginGame() {
+      this.speed = 0.4
     }
   }
 }
