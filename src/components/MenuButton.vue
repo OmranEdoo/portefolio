@@ -1,14 +1,12 @@
 <template>
-    <router-link to="/">
-        <a>
-            <div id="menu" class="d-flex flex-column justify-center align-center">
-                <div class="menuBar" />
-                <div class="menuBar" />
-                <div class="menuBar" />
-                <div class="menuBar" />
-            </div>
-        </a>
-    </router-link>
+    <a href="/">
+        <div id="menu" class="d-flex flex-column justify-center align-center">
+            <div class="menuBar" />
+            <div class="menuBar" />
+            <div class="menuBar" />
+            <div class="menuBar" />
+        </div>
+    </a>
 </template>
 
 <script>

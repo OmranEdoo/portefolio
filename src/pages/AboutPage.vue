@@ -72,6 +72,11 @@ body,
   z-index: 10;
 }
 
+.canvas {
+  width: 100vw;
+  height: 100vh;
+}
+
 .mainContainer {
   width: 60vw;
 }

@@ -18,7 +18,7 @@ const store = createStore({
         mountains_mesh: null,
         raycaster: null,
         state: 0,
-        numberMountains: 150,
+        numberMountains: 100,
         zGround: -40,
         actualSpeed: 0.1,
         finalSpeed: 0.1,
@@ -30,11 +30,16 @@ const store = createStore({
         actualLeftSpeed: 0,
         actualRightSpeed: 0,
         gameSpeed: 0.4,
-        ultraSpeedEnd: 1500,
+        ultraSpeedEnd: 1700,
         speedIncrease: 0.2,
         animateIncreaseSpeedCount: 100,
         yStop: null,
         collisionBack: 50,
+    },
+    getters: {
+        GET_STATE(state) {
+            return state.state
+        }
     },
     mutations: {
         SET_VIEWPORT_SIZE(state, { width, height }) {
@@ -53,11 +58,14 @@ const store = createStore({
                 1,
                 600
             );
+            state.camera.position.set(0, 0, 0)
             state.camera.rotation.x = Math.PI / 2;
         },
         INITIALIZE_SCENE(state) {
             state.scene = new THREE.Scene();
             state.scene.background = new THREE.Color('#000000');
+
+            state.state = 0
 
             const light = new THREE.DirectionalLight(0xffffff, 1);
             // Where we want to place our light relative to the center of the scene. z value of 1 moves it towards us. Has big effect on shading
@@ -77,8 +85,8 @@ const store = createStore({
             });
 
             const starVerticies = []
-            for (let i = 0; i < 6000; i++) {
-                const x = Math.random() * 600 - 300
+            for (let i = 0; i < 12000; i++) {
+                const x = Math.random() * 1200 - 600
                 const y = Math.random() * 600 - 300
                 const z = Math.random() * 600 - 300
                 starVerticies.push(x, y, z)
@@ -193,7 +201,7 @@ const store = createStore({
         ANIMATE({ state, dispatch }) {
             if (state.actualSpeed < 0) {
                 state.actualSpeed = 0
-                state.state = 3
+                state.state = 4
             } else if (state.actualSpeed < state.finalSpeed) {
                 state.actualSpeed += state.gameAcceleration
             } else if (state.actualSpeed > state.finalSpeed) {
@@ -217,6 +225,7 @@ const store = createStore({
                             state.mountains_mesh.position.y += 2 * state.actualSpeed
                         } else {
                             state.finalSpeed = 0
+                            state.state = 4
                         }
                     } else {
                         state.ground.position.y -= state.actualSpeed
@@ -237,9 +246,15 @@ const store = createStore({
                         state.actualRightSpeed -= state.shipAcceleration
                     }
 
-                    if (state.state != 2) {
-                        state.camera.position.x -= state.actualLeftSpeed
-                        state.camera.position.x += state.actualRightSpeed
+                    if (state.state < 3) {
+                        if (state.camera.position.x > 490) {
+                            state.camera.position.x -= state.actualLeftSpeed
+                        } else if (state.camera.position.x < -490) {
+                            state.camera.position.x += state.actualRightSpeed
+                        } else {
+                            state.camera.position.x -= state.actualLeftSpeed
+                            state.camera.position.x += state.actualRightSpeed
+                        }
                     }
 
                     if (state.ground.position.y < state.ultraSpeedEnd) {
@@ -256,6 +271,7 @@ const store = createStore({
                         }
                     }
                 } else {
+                    state.state = 3
                     state.finalSpeed = 0.1
                     state.gameAcceleration = 0.1
                 }
