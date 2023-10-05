@@ -81,9 +81,9 @@ export default {
         }
     },
     methods: {
-        ...mapGetters(["GET_STATE"]),
-        ...mapMutations(["RESIZE", "GO_LEFT", "GO_RIGHT", "STOP_LEFT", "STOP_RIGHT", "SET_ISPLAY", "SET_FINALSPEED", "SET_GAMEACCELERATION"]),
-        ...mapActions(["INIT", "ANIMATE"]),
+        ...mapGetters('starsBackgroundStore', ["GET_STATE"]),
+        ...mapMutations('starsBackgroundStore', ["RESIZE", "GO_LEFT", "GO_RIGHT", "STOP_LEFT", "STOP_RIGHT", "SET_ISPLAY", "SET_FINALSPEED", "SET_GAMEACCELERATION"]),
+        ...mapActions('starsBackgroundStore', ["INIT", "ANIMATE"]),
         restart(isPlaying, finalSpeed, gameAcceleration) {
             this.INIT({
                 width: this.viewport.offsetWidth,

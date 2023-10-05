@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
-import store from './store'
+import store from './store.js'
 import App from './App.vue'
 
 import '@mdi/font/css/materialdesignicons.css'
