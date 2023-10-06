@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <StarsBackground :isPlay="isPlay" :speed="speed" :acceleration="acceleration" />
+    <StarsBackground :isPlay="isPlay" :speed="speed" />
     <MenuButton v-if="isPlay"></MenuButton>
     <div v-else id="textContainer">
       <h1 id="blaze" class="d-flex justify-content-start">Omran Edoo</h1>

@@ -20,13 +20,19 @@ export default {
         state: 0,
         clock: null,
         delta: 0,
+        spaceship: null,
         numberMountains: 100,
-        zGround: -40,
+        zGround: -60,
         yGround: 2750,
         actualSpeed: 10,
         finalSpeed: 10,
+        rotation: 0.05,
+        limitRotation: 15,
+        countRotation: 0,
         gameAcceleration: 10,
         shipAcceleration: 10,
+        spaceshipRotation: 200,
+        spaceshipInitXRotation: 5 * Math.PI / 9,
         isPlay: false,
         finalLeftSpeed: 0,
         finalRightSpeed: 0,
@@ -109,8 +115,7 @@ export default {
             state.mountains = new THREE.Group()
             state.black_mountains = new THREE.Group()
             state.mountains_mesh = new THREE.Group()
-
-            state.raycaster = new THREE.Raycaster(state.camera.position, new THREE.Vector3(0, 1, 0), 0, 10);
+            state.spaceship = new THREE.Mesh()
 
             var jsonLoader = new GLTFLoader();
             jsonLoader.load('./mountain2.glb', function (gltf) {
@@ -148,6 +153,16 @@ export default {
                 state.mountains.position.set(0, 0, 0)
                 state.black_mountains.position.set(0, 0, 0)
                 state.mountains_mesh.position.set(0, 0, 0)
+            })
+
+            jsonLoader.load('./spaceship.glb', function (gltf) {
+                state.spaceship = gltf.scene
+                state.spaceship.scale.set(0.5, 0.5, 0.5)
+                state.spaceship.position.set(0, 100, -20)
+                state.spaceship.rotation.set(state.spaceshipInitXRotation, Math.PI / 2, 0)
+                state.spaceship.children[0].children[0].material = new THREE.MeshBasicMaterial({ color: 0xccccc, wireframe: false });
+
+                state.raycaster = new THREE.Raycaster(state.spaceship.position, new THREE.Vector3(0, 1, 0), 0, 10);
             })
         },
         RESIZE(state, { width, height }) {
@@ -193,13 +208,13 @@ export default {
             });
         },
         ANIMATE({ state, dispatch }) {
-            console.log(state.actualSpeed)
-            console.log(state.finalSpeed)
+            state.camera.position.set(state.spaceship.position.x, state.spaceship.position.y - 100, state.spaceship.position.z + 20)
 
             state.delta = state.clock.getDelta()
             if (state.actualSpeed < 0) {
                 state.actualSpeed = 0
                 state.state = 4
+                state.countRotation = 0
             } else if (state.actualSpeed < state.finalSpeed) {
                 state.actualSpeed += state.gameAcceleration
             } else if (state.actualSpeed > state.finalSpeed) {
@@ -208,12 +223,16 @@ export default {
 
             if (state.isPlay) {
                 if (state.ground.position.y > -2000) {
-                    if (state.scene.children.length == 5) {
+                    if (!state.scene.getObjectByName('ground'))
                         state.scene.add(toRaw(state.ground))
+                    if (!state.scene.getObjectByName('mountains'))
                         state.scene.add(toRaw(state.mountains))
+                    if (!state.scene.getObjectByName('black_mountains'))
                         state.scene.add(toRaw(state.black_mountains))
+                    if (!state.scene.getObjectByName('mountains_mesh'))
                         state.scene.add(toRaw(state.mountains_mesh))
-                    }
+                    if (!state.scene.getObjectByName('spaceship'))
+                        state.scene.add(toRaw(state.spaceship))
 
                     if (state.state == 2) {
                         if (state.ground.position.y < state.yStop + state.collisionBack) {
@@ -224,6 +243,7 @@ export default {
                         } else {
                             state.finalSpeed = 0
                             state.state = 4
+                            state.countRotation = 0
                         }
                     } else {
                         state.ground.position.y -= state.actualSpeed * state.delta
@@ -245,13 +265,32 @@ export default {
                     }
 
                     if (state.state < 3) {
-                        if (state.camera.position.x > 490) {
-                            state.camera.position.x -= state.actualLeftSpeed * state.delta
-                        } else if (state.camera.position.x < -490) {
-                            state.camera.position.x += state.actualRightSpeed * state.delta
+                        if (state.spaceship.position.x > 490) {
+                            state.spaceship.position.x -= state.actualLeftSpeed * state.delta
+                        } else if (state.spaceship.position.x < -490) {
+                            state.spaceship.position.x += state.actualRightSpeed * state.delta
                         } else {
-                            state.camera.position.x -= state.actualLeftSpeed * state.delta
-                            state.camera.position.x += state.actualRightSpeed * state.delta
+                            state.spaceship.position.x -= state.actualLeftSpeed * state.delta
+                            state.spaceship.position.x += state.actualRightSpeed * state.delta
+                            if (Math.abs(state.actualLeftSpeed - state.actualRightSpeed) > 0.1) {
+                                if (Math.abs(state.countRotation) < state.limitRotation) {
+                                    if (state.actualLeftSpeed - state.actualRightSpeed > 0.1) {
+                                        state.spaceship.rotateX(-state.rotation)
+                                        state.countRotation -= 1
+                                    } else if (state.actualRightSpeed - state.actualLeftSpeed > 0.1) {
+                                        state.spaceship.rotateX(state.rotation)
+                                        state.countRotation += 1
+                                    }
+                                }
+                            } else if (Math.abs(state.spaceship.rotation.z) > 0.1) {
+                                if (state.spaceship.rotation.x > 0) {
+                                    state.spaceship.rotateX(state.rotation)
+                                    state.countRotation += 1
+                                } else if (state.spaceship.rotation.x < 0) {
+                                    state.spaceship.rotateX(-state.rotation)
+                                    state.countRotation -= 1
+                                }
+                            }
                         }
                     }
 
@@ -271,6 +310,29 @@ export default {
                 } else {
                     state.state = 3
                     state.finalSpeed = 10
+                    state.countRotation = 0
+
+                    if (Math.abs(state.spaceship.rotation.z) > 0.1) {
+                        if (state.spaceship.rotation.x > 0) {
+                            state.spaceship.rotateX(state.rotation)
+                            state.countRotation += 1
+                        } else if (state.spaceship.rotation.x < 0) {
+                            state.spaceship.rotateX(-state.rotation)
+                            state.countRotation -= 1
+                        }
+                    }
+                }
+
+                if (state.state == 4) {
+                    if (Math.abs(state.spaceship.rotation.z) > 0.1) {
+                        if (state.spaceship.rotation.x > 0) {
+                            state.spaceship.rotateX(state.rotation)
+                            state.countRotation += 1
+                        } else if (state.spaceship.rotation.x < 0) {
+                            state.spaceship.rotateX(-state.rotation)
+                            state.countRotation -= 1
+                        }
+                    }
                 }
             }
 
