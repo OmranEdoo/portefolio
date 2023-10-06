@@ -93,7 +93,7 @@ body,
 }
 
 .normalText {
-  font-size: 1.25rem
+  font-size: 1rem
 }
 
 .horizontalLine {
