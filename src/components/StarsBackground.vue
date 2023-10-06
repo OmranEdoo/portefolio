@@ -36,7 +36,8 @@ export default {
             isPlaying: false,
             finalSpeed: 10,
             gameAcceleration: 10,
-            viewport: null
+            viewport: null,
+            screenX: 0,
         }
     },
     watch: {
@@ -68,15 +69,16 @@ export default {
         });
 
         window.addEventListener('touchstart', (e) => {
-            if (e.touches[0].screenX < this.viewport.offsetWidth / 2) {
+            this.screenX = e.touches[0].screenX
+            if (this.screenX < this.viewport.offsetWidth / 2) {
                 this.GO_LEFT()
             } else {
                 this.GO_RIGHT()
             }
         });
 
-        window.addEventListener('touchend', (e) => {
-            if (e.touches[0].screenX < this.viewport.offsetWidth / 2) {
+        window.addEventListener('touchend', () => {
+            if (this.screenX < this.viewport.offsetWidth / 2) {
                 this.STOP_LEFT()
             } else {
                 this.STOP_RIGHT()
