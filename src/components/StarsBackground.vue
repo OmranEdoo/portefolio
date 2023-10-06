@@ -4,7 +4,7 @@
         <div v-if="state > 2" class="btnContainer d-flex flex-column">
             <h2 class="resultText" v-if="state == 3">You win !</h2>
             <h2 class="resultText" v-else>You lose...</h2>
-            <v-btn class="gameBtn mb-2" rounded="sm" variant="outlined" @click="restart(true, 1000, 10)">Restart</v-btn>
+            <v-btn class="gameBtn mb-2" rounded="sm" variant="outlined" @click="restart(true, 700, 10)">Restart</v-btn>
             <v-btn class="gameBtn" rounded="sm" variant="outlined" href="/">Menu</v-btn>
         </div>
     </div>
@@ -36,7 +36,8 @@ export default {
             isPlaying: false,
             finalSpeed: 10,
             gameAcceleration: 10,
-            viewport: null
+            viewport: null,
+            screenX: 0,
         }
     },
     watch: {
@@ -68,15 +69,16 @@ export default {
         });
 
         window.addEventListener('touchstart', (e) => {
-            if (e.touches[0].screenX < this.viewport.offsetWidth / 2) {
+            this.screenX = e.touches[0].screenX
+            if (this.screenX < this.viewport.offsetWidth / 2) {
                 this.GO_LEFT()
             } else {
                 this.GO_RIGHT()
             }
         });
 
-        window.addEventListener('touchend', (e) => {
-            if (e.touches[0].screenX < this.viewport.offsetWidth / 2) {
+        window.addEventListener('touchend', () => {
+            if (this.screenX < this.viewport.offsetWidth / 2) {
                 this.STOP_LEFT()
             } else {
                 this.STOP_RIGHT()
