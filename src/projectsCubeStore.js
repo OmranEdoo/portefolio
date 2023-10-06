@@ -12,11 +12,15 @@ export default {
         mouseX: null,
         mouseY: null,
         cube: null,
+        video: null
     },
     mutations: {
         SET_VIEWPORT_SIZE(state, { width, height }) {
             state.width = width;
             state.height = height;
+        },
+        SET_VIDEO(state, video) {
+            state.video = video
         },
         INITIALIZE_RENDERER(state, el) {
             state.renderer = new THREE.WebGLRenderer({ antialiasing: true, alpha: true, canvas: el });
@@ -130,6 +134,11 @@ export default {
                 state.renderer.render(toRaw(state.scene), toRaw(state.camera));
                 dispatch("ANIMATE");
             });
+        }
+    },
+    getters: {
+        GET_VIDEO(state) {
+            return state.video
         }
     }
 }

@@ -46,7 +46,7 @@ export default {
   },
   methods: {
     play() {
-      this.speed = 500
+      this.speed = 700
       this.isPlay = true
     },
   }

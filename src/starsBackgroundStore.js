@@ -245,6 +245,11 @@ export default {
                             state.state = 4
                             state.countRotation = 0
                         }
+                    } else if (state.state == 4) {
+                        state.ground.position.y += state.actualSpeed * state.delta
+                        state.mountains.position.y += state.actualSpeed * state.delta
+                        state.black_mountains.position.y += state.actualSpeed * state.delta
+                        state.mountains_mesh.position.y += state.actualSpeed * state.delta
                     } else {
                         state.ground.position.y -= state.actualSpeed * state.delta
                         state.mountains.position.y -= state.actualSpeed * state.delta
