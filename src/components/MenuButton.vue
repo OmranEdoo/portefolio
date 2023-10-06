@@ -1,5 +1,15 @@
 <template>
-    <a href="/">
+    <router-link v-if="GET_PAGE() != 'home'" to="/">
+        <a>
+            <div id="menu" class="d-flex flex-column justify-center align-center">
+                <div class="menuBar" />
+                <div class="menuBar" />
+                <div class="menuBar" />
+                <div class="menuBar" />
+            </div>
+        </a>
+    </router-link>
+    <a v-else href="/">
         <div id="menu" class="d-flex flex-column justify-center align-center">
             <div class="menuBar" />
             <div class="menuBar" />
@@ -10,8 +20,13 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
-    name: 'MenuButton'
+    name: 'MenuButton',
+    methods: {
+        ...mapGetters(["GET_PAGE"]),
+    }
 }
 </script>
 

@@ -40,14 +40,13 @@ export default {
   data() {
     return {
       isPlay: false,
-      speed: 0.1,
-      acceleration: 0.2,
+      speed: 10,
       descriptions: ["Développeur freelance...", "Diplomé d'école d'ingénieur...", "Joueur d'échecs (très) amateur..."],
     }
   },
   methods: {
     play() {
-      this.speed = 10
+      this.speed = 500
       this.isPlay = true
     },
   }

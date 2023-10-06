@@ -18,20 +18,23 @@ export default {
         mountains_mesh: null,
         raycaster: null,
         state: 0,
+        clock: null,
+        delta: 0,
         numberMountains: 100,
         zGround: -40,
-        actualSpeed: 0.1,
-        finalSpeed: 0.1,
-        gameAcceleration: 0.2,
-        shipAcceleration: 0.1,
+        yGround: 2750,
+        actualSpeed: 10,
+        finalSpeed: 10,
+        gameAcceleration: 10,
+        shipAcceleration: 10,
         isPlay: false,
         finalLeftSpeed: 0,
         finalRightSpeed: 0,
         actualLeftSpeed: 0,
         actualRightSpeed: 0,
-        gameSpeed: 0.4,
+        gameSpeed: 40,
         ultraSpeedEnd: 1700,
-        speedIncrease: 0.2,
+        speedIncrease: 20,
         animateIncreaseSpeedCount: 100,
         yStop: null,
         collisionBack: 50,
@@ -61,6 +64,7 @@ export default {
             state.scene.background = new THREE.Color('#000000');
 
             state.state = 0
+            state.clock = new THREE.Clock()
 
             const light = new THREE.DirectionalLight(0xffffff, 1);
             // Where we want to place our light relative to the center of the scene. z value of 1 moves it towards us. Has big effect on shading
@@ -100,8 +104,7 @@ export default {
             const wireframeMaterial = new THREE.MeshBasicMaterial({ color: 0xccccc, wireframe: true, side: THREE.DoubleSide });
             state.ground = new THREE.Mesh(planeGeom, wireframeMaterial);
             state.scene.add(state.ground)
-            state.ground.position.z = state.zGround
-            state.ground.position.y = 2750
+            state.ground.position.set(0, state.yGround, state.zGround)
 
             state.mountains = new THREE.Group()
             state.black_mountains = new THREE.Group()
@@ -156,10 +159,10 @@ export default {
             state.renderer.render(toRaw(state.scene), toRaw(state.camera));
         },
         GO_LEFT(state) {
-            state.finalLeftSpeed = 3
+            state.finalLeftSpeed = 150
         },
         GO_RIGHT(state) {
-            state.finalRightSpeed = 3
+            state.finalRightSpeed = 150
         },
         STOP_LEFT(state) {
             state.finalLeftSpeed = 0
@@ -172,16 +175,12 @@ export default {
         },
         SET_FINALSPEED(state, value) {
             state.finalSpeed = value
-        },
-        SET_GAMEACCELERATION(state, value) {
-            state.gameAcceleration = value
         }
     },
     actions: {
-        INIT({ state, commit }, { width, height, el, isPlaying, finalSpeed, gameAcceleration }) {
+        INIT({ state, commit }, { width, height, el, isPlaying, finalSpeed }) {
             state.isPlay = isPlaying;
             state.finalSpeed = finalSpeed;
-            state.gameAcceleration = gameAcceleration;
 
             return new Promise(resolve => {
                 commit("SET_VIEWPORT_SIZE", { width, height });
@@ -194,6 +193,10 @@ export default {
             });
         },
         ANIMATE({ state, dispatch }) {
+            console.log(state.actualSpeed)
+            console.log(state.finalSpeed)
+
+            state.delta = state.clock.getDelta()
             if (state.actualSpeed < 0) {
                 state.actualSpeed = 0
                 state.state = 4
@@ -214,19 +217,19 @@ export default {
 
                     if (state.state == 2) {
                         if (state.ground.position.y < state.yStop + state.collisionBack) {
-                            state.ground.position.y += 2 * state.actualSpeed
-                            state.mountains.position.y += 2 * state.actualSpeed
-                            state.black_mountains.position.y += 2 * state.actualSpeed
-                            state.mountains_mesh.position.y += 2 * state.actualSpeed
+                            state.ground.position.y += 2 * state.actualSpeed * state.delta
+                            state.mountains.position.y += 2 * state.actualSpeed * state.delta
+                            state.black_mountains.position.y += 2 * state.actualSpeed * state.delta
+                            state.mountains_mesh.position.y += 2 * state.actualSpeed * state.delta
                         } else {
                             state.finalSpeed = 0
                             state.state = 4
                         }
                     } else {
-                        state.ground.position.y -= state.actualSpeed
-                        state.mountains.position.y -= state.actualSpeed
-                        state.black_mountains.position.y -= state.actualSpeed
-                        state.mountains_mesh.position.y -= state.actualSpeed
+                        state.ground.position.y -= state.actualSpeed * state.delta
+                        state.mountains.position.y -= state.actualSpeed * state.delta
+                        state.black_mountains.position.y -= state.actualSpeed * state.delta
+                        state.mountains_mesh.position.y -= state.actualSpeed * state.delta
                     }
 
                     if (state.actualLeftSpeed < state.finalLeftSpeed) {
@@ -243,12 +246,12 @@ export default {
 
                     if (state.state < 3) {
                         if (state.camera.position.x > 490) {
-                            state.camera.position.x -= state.actualLeftSpeed
+                            state.camera.position.x -= state.actualLeftSpeed * state.delta
                         } else if (state.camera.position.x < -490) {
-                            state.camera.position.x += state.actualRightSpeed
+                            state.camera.position.x += state.actualRightSpeed * state.delta
                         } else {
-                            state.camera.position.x -= state.actualLeftSpeed
-                            state.camera.position.x += state.actualRightSpeed
+                            state.camera.position.x -= state.actualLeftSpeed * state.delta
+                            state.camera.position.x += state.actualRightSpeed * state.delta
                         }
                     }
 
@@ -267,13 +270,12 @@ export default {
                     }
                 } else {
                     state.state = 3
-                    state.finalSpeed = 0.1
-                    state.gameAcceleration = 0.1
+                    state.finalSpeed = 10
                 }
             }
 
-            state.stars.position.y -= state.actualSpeed
-            state.stars2.position.y -= state.actualSpeed
+            state.stars.position.y -= state.actualSpeed * state.delta
+            state.stars2.position.y -= state.actualSpeed * state.delta
             if (state.stars.position.y < -300) {
                 state.stars.position.y = 900
             } else if (state.stars2.position.y < -300) {

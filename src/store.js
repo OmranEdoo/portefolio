@@ -8,4 +8,17 @@ export default createStore({
         starsBackgroundStore,
         projectsCubeStore
     },
+    state: {
+        pageName: 'home'
+    },
+    mutations: {
+        UPDATE_PAGE(state, value) {
+            state.pageName = value
+        }
+    },
+    getters: {
+        GET_PAGE(state) {
+            return state.pageName
+        }
+    }
 })
