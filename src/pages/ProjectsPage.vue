@@ -42,7 +42,7 @@ import FooterBar from '@/components/FooterBar.vue'
 import ProjectCarousel from '@/components/ProjectCarousel.vue'
 import StarsBackground from '@/components/StarsBackground.vue'
 import MenuButton from '@/components/MenuButton.vue'
-
+import { mapMutations } from "vuex"
 
 export default {
   name: 'ProjectsPage',
@@ -63,7 +63,11 @@ export default {
       ]
     }
   },
+  mounted() {
+    this.UPDATE_PAGE("projects")
+  },
   methods: {
+    ...mapMutations(["UPDATE_PAGE"]),
     updateDescription(index) {
       if (this.seeDescription) {
         if (this.index == index) {
@@ -158,10 +162,16 @@ body,
 
 #projectsContainer {
   width: 50vw;
-  height: 50vw;
+  height: 100%;
   padding-top: 20vh;
   margin-bottom: 50px;
   align-items: start !important;
+}
+
+@media screen and (orientation: portrait) {
+  #projectsContainer {
+    padding-top: 0%;
+  }
 }
 
 #textContainer {

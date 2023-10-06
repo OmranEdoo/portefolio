@@ -23,6 +23,7 @@
 import FooterBar from '@/components/FooterBar.vue'
 import StarsBackground from '@/components/StarsBackground.vue'
 import MenuButton from '@/components/MenuButton.vue'
+import { mapMutations } from "vuex"
 
 export default {
   name: 'AboutPage',
@@ -35,6 +36,12 @@ export default {
     return {
       texts: ["Hi! I'm a passionate developer with a background in geomatics engineering. A creator at heart, I'm always looking for new ways to solve problems through programming. ", "When I'm not coding, I like playing soccer, climbing, running or playing chess. "]
     }
+  },
+  mounted() {
+    this.UPDATE_PAGE("about")
+  },
+  methods: {
+    ...mapMutations(["UPDATE_PAGE"])
   }
 }
 </script>

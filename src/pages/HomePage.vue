@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <StarsBackground class="canvas" :isPlay="isPlay" :speed="speed" :acceleration="acceleration" />
+    <StarsBackground :isPlay="isPlay" :speed="speed" />
     <MenuButton v-if="isPlay"></MenuButton>
     <div v-else id="textContainer">
       <h1 id="blaze" class="d-flex justify-content-start">Omran Edoo</h1>
@@ -40,14 +40,13 @@ export default {
   data() {
     return {
       isPlay: false,
-      speed: 0.1,
-      acceleration: 0.2,
+      speed: 10,
       descriptions: ["Développeur freelance...", "Diplomé d'école d'ingénieur...", "Joueur d'échecs (très) amateur..."],
     }
   },
   methods: {
     play() {
-      this.speed = 10
+      this.speed = 500
       this.isPlay = true
     },
   }
@@ -111,10 +110,5 @@ body {
 .v-navigation-drawer__content::-webkit-scrollbar-thumb {
   -webkit-box-shadow: inset 0 0 6px #424242;
   background-color: #424242;
-}
-
-.canvas {
-  width: 100vw;
-  height: 100vh;
 }
 </style>
