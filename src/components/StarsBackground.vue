@@ -1,5 +1,5 @@
 <template>
-    <div style="display: flex !important;">
+    <div>
         <canvas id="viewport" />
         <div v-if="state > 2" class="btnContainer d-flex flex-column">
             <h2 class="resultText" v-if="state == 3">You win !</h2>
@@ -95,6 +95,9 @@ export default {
             }).then(() => {
                 this.ANIMATE();
                 window.addEventListener("resize", () => {
+                    console.log("___resize", this.viewport)
+                    console.log(this.viewport.offsetWidth)
+                    console.log(this.viewport.offsetHeight)
                     this.RESIZE({
                         width: this.viewport.offsetWidth,
                         height: this.viewport.offsetHeight
@@ -108,8 +111,8 @@ export default {
 
 <style>
 #viewport {
-    height: 100%;
-    width: 100%;
+    width: 100vw !important;
+    height: 100vh !important;
 }
 
 .btnContainer {

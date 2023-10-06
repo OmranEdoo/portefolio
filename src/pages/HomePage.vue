@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <StarsBackground class="canvas" :isPlay="isPlay" :speed="speed" :acceleration="acceleration" />
+    <StarsBackground :isPlay="isPlay" :speed="speed" :acceleration="acceleration" />
     <MenuButton v-if="isPlay"></MenuButton>
     <div v-else id="textContainer">
       <h1 id="blaze" class="d-flex justify-content-start">Omran Edoo</h1>
@@ -111,10 +111,5 @@ body {
 .v-navigation-drawer__content::-webkit-scrollbar-thumb {
   -webkit-box-shadow: inset 0 0 6px #424242;
   background-color: #424242;
-}
-
-.canvas {
-  width: 100vw;
-  height: 100vh;
 }
 </style>
