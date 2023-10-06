@@ -9,7 +9,7 @@
         <p v-for="text in texts" :key="text" class="normalText d-flex flex-column align-start"
           style="text-align: justify;">{{ text }}
         </p>
-        <a href="CV_V4.pdf" target="_blank" class="d-flex justify-start mt-10 normalText link">
+        <a href="CV_V5.pdf" target="_blank" class="d-flex justify-start mt-10 normalText link">
           <v-icon icon="mdi-subdirectory-arrow-right" class="d-flex justify-end mr-2" size="small" />
           Resume
         </a>
