@@ -68,7 +68,7 @@ export default {
         });
 
         window.addEventListener('touchstart', (e) => {
-            if (e.touches[0].clientX < this.viewport.offsetWidth / 2) {
+            if (e.touches[0].screenX < this.viewport.offsetWidth / 2) {
                 this.GO_LEFT()
             } else {
                 this.GO_RIGHT()
@@ -76,7 +76,7 @@ export default {
         });
 
         window.addEventListener('touchend', (e) => {
-            if (e.touches[0].clientX < this.viewport.offsetWidth / 2) {
+            if (e.touches[0].screenX < this.viewport.offsetWidth / 2) {
                 this.STOP_LEFT()
             } else {
                 this.STOP_RIGHT()
