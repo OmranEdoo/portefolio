@@ -1,0 +1,173 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.4\n"
+
+#: src/pages/HomePage.vue:19
+msgid "_about"
+msgstr "_à propos"
+
+#: src/pages/HomePage.vue:23
+msgid "_play"
+msgstr "_jouer"
+
+#: src/pages/HomePage.vue:14
+msgid "_projects"
+msgstr "_projets"
+
+#: src/pages/HomePage.vue:58
+msgid "A (very) amateur chess player..."
+msgstr "Joueur d'échecs (très) amateur..."
+
+#: src/pages/AboutPage.vue:8
+msgid "ABOUT"
+msgstr "À propos"
+
+#: src/pages/HomePage.vue:57
+msgid "Engineering school graduate..."
+msgstr "Diplomé d'école d'ingénieur..."
+
+#: src/pages/HomePage.vue:56
+msgid "Freelance developer..."
+msgstr "Développeur freelance..."
+
+#: src/pages/AboutPage.vue:42
+msgid ""
+"Hi! I'm a passionate developer with a background in geomatics engineering. "
+"A \n"
+"          creator at heart, I'm always looking for new ways to solve "
+"problems through \n"
+"          programming. "
+msgstr ""
+"Salut, je suis un développeur passionné ayant fait une formation en "
+"ingénierie géomatique. Créateur dans l'âme, je suis toujours à la recherche "
+"de nouvelles façons de résoudre les problèmes via la programmation. "
+
+#: src/pages/ProjectsPage.vue:91
+msgid ""
+"I learned 3D programmation in engineering school with OpenGL and WebGL. For "
+"the project, i've used the library ThreeJs."
+msgstr ""
+"J'ai appris la programmation 3D en école d'ingénieur avec OpenGL et WebGL. "
+"Pour ce projet, j'ai utilisé la bibliothèque ThreeJs."
+
+#: src/pages/ProjectsPage.vue:11
+msgid "Projects"
+msgstr "Projets"
+
+#: src/pages/AboutPage.vue:15
+msgid "Resume"
+msgstr "CV"
+
+#: src/pages/ProjectsPage.vue:108
+msgid ""
+"The application provides clear, accurate 2D and 2D + 1 visualisation of "
+"data, as well as spatio-temporal analysis of trajectories. It is easy for "
+"users to learn, thanks to the various aids provided."
+msgstr ""
+"L'application permet une visualisation claire et précise des données en 2D "
+"et 2D + 1, ainsi qu'une analyse spatio-temporelle des trajectoires. ainsi "
+"que l'analyse spatio-temporelle des trajectoires. Elle est facile "
+"d'utilisation pour les utilisateurs, grâce aux différentes aides fournies."
+
+#: src/pages/ProjectsPage.vue:98
+msgid ""
+"The TrailLove76200 project aims to visualise the trajectories of "
+"participants in the Oxfam Trailwalker 2021 race and to provide a spatio-"
+"temporal analysis of these trajectories. The main challenge is to find an "
+"effective way of visualising this data and providing analysis tools for race "
+"organisers and researchers interested in the data collected. To meet this "
+"challenge, the project proposes the development of a high-performance web "
+"application capable of representing the evolution of participant's pace as a "
+"function of different parameters."
+msgstr ""
+"Le projet TrailLove76200 vise à visualiser les trajectoires des participants "
+"à la course Oxfam Trailwalker 2021 et à fournir une analyse spatio-"
+"temporelle de ces trajectoires. Le principal défi est de trouver un moyen "
+"efficace de visualiser ces données et de fournir des outils d'analyse aux "
+"organisateurs de la course et aux chercheurs intéressés par les données "
+"collectées. Le principal défi est de trouver un moyen efficace de visualiser "
+"ces données et de fournir des outils d'analyse aux organisateurs de courses "
+"et aux chercheurs intéressés par les données collectées. Pour répondre à ce "
+"défi, le projet propose le développement d'une application web performante "
+"capable de représenter l'évolution de l'allure des participants en fonction "
+"de différents paramètres."
+
+#: src/pages/ProjectsPage.vue:88
+msgid ""
+"This Website is a brief presentation of wy work. It was made with the "
+"frameworks Vue3 and Vuex."
+msgstr ""
+"Ce site web est une brève présentation de notre travail. Il a été réalisé "
+"avec les frameworks Vue3 et Vuex."
+
+#: src/pages/AboutPage.vue:47
+msgid ""
+"When I'm not coding, I like playing soccer, climbing, running or playing \n"
+"          chess. "
+msgstr ""
+"Lorsque je ne code pas, j'aime jouer au football, faire de l'escalade, "
+"courir ou jouer aux échecs. "
+
+#~ msgid ""
+#~ "I learned 3D programmation in engineering school with OpenGL and WebGL. \n"
+#~ "            For the project, i've used the library ThreeJs."
+#~ msgstr ""
+#~ "J'ai appris la programmation 3D en école d'ingénieur avec OpenGL et "
+#~ "WebGL. Pour ce projet, j'ai utilisé la bibliothèque ThreeJs."
+
+#~ msgid ""
+#~ "The application provides clear, accurate 2D and 2D + 1 visualisation of \n"
+#~ "                data, as well as spatio-temporal analysis of "
+#~ "trajectories. It is easy \n"
+#~ "                for users to learn, thanks to the various aids provided."
+#~ msgstr ""
+#~ "L'application permet une visualisation claire et précise des données en "
+#~ "2D et 2D + 1, ainsi qu'une analyse spatio-temporelle des trajectoires. "
+#~ "ainsi que l'analyse spatio-temporelle des trajectoires. Elle est facile "
+#~ "d'utilisation pour les utilisateurs, grâce aux différentes aides fournies."
+
+#~ msgid ""
+#~ "The TrailLove76200 project aims to visualise the trajectories of \n"
+#~ "                participants in the Oxfam Trailwalker 2021 race and to "
+#~ "provide a \n"
+#~ "                spatio-temporal analysis of these trajectories. The main "
+#~ "challenge is to \n"
+#~ "                find an effective way of visualising this data and "
+#~ "providing analysis \n"
+#~ "                tools for race organisers and researchers interested in "
+#~ "the data \n"
+#~ "                collected. To meet this challenge, the project proposes "
+#~ "the development \n"
+#~ "                of a high-performance web application capable of "
+#~ "representing the \n"
+#~ "                evolution of participant's pace as a function of "
+#~ "different parameters."
+#~ msgstr ""
+#~ "Le projet TrailLove76200 vise à visualiser les trajectoires des "
+#~ "participants à la course Oxfam Trailwalker 2021 et à fournir une analyse "
+#~ "spatio-temporelle de ces trajectoires. Le principal défi est de trouver "
+#~ "un moyen efficace de visualiser ces données et de fournir des outils "
+#~ "d'analyse aux organisateurs de la course et aux chercheurs intéressés par "
+#~ "les données collectées. Le principal défi est de trouver un moyen "
+#~ "efficace de visualiser ces données et de fournir des outils d'analyse aux "
+#~ "organisateurs de courses et aux chercheurs intéressés par les données "
+#~ "collectées. Pour répondre à ce défi, le projet propose le développement "
+#~ "d'une application web performante capable de représenter l'évolution de "
+#~ "l'allure des participants en fonction de différents paramètres."
+
+#~ msgid ""
+#~ "I learned 3D programmation in engineering school with OpenGL and WebGL. \n"
+#~ "                For the project, i've used the library ThreeJs."
+#~ msgstr ""
+#~ "J'ai appris la programmation 3D en école d'ingénieur avec OpenGL et "
+#~ "WebGL. Pour ce projet, j'ai utilisé la bibliothèque ThreeJs."

@@ -1,17 +1,18 @@
 <template>
   <v-app>
+    <LanguageBtn />
     <StarsBackground class="canvas" />
     <div id="appContainer" class="d-flex justify-center align-center">
       <MenuButton />
       <div class="mainContainer d-flex flex-column">
-        <b class="titleText d-flex flex-column align-start">ABOUT</b>
+        <b v-translate class="titleText d-flex flex-column align-start">ABOUT</b>
         <div class="horizontalLine mb-4" />
         <p v-for="text in texts" :key="text" class="normalText d-flex flex-column align-start"
           style="text-align: justify;">{{ text }}
         </p>
-        <a href="CV_V5.pdf" target="_blank" class="d-flex justify-start mt-10 normalText link">
+        <a id="cv" href="CV_V5.pdf" target="_blank" class="d-flex justify-start mt-10 normalText link">
           <v-icon icon="mdi-subdirectory-arrow-right" class="d-flex justify-end mr-2" size="small" />
-          Resume
+          <p v-translate>Resume</p>
         </a>
       </div>
     </div>
@@ -20,28 +21,41 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex"
+
 import FooterBar from '@/components/FooterBar.vue'
 import StarsBackground from '@/components/StarsBackground.vue'
 import MenuButton from '@/components/MenuButton.vue'
-import { mapMutations } from "vuex"
+import LanguageBtn from '@/components/LanguageBtn.vue'
 
 export default {
   name: 'AboutPage',
   components: {
     FooterBar,
     StarsBackground,
-    MenuButton
-  },
-  data() {
-    return {
-      texts: ["Hi! I'm a passionate developer with a background in geomatics engineering. A creator at heart, I'm always looking for new ways to solve problems through programming. ", "When I'm not coding, I like playing soccer, climbing, running or playing chess. "]
-    }
+    MenuButton,
+    LanguageBtn,
   },
   mounted() {
     this.UPDATE_PAGE("about")
   },
   methods: {
     ...mapMutations(["UPDATE_PAGE"])
+  },
+  computed: {
+    texts() {
+      return [
+        this.$gettext(
+          "Hi! I'm a passionate developer with a background in geomatics engineering. A " +
+          "creator at heart, I'm always looking for new ways to solve problems through " +
+          "programming. "
+        ),
+        this.$gettext(
+          "When I'm not coding, I like playing soccer, climbing, running or playing " +
+          "chess. "
+        )
+      ]
+    }
   }
 }
 </script>
@@ -58,7 +72,7 @@ html,
 body,
 #app {
   margin: 0;
-  min-height: 100vh;
+  min-height: 100%;
   overflow-x: hidden;
 }
 
@@ -81,7 +95,7 @@ body,
 
 .canvas {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
 }
 
 .mainContainer {
@@ -93,7 +107,8 @@ body,
 }
 
 .normalText {
-  font-size: 1rem
+  font-size: 1rem;
+  font-family: LGC
 }
 
 .horizontalLine {
@@ -105,6 +120,10 @@ body,
 .link {
   color: #E0FFFF;
   text-decoration: none
+}
+
+#cv:hover {
+  color: aqua;
 }
 
 .v-navigation-drawer__content::-webkit-scrollbar-track {

@@ -57,13 +57,13 @@ export default {
                     side: THREE.DoubleSide,
                 }),
                 new THREE.MeshPhongMaterial({
-                    color: '0x111166',
+                    color: new THREE.Color('0x111166'),
                     opacity: 0.5,
                     transparent: true,
                     side: THREE.DoubleSide,
                 }),
                 new THREE.MeshPhongMaterial({
-                    color: '0x111122',
+                    color: new THREE.Color('0x111122'),
                     opacity: 0.5,
                     transparent: true,
                     side: THREE.DoubleSide,
@@ -72,7 +72,7 @@ export default {
                     map: videoTexture
                 }),
                 new THREE.MeshPhongMaterial({
-                    color: '0x111122',
+                    color: new THREE.Color('0x111122'),
                     opacity: 0.5,
                     transparent: true,
                     side: THREE.DoubleSide,
