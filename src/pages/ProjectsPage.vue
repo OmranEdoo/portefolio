@@ -16,8 +16,8 @@
                 <p class="technologyText ml-1">{{ project.technology }}</p>
                 <h3 class="projectTitleText d-flex justify-end pt-4 pb-4">
                   {{ project.title }}
-                  <a :href="project.url" target="_blank" class="pl-4 link">
-                    <v-icon icon="north_east" size="x-small" class="ml-1" />
+                  <a :href="project.url" target="_blank" class="d-flex align-center pl-2 link">
+                    <v-icon icon="mdi-arrow-top-right" size="x-small" class="ml-1" />
                   </a>
                 </h3>
               </div>
@@ -302,11 +302,13 @@ body,
 }
 
 .link {
-  color: white
+  color: white;
+  text-decoration: unset;
 }
 
 .link:hover {
-  color: rgb(202, 151, 246);
+  color: rgb(151, 235, 246);
+  transform: translate(2px, -2px);
 }
 
 .v-navigation-drawer__content::-webkit-scrollbar-track {
