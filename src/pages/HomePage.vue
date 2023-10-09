@@ -15,7 +15,7 @@
       <div v-else>
         <MenuButton v-if="isPlay"></MenuButton>
         <div v-else class="centerContainer">
-          <h1 id="blaze" class="d-flex justify-content-start">Omran Edoo</h1>
+          <h1 id="blaze" class="caviarFont d-flex justify-content-start">Omran Edoo</h1>
           <TypeWriter :array="descriptions" :key="typeWriterKey" />
           <router-link to="/projects">
             <v-btn variant="plain">
@@ -122,14 +122,8 @@ html {
   color: white;
 }
 
-@font-face {
-  font-family: "title";
-  src: url("@/fonts/limo.ttf");
-}
-
 #blaze {
   text-transform: uppercase;
-  font-family: title;
   font-size: calc(40px + 4vw);
   height: 6vw;
   width: max-content;

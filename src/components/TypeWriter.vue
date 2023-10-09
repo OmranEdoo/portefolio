@@ -1,6 +1,7 @@
 <template>
   <div class="is-typed">
-    <span id="span" class="typed d-flex justify-content-start">{{ typeValue }}{{ writingChar }}</span>
+    <span id="span" style="font-family: LGC" class="typed d-flex justify-content-start">{{ typeValue }}{{
+      writingChar }}</span>
     <span :class="caret + ' ' + { typing: typeStatus }">&nbsp;</span>
   </div>
 </template>
