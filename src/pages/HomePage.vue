@@ -3,10 +3,18 @@
     <StarsBackground :isPlay="isPlay" :speed="speed" />
     <div>
       <LanguageBtn />
-      <div v-if="isLoading" />
+      <div class="centerContainer" v-if="isLoading">
+        <p class="caviarFont" v-translate>Welcome on my portefolio website !</p>
+        <p class="caviarFont" v-translate>loading</p>
+        <div class="waviy">
+          <span style="--i:1">.</span>
+          <span style="--i:2">.</span>
+          <span style="--i:3">.</span>
+        </div>
+      </div>
       <div v-else>
         <MenuButton v-if="isPlay"></MenuButton>
-        <div v-else id="textContainer">
+        <div v-else class="centerContainer">
           <h1 id="blaze" class="d-flex justify-content-start">Omran Edoo</h1>
           <TypeWriter :array="descriptions" :key="typeWriterKey" />
           <router-link to="/projects">
@@ -62,7 +70,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.END_LOADING()
-    }, 0)
+    }, 3000)
   },
   computed: {
     ...mapState(["isLoading"]),
@@ -105,7 +113,7 @@ html {
   cursor: none;
 }
 
-#textContainer {
+.centerContainer {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -130,21 +138,39 @@ html {
   align-items: center;
 }
 
+.caviarFont {
+  font-family: caviardreams;
+}
+
 .redirectBtn {
   color: #a9a9a9;
 }
 
-.v-navigation-drawer__content::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px #5d5d5d;
-  background-color: #5d5d5d;
+.waviy {
+  position: relative;
+  -webkit-box-reflect: below -5px linear-gradient(transparent, rgba(0, 0, 0, .2));
 }
 
-.v-navigation-drawer__content::-webkit-scrollbar {
-  width: 0px;
+.waviy span {
+  font-family: ASO_reg, cursive;
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  animation: waviy 1s infinite;
+  animation-delay: calc(.1s * var(--i));
+
 }
 
-.v-navigation-drawer__content::-webkit-scrollbar-thumb {
-  -webkit-box-shadow: inset 0 0 6px #424242;
-  background-color: #424242;
+@keyframes waviy {
+
+  0%,
+  40%,
+  100% {
+    transform: translateY(0)
+  }
+
+  20% {
+    transform: translateY(-5px)
+  }
 }
 </style>

@@ -12,19 +12,19 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 3.4\n"
 
-#: src/pages/HomePage.vue:19
+#: src/pages/HomePage.vue:23
 msgid "_about"
 msgstr "_à propos"
 
-#: src/pages/HomePage.vue:23
+#: src/pages/HomePage.vue:27
 msgid "_play"
 msgstr "_jouer"
 
-#: src/pages/HomePage.vue:14
+#: src/pages/HomePage.vue:18
 msgid "_projects"
 msgstr "_projets"
 
-#: src/pages/HomePage.vue:73
+#: src/pages/HomePage.vue:77
 msgid "A (very) amateur chess player..."
 msgstr "Joueur d'échecs (très) amateur..."
 
@@ -32,7 +32,7 @@ msgstr "Joueur d'échecs (très) amateur..."
 msgid "ABOUT"
 msgstr "À propos"
 
-#: src/pages/HomePage.vue:72
+#: src/pages/HomePage.vue:76
 msgid "Engineering school graduate..."
 msgstr "Diplomé d'école d'ingénieur..."
 
@@ -48,7 +48,7 @@ msgstr ""
 "partie de l'équipe backend, j'ai travaillé sur de nombreux sujets dont "
 "l'importation et le traitement de données 3D."
 
-#: src/pages/HomePage.vue:71
+#: src/pages/HomePage.vue:75
 msgid "Freelance developer..."
 msgstr "Développeur freelance..."
 
@@ -69,6 +69,10 @@ msgid ""
 msgstr ""
 "J'ai appris la programmation 3D en école d'ingénieur avec OpenGL et WebGL. "
 "Pour ce projet, j'ai utilisé la bibliothèque ThreeJs."
+
+#: src/pages/HomePage.vue:8
+msgid "loading"
+msgstr "chargement"
 
 #: src/pages/ProjectsPage.vue:130
 msgid ""
@@ -142,6 +146,10 @@ msgid ""
 msgstr ""
 "Ce site web est une brève présentation de notre travail. Il a été réalisé "
 "avec les frameworks Vue3 et Vuex."
+
+#: src/pages/HomePage.vue:7
+msgid "Welcome on my portefolio website !"
+msgstr "Bienvenue sur mon site portefolio !"
 
 #: src/pages/AboutPage.vue:53
 msgid ""

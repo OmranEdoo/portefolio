@@ -12,19 +12,19 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.4\n"
 
-#: src/pages/HomePage.vue:19
+#: src/pages/HomePage.vue:23
 msgid "_about"
 msgstr "_about"
 
-#: src/pages/HomePage.vue:23
+#: src/pages/HomePage.vue:27
 msgid "_play"
 msgstr "_play"
 
-#: src/pages/HomePage.vue:14
+#: src/pages/HomePage.vue:18
 msgid "_projects"
 msgstr "_projects"
 
-#: src/pages/HomePage.vue:73
+#: src/pages/HomePage.vue:77
 msgid "A (very) amateur chess player..."
 msgstr "A (very) amateur chess player..."
 
@@ -32,7 +32,7 @@ msgstr "A (very) amateur chess player..."
 msgid "ABOUT"
 msgstr "ABOUT"
 
-#: src/pages/HomePage.vue:72
+#: src/pages/HomePage.vue:76
 msgid "Engineering school graduate..."
 msgstr "Engineering school graduate..."
 
@@ -48,7 +48,7 @@ msgstr ""
 "backend teams, I've work with a lot of subjects including 3D data import and "
 "processing."
 
-#: src/pages/HomePage.vue:71
+#: src/pages/HomePage.vue:75
 msgid "Freelance developer..."
 msgstr "Freelance developer..."
 
@@ -69,6 +69,10 @@ msgid ""
 msgstr ""
 "I learned 3D programmation in engineering school with OpenGL and WebGL. For "
 "the project, i've used the library ThreeJs."
+
+#: src/pages/HomePage.vue:8
+msgid "loading"
+msgstr "loading"
 
 #: src/pages/ProjectsPage.vue:130
 msgid ""
@@ -139,6 +143,10 @@ msgid ""
 msgstr ""
 "This Website is a brief presentation of wy work. It was made with the "
 "frameworks Vue3 and Vuex."
+
+#: src/pages/HomePage.vue:7
+msgid "Welcome on my portefolio website !"
+msgstr "Welcome on my portefolio website !"
 
 #: src/pages/AboutPage.vue:53
 msgid ""
