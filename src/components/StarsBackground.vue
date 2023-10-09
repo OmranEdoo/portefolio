@@ -69,7 +69,8 @@ export default {
         });
 
         window.addEventListener('touchstart', (e) => {
-            e.preventDefault()
+            if (this.GET_STATE() != 0)
+                e.preventDefault()
             this.screenX = e.touches[0].screenX
             if (this.screenX < this.viewport.offsetWidth / 2) {
                 this.GO_LEFT()
@@ -79,7 +80,8 @@ export default {
         });
 
         window.addEventListener('touchend', (e) => {
-            e.preventDefault()
+            if (this.GET_STATE() != 0)
+                e.preventDefault()
             if (this.screenX < this.viewport.offsetWidth / 2) {
                 this.STOP_LEFT()
             } else {

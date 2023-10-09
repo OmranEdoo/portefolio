@@ -147,8 +147,9 @@ export default {
   },
   methods: {
     ...mapMutations(["UPDATE_PAGE"]),
-    ...mapMutations('projectsCubeStore', ["SET_VIDEO"]),
+    ...mapMutations('projectsCubeStore', ["SET_VIDEO", "ROTATE"]),
     updateDescription(index) {
+      this.ROTATE()
       let videoPath
       this.projects.forEach(project => {
         if (project.index == index) {

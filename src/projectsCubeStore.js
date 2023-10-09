@@ -4,17 +4,23 @@ import { toRaw } from 'vue';
 export default {
     namespaced: true,
     state: {
-        width: 0,
-        height: 0,
         camera: null,
-        scene: null,
-        renderer: null,
+        cube: null,
+        height: 0,
+        isRotate: false,
         mouseX: null,
         mouseY: null,
-        cube: null,
-        video: null
+        renderer: null,
+        rotateInitY: null,
+        scene: null,
+        video: null,
+        width: 0,
     },
     mutations: {
+        ROTATE(state) {
+            state.rotateInitY = state.cube.rotation.y
+            state.isRotate = true
+        },
         SET_VIEWPORT_SIZE(state, { width, height }) {
             state.width = width;
             state.height = height;
@@ -120,15 +126,24 @@ export default {
                 state.camera.position.z = 800
             }
 
-            if (state.mouseX > window.innerWidth / 2 && state.cube.rotation.y < Math.PI / 12)
-                state.cube.rotation.y += (Math.PI / 12 - state.cube.rotation.y) / 20;
-            else if (state.mouseX < window.innerWidth / 2 && -Math.PI / 12 < state.cube.rotation.y)
-                state.cube.rotation.y -= (state.cube.rotation.y + Math.PI / 12) / 20;
+            if (state.isRotate) {
+                state.cube.rotateY(Math.PI / 10)
+            } else {
+                if (state.mouseX > window.innerWidth / 2 && state.cube.rotation.y < Math.PI / 12)
+                    state.cube.rotation.y += (Math.PI / 12 - state.cube.rotation.y) / 20;
+                else if (state.mouseX < window.innerWidth / 2 && -Math.PI / 12 < state.cube.rotation.y)
+                    state.cube.rotation.y -= (state.cube.rotation.y + Math.PI / 12) / 20;
 
-            if (state.mouseY > window.innerHeight / 2 && state.cube.rotation.x < Math.PI / 12)
-                state.cube.rotation.x += (Math.PI / 12 - state.cube.rotation.x) / 20;
-            else if (state.mouseY < window.innerHeight / 2 && -Math.PI / 12 < state.cube.rotation.x)
-                state.cube.rotation.x -= (state.cube.rotation.x + Math.PI / 12) / 20;
+                if (state.mouseY > window.innerHeight / 2 && state.cube.rotation.x < Math.PI / 12)
+                    state.cube.rotation.x += (Math.PI / 12 - state.cube.rotation.x) / 20;
+                else if (state.mouseY < window.innerHeight / 2 && -Math.PI / 12 < state.cube.rotation.x)
+                    state.cube.rotation.x -= (state.cube.rotation.x + Math.PI / 12) / 20;
+            }
+
+            if (Math.abs(state.cube.rotation.y - state.rotateInitY) <= Math.PI / 10) {
+                state.isRotate = false
+                state.cube.rotation.y = state.rotateInitY
+            }
 
             window.requestAnimationFrame(() => {
                 state.renderer.render(toRaw(state.scene), toRaw(state.camera));
