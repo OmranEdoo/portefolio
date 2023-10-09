@@ -14,7 +14,7 @@ msgstr ""
 msgid "_projects"
 msgstr ""
 
-#: src/pages/HomePage.vue:58
+#: src/pages/HomePage.vue:73
 msgid "A (very) amateur chess player..."
 msgstr ""
 
@@ -22,23 +22,28 @@ msgstr ""
 msgid "ABOUT"
 msgstr ""
 
-#: src/pages/HomePage.vue:57
+#: src/pages/HomePage.vue:72
 msgid "Engineering school graduate..."
 msgstr ""
 
-#: src/pages/HomePage.vue:56
+#: src/pages/ProjectsPage.vue:137
+msgid "For this project, we experiment the AGILE ans SCRUM methodologie. We were divided in two teams : the backend and the frontend. I was part of the backend teams, I've work with a lot of subjects including 3D data import and processing."
+msgstr ""
+
+#: src/pages/HomePage.vue:71
 msgid "Freelance developer..."
 msgstr ""
 
-#: src/pages/AboutPage.vue:42
-msgid ""
-"Hi! I'm a passionate developer with a background in geomatics engineering. A \n"
-"          creator at heart, I'm always looking for new ways to solve problems through \n"
-"          programming. "
+#: src/pages/AboutPage.vue:48
+msgid "Hi! I'm a passionate developer with a background in geomatics engineering. A creator at heart, I'm always looking for new ways to solve problems through programming. "
 msgstr ""
 
-#: src/pages/ProjectsPage.vue:91
+#: src/pages/ProjectsPage.vue:98
 msgid "I learned 3D programmation in engineering school with OpenGL and WebGL. For the project, i've used the library ThreeJs."
+msgstr ""
+
+#: src/pages/ProjectsPage.vue:130
+msgid "MiniGIS is a GIS Desktop application capable of displaying, manipulating, and analyzing the various forms of spatial data. MiniGIS supports Vector and Raster data format. The data represented in the application will come from web feeds, existing databases, or files from local or remote repositories."
 msgstr ""
 
 #: src/pages/ProjectsPage.vue:11
@@ -49,20 +54,26 @@ msgstr ""
 msgid "Resume"
 msgstr ""
 
-#: src/pages/ProjectsPage.vue:108
+#: src/pages/ProjectsPage.vue:118
 msgid "The application provides clear, accurate 2D and 2D + 1 visualisation of data, as well as spatio-temporal analysis of trajectories. It is easy for users to learn, thanks to the various aids provided."
 msgstr ""
 
-#: src/pages/ProjectsPage.vue:98
-msgid "The TrailLove76200 project aims to visualise the trajectories of participants in the Oxfam Trailwalker 2021 race and to provide a spatio-temporal analysis of these trajectories. The main challenge is to find an effective way of visualising this data and providing analysis tools for race organisers and researchers interested in the data collected. To meet this challenge, the project proposes the development of a high-performance web application capable of representing the evolution of participant's pace as a function of different parameters."
+#: src/pages/ProjectsPage.vue:110
+msgid "The main challenge is to find an effective way of visualising this data and providing analysis tools for race organisers and researchers interested in the data collected. To meet this challenge, the project proposes the development of a high-performance web application capable of representing the evolution of participant's pace as a function of different parameters."
 msgstr ""
 
-#: src/pages/ProjectsPage.vue:88
+#: src/pages/ProjectsPage.vue:105
+msgid "The TrailLove76200 project aims to visualise the trajectories of participants in the Oxfam Trailwalker 2021 race and to provide a spatio-temporal analysis of these trajectories."
+msgstr ""
+
+#: src/pages/ProjectsPage.vue:126
+msgid "This project was a school project made with the 17 ENSG students. It consists of developing a 2D/3D GIS using C++, Qt and OpenGL. "
+msgstr ""
+
+#: src/pages/ProjectsPage.vue:95
 msgid "This Website is a brief presentation of wy work. It was made with the frameworks Vue3 and Vuex."
 msgstr ""
 
-#: src/pages/AboutPage.vue:47
-msgid ""
-"When I'm not coding, I like playing soccer, climbing, running or playing \n"
-"          chess. "
+#: src/pages/AboutPage.vue:53
+msgid "When I'm not coding, I like playing soccer, climbing, running or playing chess. "
 msgstr ""

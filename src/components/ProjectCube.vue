@@ -12,14 +12,14 @@
 import { mapMutations, mapActions, mapGetters } from "vuex";
 
 export default {
-    name: 'ProjectCarousel',
+    name: 'ProjectCube',
     data() {
         return {
             angle: 0,
             video: null,
             phone: false,
             viewport: null,
-            videoPath: './portefolio.mp4'
+            videoPath: './video/portefolio.mp4'
         }
     },
     watch: {
@@ -34,6 +34,7 @@ export default {
         });
         this.viewport = document.getElementById("canvasInfinity")
         this.video = document.getElementById("video");
+        this.SET_BOUNDINGCANVAS(this.viewport.getBoundingClientRect())
 
         this.INIT({
             width: this.viewport.offsetWidth,
@@ -47,6 +48,8 @@ export default {
                     width: this.viewport.offsetWidth,
                     height: this.viewport.offsetHeight
                 });
+                this.SET_BOUNDINGCANVAS(this.viewport.getBoundingClientRect())
+                this.SET_CUBE_COORDS()
             });
         });
     },
@@ -57,7 +60,7 @@ export default {
     },
     methods: {
         ...mapGetters('projectsCubeStore', ["GET_VIDEO"]),
-        ...mapMutations('projectsCubeStore', ["RESIZE", "SET_MOUSEX", "SET_MOUSEY"]),
+        ...mapMutations('projectsCubeStore', ["RESIZE", "SET_MOUSEX", "SET_MOUSEY", "SET_CUBE_COORDS", "SET_BOUNDINGCANVAS"]),
         ...mapActions('projectsCubeStore', ["INIT", "ANIMATE"]),
     }
 }
