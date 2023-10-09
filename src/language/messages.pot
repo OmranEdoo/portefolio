@@ -2,19 +2,19 @@ msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 
-#: src/pages/HomePage.vue:19
+#: src/pages/HomePage.vue:23
 msgid "_about"
 msgstr ""
 
-#: src/pages/HomePage.vue:23
+#: src/pages/HomePage.vue:27
 msgid "_play"
 msgstr ""
 
-#: src/pages/HomePage.vue:14
+#: src/pages/HomePage.vue:18
 msgid "_projects"
 msgstr ""
 
-#: src/pages/HomePage.vue:73
+#: src/pages/HomePage.vue:77
 msgid "A (very) amateur chess player..."
 msgstr ""
 
@@ -22,7 +22,7 @@ msgstr ""
 msgid "ABOUT"
 msgstr ""
 
-#: src/pages/HomePage.vue:72
+#: src/pages/HomePage.vue:76
 msgid "Engineering school graduate..."
 msgstr ""
 
@@ -30,7 +30,7 @@ msgstr ""
 msgid "For this project, we experiment the AGILE ans SCRUM methodologie. We were divided in two teams : the backend and the frontend. I was part of the backend teams, I've work with a lot of subjects including 3D data import and processing."
 msgstr ""
 
-#: src/pages/HomePage.vue:71
+#: src/pages/HomePage.vue:75
 msgid "Freelance developer..."
 msgstr ""
 
@@ -40,6 +40,10 @@ msgstr ""
 
 #: src/pages/ProjectsPage.vue:98
 msgid "I learned 3D programmation in engineering school with OpenGL and WebGL. For the project, i've used the library ThreeJs."
+msgstr ""
+
+#: src/pages/HomePage.vue:8
+msgid "loading"
 msgstr ""
 
 #: src/pages/ProjectsPage.vue:130
@@ -72,6 +76,10 @@ msgstr ""
 
 #: src/pages/ProjectsPage.vue:95
 msgid "This Website is a brief presentation of wy work. It was made with the frameworks Vue3 and Vuex."
+msgstr ""
+
+#: src/pages/HomePage.vue:7
+msgid "Welcome on my portefolio website !"
 msgstr ""
 
 #: src/pages/AboutPage.vue:53
