@@ -62,7 +62,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.END_LOADING()
-    }, 2000)
+    }, 0)
   },
   computed: {
     ...mapState(["isLoading"]),

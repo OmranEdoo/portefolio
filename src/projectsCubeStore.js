@@ -4,14 +4,19 @@ import { toRaw } from 'vue';
 export default {
     namespaced: true,
     state: {
+        boundingCanvas: null,
         camera: null,
         cube: null,
+        cubeX: null,
+        cubeY: null,
         height: 0,
         isRotate: false,
         mouseX: null,
         mouseY: null,
         renderer: null,
         rotateInitY: null,
+        rotationCount: 20,
+        rotationIndex: 0,
         scene: null,
         video: null,
         width: 0,
@@ -88,6 +93,19 @@ export default {
             state.cube.position.set(0, 0, 0);
             state.scene.add(state.cube);
 
+            var vector = new THREE.Vector3();
+
+            var widthHalf = 0.5 * state.width;
+            var heightHalf = 0.5 * state.height;
+
+            state.cube.updateMatrixWorld();
+            vector.setFromMatrixPosition(state.cube.matrixWorld);
+            state.camera.updateMatrixWorld()
+            vector.project(toRaw(state.camera));
+
+            state.cubeX = (vector.x * widthHalf) + widthHalf + state.boundingCanvas.x;
+            state.cubeY = - (vector.y * heightHalf) + heightHalf + state.boundingCanvas.y;
+
             const dirLight = new THREE.DirectionalLight(0xffffff, 0.1);
             dirLight.position.set(0, 0, 200);
             state.scene.add(dirLight);
@@ -105,6 +123,23 @@ export default {
         },
         SET_MOUSEY(state, value) {
             state.mouseY = value
+        },
+        SET_CUBE_COORDS(state) {
+            var vector = new THREE.Vector3();
+
+            var widthHalf = 0.5 * state.width;
+            var heightHalf = 0.5 * state.height;
+
+            state.cube.updateMatrixWorld();
+            vector.setFromMatrixPosition(state.cube.matrixWorld);
+            state.camera.updateMatrixWorld()
+            vector.project(toRaw(state.camera));
+
+            state.cubeX = (vector.x * widthHalf) + widthHalf + state.boundingCanvas.x;
+            state.cubeY = - (vector.y * heightHalf) + heightHalf + state.boundingCanvas.y;
+        },
+        SET_BOUNDINGCANVAS(state, value) {
+            state.boundingCanvas = value
         }
     },
     actions: {
@@ -127,22 +162,24 @@ export default {
             }
 
             if (state.isRotate) {
-                state.cube.rotateY(Math.PI / 10)
+                state.cube.rotateY(2 * Math.PI / state.rotationCount)
+                state.rotationIndex += 1
             } else {
-                if (state.mouseX > window.innerWidth / 2 && state.cube.rotation.y < Math.PI / 12)
+                if (state.mouseX > state.cubeX && state.cube.rotation.y < Math.PI / 12)
                     state.cube.rotation.y += (Math.PI / 12 - state.cube.rotation.y) / 20;
-                else if (state.mouseX < window.innerWidth / 2 && -Math.PI / 12 < state.cube.rotation.y)
+                else if (state.mouseX < state.cubeX && -Math.PI / 12 < state.cube.rotation.y)
                     state.cube.rotation.y -= (state.cube.rotation.y + Math.PI / 12) / 20;
 
-                if (state.mouseY > window.innerHeight / 2 && state.cube.rotation.x < Math.PI / 12)
+                if (state.mouseY > state.cubeY && state.cube.rotation.x < Math.PI / 12)
                     state.cube.rotation.x += (Math.PI / 12 - state.cube.rotation.x) / 20;
-                else if (state.mouseY < window.innerHeight / 2 && -Math.PI / 12 < state.cube.rotation.x)
+                else if (state.mouseY < state.cubeY && -Math.PI / 12 < state.cube.rotation.x)
                     state.cube.rotation.x -= (state.cube.rotation.x + Math.PI / 12) / 20;
             }
 
-            if (Math.abs(state.cube.rotation.y - state.rotateInitY) <= Math.PI / 10) {
+            if (state.rotationIndex == state.rotationCount) {
                 state.isRotate = false
                 state.cube.rotation.y = state.rotateInitY
+                state.rotationIndex = 0
             }
 
             window.requestAnimationFrame(() => {

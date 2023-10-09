@@ -32,7 +32,7 @@
           </div>
         </div>
       </div>
-      <ProjectCarousel id="canvasCarousel"></ProjectCarousel>
+      <ProjectCube id="canvasCarousel"></ProjectCube>
     </div>
     <FooterBar />
   </v-app>
@@ -40,7 +40,7 @@
 
 <script>
 import FooterBar from '@/components/FooterBar.vue'
-import ProjectCarousel from '@/components/ProjectCarousel.vue'
+import ProjectCube from '@/components/ProjectCube.vue'
 import StarsBackground from '@/components/StarsBackground.vue'
 import MenuButton from '@/components/MenuButton.vue'
 import { mapMutations } from "vuex"
@@ -51,7 +51,7 @@ export default {
   name: 'ProjectsPage',
   components: {
     FooterBar,
-    ProjectCarousel,
+    ProjectCube,
     StarsBackground,
     MenuButton,
     LanguageBtn

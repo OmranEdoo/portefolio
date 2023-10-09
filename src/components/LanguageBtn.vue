@@ -26,6 +26,14 @@ export default {
     top: 50px;
     right: 150px;
     height: 70px;
+    width: min-content;
+}
+
+@media screen and (orientation: portrait) {
+    #container {
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
 }
 
 #btn {
