@@ -1,33 +1,42 @@
 <template>
   <v-app>
     <StarsBackground :isPlay="isPlay" :speed="speed" />
-    <MenuButton v-if="isPlay"></MenuButton>
-    <div v-else id="textContainer">
-      <h1 id="blaze" class="d-flex justify-content-start">Omran Edoo</h1>
-      <TypeWriter :array="descriptions" />
-      <router-link to="/projects">
-        <v-btn variant="plain">
-          <p class="redirectBtn text-overline">_projects</p>
-        </v-btn>
-      </router-link>
-      <router-link to="/about">
-        <v-btn variant="plain">
-          <p class="redirectBtn text-overline">_about</p>
-        </v-btn>
-      </router-link>
-      <v-btn variant="plain" @click="play">
-        <p class="redirectBtn text-overline">_play</p>
-      </v-btn>
+    <div>
+      <LanguageBtn />
+      <div v-if="isLoading" />
+      <div v-else>
+        <MenuButton v-if="isPlay"></MenuButton>
+        <div v-else id="textContainer">
+          <h1 id="blaze" class="d-flex justify-content-start">Omran Edoo</h1>
+          <TypeWriter :array="descriptions" :key="typeWriterKey" />
+          <router-link to="/projects">
+            <v-btn variant="plain">
+              <p v-translate class="redirectBtn text-overline">_projects</p>
+            </v-btn>
+          </router-link>
+          <router-link to="/about">
+            <v-btn variant="plain">
+              <p v-translate class="redirectBtn text-overline">_about</p>
+            </v-btn>
+          </router-link>
+          <v-btn variant="plain" @click="play">
+            <p v-translate class="redirectBtn text-overline">_play</p>
+          </v-btn>
+        </div>
+      </div>
     </div>
     <FooterBar />
   </v-app>
 </template>
 
 <script>
+import { mapState, mapMutations } from "vuex"
+
 import TypeWriter from '@/components/TypeWriter.vue'
 import FooterBar from '@/components/FooterBar.vue'
 import StarsBackground from '@/components/StarsBackground.vue'
 import MenuButton from '@/components/MenuButton.vue'
+import LanguageBtn from '@/components/LanguageBtn.vue'
 
 export default {
   name: 'HomePage',
@@ -35,16 +44,38 @@ export default {
     TypeWriter,
     FooterBar,
     StarsBackground,
-    MenuButton
+    MenuButton,
+    LanguageBtn,
   },
   data() {
     return {
       isPlay: false,
       speed: 10,
-      descriptions: ["Développeur freelance...", "Diplomé d'école d'ingénieur...", "Joueur d'échecs (très) amateur..."],
+      typeWriterKey: 0
+    }
+  },
+  watch: {
+    '$language.current': function () {
+      this.typeWriterKey += 1
+    }
+  },
+  mounted() {
+    setTimeout(() => {
+      this.END_LOADING()
+    }, 2000)
+  },
+  computed: {
+    ...mapState(["isLoading"]),
+    descriptions() {
+      return [
+        this.$gettext("Freelance developer..."),
+        this.$gettext("Engineering school graduate..."),
+        this.$gettext("A (very) amateur chess player...")
+      ]
     }
   },
   methods: {
+    ...mapMutations(["END_LOADING"]),
     play() {
       this.speed = 700
       this.isPlay = true
@@ -63,10 +94,15 @@ export default {
 
 body {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   margin: 0;
   background: black;
   overflow: hidden;
+  cursor: none;
+}
+
+html {
+  cursor: none;
 }
 
 #textContainer {

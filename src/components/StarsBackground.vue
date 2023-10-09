@@ -1,12 +1,10 @@
 <template>
-    <div>
-        <canvas id="viewport" />
-        <div v-if="state > 2" class="btnContainer d-flex flex-column">
-            <h2 class="resultText" v-if="state == 3">You win !</h2>
-            <h2 class="resultText" v-else>You lose...</h2>
-            <v-btn class="gameBtn mb-2" rounded="sm" variant="outlined" @click="restart(true, 700, 10)">Restart</v-btn>
-            <v-btn class="gameBtn" rounded="sm" variant="outlined" href="/">Menu</v-btn>
-        </div>
+    <canvas id="viewport" />
+    <div v-if="state > 2" class="btnContainer d-flex flex-column">
+        <h2 class="resultText" v-if="state == 3">You win !</h2>
+        <h2 class="resultText" v-else>You lose...</h2>
+        <v-btn class="gameBtn mb-2" rounded="sm" variant="outlined" @click="restart(true, 700, 10)">Restart</v-btn>
+        <v-btn class="gameBtn" rounded="sm" variant="outlined" href="/">Menu</v-btn>
     </div>
 </template>
   
@@ -53,6 +51,7 @@ export default {
     },
     created() {
         window.addEventListener('keydown', (e) => {
+            e.preventDefault()
             if (e.key == 'ArrowLeft') {
                 this.GO_LEFT()
             } else if (e.key == 'ArrowRight') {
@@ -61,6 +60,7 @@ export default {
         });
 
         window.addEventListener('keyup', (e) => {
+            e.preventDefault()
             if (e.key == 'ArrowLeft') {
                 this.STOP_LEFT()
             } else if (e.key == 'ArrowRight') {
@@ -69,6 +69,7 @@ export default {
         });
 
         window.addEventListener('touchstart', (e) => {
+            e.preventDefault()
             this.screenX = e.touches[0].screenX
             if (this.screenX < this.viewport.offsetWidth / 2) {
                 this.GO_LEFT()
@@ -77,7 +78,8 @@ export default {
             }
         });
 
-        window.addEventListener('touchend', () => {
+        window.addEventListener('touchend', (e) => {
+            e.preventDefault()
             if (this.screenX < this.viewport.offsetWidth / 2) {
                 this.STOP_LEFT()
             } else {
@@ -122,7 +124,7 @@ export default {
 <style>
 #viewport {
     width: 100vw !important;
-    height: 100vh !important;
+    height: 100% !important;
 }
 
 .btnContainer {

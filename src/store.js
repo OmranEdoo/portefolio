@@ -9,12 +9,16 @@ export default createStore({
         projectsCubeStore
     },
     state: {
-        pageName: 'home'
+        pageName: 'home',
+        isLoading: true,
     },
     mutations: {
         UPDATE_PAGE(state, value) {
             state.pageName = value
-        }
+        },
+        END_LOADING(state) {
+            state.isLoading = false
+        },
     },
     getters: {
         GET_PAGE(state) {

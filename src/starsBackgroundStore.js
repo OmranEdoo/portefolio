@@ -5,45 +5,45 @@ import { toRaw } from 'vue';
 export default {
     namespaced: true,
     state: {
-        width: 0,
-        height: 0,
-        camera: null,
-        scene: null,
-        renderer: null,
-        stars: null,
-        stars2: null,
-        ground: null,
-        mountains: null,
-        black_mountains: null,
-        mountains_mesh: null,
-        raycaster: null,
-        state: 0,
-        clock: null,
-        delta: 0,
-        spaceship: null,
-        numberMountains: 100,
-        zGround: -60,
-        yGround: 2750,
-        actualSpeed: 10,
-        finalSpeed: 10,
-        rotation: 0.05,
-        limitRotation: 15,
-        countRotation: 0,
-        gameAcceleration: 10,
-        shipAcceleration: 10,
-        spaceshipRotation: 200,
-        spaceshipInitXRotation: 5 * Math.PI / 9,
-        isPlay: false,
-        finalLeftSpeed: 0,
-        finalRightSpeed: 0,
         actualLeftSpeed: 0,
         actualRightSpeed: 0,
-        gameSpeed: 40,
-        ultraSpeedEnd: 1700,
-        speedIncrease: 20,
+        actualSpeed: 10,
         animateIncreaseSpeedCount: 100,
-        yStop: null,
+        black_mountains: null,
+        camera: null,
+        clock: null,
         collisionBack: 50,
+        countRotation: 0,
+        delta: 0,
+        finalLeftSpeed: 0,
+        finalRightSpeed: 0,
+        finalSpeed: 10,
+        gameAcceleration: 10,
+        gameSpeed: 40,
+        ground: null,
+        height: 0,
+        isPlay: false,
+        limitRotation: 15,
+        mountains: null,
+        mountains_mesh: null,
+        numberMountains: 100,
+        numberStars: 24000,
+        raycaster: null,
+        renderer: null,
+        rotation: 0.05,
+        scene: null,
+        shipAcceleration: 10,
+        spaceship: null,
+        spaceshipInitXRotation: 5 * Math.PI / 9,
+        speedIncrease: 20,
+        stars: null,
+        stars2: null,
+        state: 0,
+        ultraSpeedEnd: 1700,
+        width: 0,
+        yGround: 2750,
+        yStop: null,
+        zGround: -60,
     },
     mutations: {
         SET_VIEWPORT_SIZE(state, { width, height }) {
@@ -69,6 +69,8 @@ export default {
             state.scene = new THREE.Scene();
             state.scene.background = new THREE.Color('#000000');
 
+            state.actualSpeed = 10
+            state.countRotation = 0
             state.state = 0
             state.clock = new THREE.Clock()
 
@@ -83,14 +85,16 @@ export default {
 
             const starGeometry = new THREE.BufferGeometry()
 
-            const sprite = new THREE.TextureLoader().load('img/flash.png');
+            const sprite = new THREE.TextureLoader().load('img/flash2.png');
             const starMaterial = new THREE.PointsMaterial({
+                alphaMap: null,
                 map: sprite,
-                transparent: true
+                transparent: true,
+                size: 1.3,
             });
 
             const starVerticies = []
-            for (let i = 0; i < 12000; i++) {
+            for (let i = 0; i < state.numberStars; i++) {
                 const x = Math.random() * 1200 - 600
                 const y = Math.random() * 600 - 300
                 const z = Math.random() * 600 - 300
@@ -100,6 +104,7 @@ export default {
             starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVerticies, 3))
 
             state.stars = new THREE.Points(starGeometry, starMaterial)
+            state.stars.position.y = 0
             state.scene.add(toRaw(state.stars))
 
             state.stars2 = state.stars.clone()

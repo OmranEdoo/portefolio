@@ -1,0 +1,68 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+#: src/pages/HomePage.vue:19
+msgid "_about"
+msgstr ""
+
+#: src/pages/HomePage.vue:23
+msgid "_play"
+msgstr ""
+
+#: src/pages/HomePage.vue:14
+msgid "_projects"
+msgstr ""
+
+#: src/pages/HomePage.vue:58
+msgid "A (very) amateur chess player..."
+msgstr ""
+
+#: src/pages/AboutPage.vue:8
+msgid "ABOUT"
+msgstr ""
+
+#: src/pages/HomePage.vue:57
+msgid "Engineering school graduate..."
+msgstr ""
+
+#: src/pages/HomePage.vue:56
+msgid "Freelance developer..."
+msgstr ""
+
+#: src/pages/AboutPage.vue:42
+msgid ""
+"Hi! I'm a passionate developer with a background in geomatics engineering. A \n"
+"          creator at heart, I'm always looking for new ways to solve problems through \n"
+"          programming. "
+msgstr ""
+
+#: src/pages/ProjectsPage.vue:91
+msgid "I learned 3D programmation in engineering school with OpenGL and WebGL. For the project, i've used the library ThreeJs."
+msgstr ""
+
+#: src/pages/ProjectsPage.vue:11
+msgid "Projects"
+msgstr ""
+
+#: src/pages/AboutPage.vue:15
+msgid "Resume"
+msgstr ""
+
+#: src/pages/ProjectsPage.vue:108
+msgid "The application provides clear, accurate 2D and 2D + 1 visualisation of data, as well as spatio-temporal analysis of trajectories. It is easy for users to learn, thanks to the various aids provided."
+msgstr ""
+
+#: src/pages/ProjectsPage.vue:98
+msgid "The TrailLove76200 project aims to visualise the trajectories of participants in the Oxfam Trailwalker 2021 race and to provide a spatio-temporal analysis of these trajectories. The main challenge is to find an effective way of visualising this data and providing analysis tools for race organisers and researchers interested in the data collected. To meet this challenge, the project proposes the development of a high-performance web application capable of representing the evolution of participant's pace as a function of different parameters."
+msgstr ""
+
+#: src/pages/ProjectsPage.vue:88
+msgid "This Website is a brief presentation of wy work. It was made with the frameworks Vue3 and Vuex."
+msgstr ""
+
+#: src/pages/AboutPage.vue:47
+msgid ""
+"When I'm not coding, I like playing soccer, climbing, running or playing \n"
+"          chess. "
+msgstr ""

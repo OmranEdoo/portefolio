@@ -1,6 +1,18 @@
 <template>
     <router-view></router-view>
+    <RoundCursor />
 </template>
+
+<script>
+import RoundCursor from '@/components/RoundCursor.vue'
+
+export default {
+    name: 'App',
+    components: {
+        RoundCursor
+    }
+}
+</script>
 
 <style>
 #app {
@@ -16,5 +28,6 @@ body,
 #app {
     width: 100%;
     height: 100%;
+    cursor: none;
 }
 </style>
