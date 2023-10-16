@@ -12,19 +12,19 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 3.4\n"
 
-#: src/pages/HomePage.vue:23
+#: src/pages/HomePage.vue:27
 msgid "_about"
 msgstr "_à propos"
 
-#: src/pages/HomePage.vue:27
+#: src/pages/HomePage.vue:31
 msgid "_play"
 msgstr "_jouer"
 
-#: src/pages/HomePage.vue:18
+#: src/pages/HomePage.vue:22
 msgid "_projects"
 msgstr "_projets"
 
-#: src/pages/HomePage.vue:77
+#: src/pages/HomePage.vue:81
 msgid "A (very) amateur chess player..."
 msgstr "Joueur d'échecs (très) amateur..."
 
@@ -32,7 +32,11 @@ msgstr "Joueur d'échecs (très) amateur..."
 msgid "ABOUT"
 msgstr "À propos"
 
-#: src/pages/HomePage.vue:76
+#: src/pages/HomePage.vue:79
+msgid "Developer..."
+msgstr "Développeur..."
+
+#: src/pages/HomePage.vue:80
 msgid "Engineering school graduate..."
 msgstr "Diplomé d'école d'ingénieur..."
 
@@ -47,10 +51,6 @@ msgstr ""
 "Nous étions divisés en deux équipes : le backend et le frontend. Je faisais "
 "partie de l'équipe backend, j'ai travaillé sur de nombreux sujets dont "
 "l'importation et le traitement de données 3D."
-
-#: src/pages/HomePage.vue:75
-msgid "Freelance developer..."
-msgstr "Développeur freelance..."
 
 #: src/pages/AboutPage.vue:48
 msgid ""

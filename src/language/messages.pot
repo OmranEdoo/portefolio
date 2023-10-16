@@ -2,19 +2,19 @@ msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 
-#: src/pages/HomePage.vue:23
+#: src/pages/HomePage.vue:27
 msgid "_about"
 msgstr ""
 
-#: src/pages/HomePage.vue:27
+#: src/pages/HomePage.vue:31
 msgid "_play"
 msgstr ""
 
-#: src/pages/HomePage.vue:18
+#: src/pages/HomePage.vue:22
 msgid "_projects"
 msgstr ""
 
-#: src/pages/HomePage.vue:77
+#: src/pages/HomePage.vue:81
 msgid "A (very) amateur chess player..."
 msgstr ""
 
@@ -22,16 +22,16 @@ msgstr ""
 msgid "ABOUT"
 msgstr ""
 
-#: src/pages/HomePage.vue:76
+#: src/pages/HomePage.vue:79
+msgid "Developer..."
+msgstr ""
+
+#: src/pages/HomePage.vue:80
 msgid "Engineering school graduate..."
 msgstr ""
 
 #: src/pages/ProjectsPage.vue:137
 msgid "For this project, we experiment the AGILE ans SCRUM methodologie. We were divided in two teams : the backend and the frontend. I was part of the backend teams, I've work with a lot of subjects including 3D data import and processing."
-msgstr ""
-
-#: src/pages/HomePage.vue:75
-msgid "Freelance developer..."
 msgstr ""
 
 #: src/pages/AboutPage.vue:48
