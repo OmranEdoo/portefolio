@@ -1,8 +1,6 @@
 <template>
-    <div id="container" class="d-flex align-center">
-        <p id="btn" @click="changeLanguage">
-            {{ $language.current }}
-        </p>
+    <div id="container" class="d-flex align-center" @click="changeLanguage">
+        {{ $language.current }}
     </div>
 </template>
 
@@ -27,6 +25,14 @@ export default {
     right: 150px;
     height: 70px;
     width: min-content;
+    padding: 0;
+    z-index: 110;
+    color: rgb(214, 214, 214);
+    font-size: 17px;
+    text-transform: unset !important;
+    border-radius: 25%;
+    text-decoration: underline;
+    font-family: lemonmilk;
 }
 
 @media screen and (orientation: portrait) {
@@ -36,18 +42,11 @@ export default {
     }
 }
 
-#btn {
-    padding: 0;
-    z-index: 11;
-    color: rgb(214, 214, 214);
-    font-size: 17px;
-    text-transform: unset !important;
-    border-radius: 25%;
-    text-decoration: underline;
-    font-family: lemonmilk;
+#container:hover {
+    color: white;
 }
 
-#btn:hover {
+#container:active {
     color: white;
 }
 </style>
