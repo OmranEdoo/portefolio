@@ -10,14 +10,10 @@ export default createStore({
     },
     state: {
         pageName: 'home',
-        isLoading: true,
     },
     mutations: {
         UPDATE_PAGE(state, value) {
             state.pageName = value
-        },
-        END_LOADING(state) {
-            state.isLoading = false
         },
     },
     getters: {

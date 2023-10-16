@@ -19,19 +19,19 @@ export default defineComponent({
     },
     eraseInterval: {
       type: Number,
-      default: 40,
+      default: 20,
     },
     typeInterval: {
       type: Number,
-      default: 100,
+      default: 50,
     },
     delayAfter: {
       type: Number,
-      default: 3000,
+      default: 1500,
     },
     delayBefore: {
       type: Number,
-      default: 500,
+      default: 250,
     },
     start: {
       type: Number,
@@ -108,7 +108,7 @@ export default defineComponent({
       this.$emit("typed", typedString);
     },
     waitWritingChar(i) {
-      if (i < 6) {
+      if (i < 4) {
         if (i % 2 == 0) {
           this.writingChar = "";
         } else {

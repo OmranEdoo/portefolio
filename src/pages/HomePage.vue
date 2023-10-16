@@ -3,34 +3,23 @@
     <StarsBackground :isPlay="isPlay" :speed="speed" />
     <div>
       <LanguageBtn />
-      <div class="centerContainer" v-if="isLoading">
-        <p class="caviarFont" v-translate>Welcome on my portefolio website !</p>
-        <p class="caviarFont" v-translate>loading</p>
-        <div class="waviy">
-          <span style="--i:1">.</span>
-          <span style="--i:2">.</span>
-          <span style="--i:3">.</span>
-        </div>
-      </div>
-      <div v-else>
-        <MenuButton v-if="isPlay"></MenuButton>
-        <div v-else class="centerContainer">
-          <h1 id="blaze" class="caviarFont d-flex justify-content-start">Omran Edoo</h1>
-          <TypeWriter :array="descriptions" :key="typeWriterKey" />
-          <router-link to="/projects">
-            <v-btn variant="plain">
-              <p v-translate class="redirectBtn text-overline">_projects</p>
-            </v-btn>
-          </router-link>
-          <router-link to="/about">
-            <v-btn variant="plain">
-              <p v-translate class="redirectBtn text-overline">_about</p>
-            </v-btn>
-          </router-link>
-          <v-btn variant="plain" @click="play">
-            <p v-translate class="redirectBtn text-overline">_play</p>
+      <MenuButton v-if="isPlay"></MenuButton>
+      <div v-else class="centerContainer">
+        <h1 id="blaze" class="caviarFont d-flex justify-content-start">Omran Edoo</h1>
+        <TypeWriter :array="descriptions" :key="typeWriterKey" />
+        <router-link to="/projects">
+          <v-btn variant="plain">
+            <p v-translate class="redirectBtn text-overline">_projects</p>
           </v-btn>
-        </div>
+        </router-link>
+        <router-link to="/about">
+          <v-btn variant="plain">
+            <p v-translate class="redirectBtn text-overline">_about</p>
+          </v-btn>
+        </router-link>
+        <v-btn variant="plain" @click="play">
+          <p v-translate class="redirectBtn text-overline">_play</p>
+        </v-btn>
       </div>
     </div>
     <FooterBar />
@@ -38,8 +27,6 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from "vuex"
-
 import TypeWriter from '@/components/TypeWriter.vue'
 import FooterBar from '@/components/FooterBar.vue'
 import StarsBackground from '@/components/StarsBackground.vue'
@@ -67,23 +54,16 @@ export default {
       this.typeWriterKey += 1
     }
   },
-  mounted() {
-    setTimeout(() => {
-      this.END_LOADING()
-    }, 3000)
-  },
   computed: {
-    ...mapState(["isLoading"]),
     descriptions() {
       return [
-        this.$gettext("Freelance developer..."),
+        this.$gettext("Developer..."),
         this.$gettext("Engineering school graduate..."),
         this.$gettext("A (very) amateur chess player...")
       ]
     }
   },
   methods: {
-    ...mapMutations(["END_LOADING"]),
     play() {
       this.speed = 700
       this.isPlay = true
