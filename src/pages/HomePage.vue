@@ -8,17 +8,17 @@
         <h1 id="blaze" class="caviarFont d-flex justify-content-start">Omran Edoo</h1>
         <TypeWriter :array="descriptions" :key="typeWriterKey" />
         <router-link to="/projects">
-          <v-btn variant="plain">
-            <p v-translate class="redirectBtn text-overline">_projects</p>
+          <v-btn class="redirectBtn" variant="plain">
+            <p v-translate class="text-overline">_projects</p>
           </v-btn>
         </router-link>
         <router-link to="/about">
-          <v-btn variant="plain">
-            <p v-translate class="redirectBtn text-overline">_about</p>
+          <v-btn class="redirectBtn" variant="plain">
+            <p v-translate class="text-overline">_about</p>
           </v-btn>
         </router-link>
-        <v-btn variant="plain" @click="play">
-          <p v-translate class="redirectBtn text-overline">_play</p>
+        <v-btn class="redirectBtn" variant="plain" @click="play">
+          <p v-translate class="text-overline">_play</p>
         </v-btn>
       </div>
     </div>
@@ -104,7 +104,7 @@ html {
 
 #blaze {
   text-transform: uppercase;
-  font-size: calc(40px + 4vw);
+  font-size: calc(40px + 3vw);
   height: 6vw;
   width: max-content;
   margin-bottom: 10px;
@@ -118,33 +118,6 @@ html {
 
 .redirectBtn {
   color: #a9a9a9;
-}
-
-.waviy {
-  position: relative;
-  -webkit-box-reflect: below -5px linear-gradient(transparent, rgba(0, 0, 0, .2));
-}
-
-.waviy span {
-  font-family: ASO_reg, cursive;
-  position: relative;
-  display: inline-block;
-  color: #fff;
-  animation: waviy 1s infinite;
-  animation-delay: calc(.1s * var(--i));
-
-}
-
-@keyframes waviy {
-
-  0%,
-  40%,
-  100% {
-    transform: translateY(0)
-  }
-
-  20% {
-    transform: translateY(-5px)
-  }
+  cursor: none;
 }
 </style>
