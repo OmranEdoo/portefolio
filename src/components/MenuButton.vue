@@ -41,6 +41,7 @@ export default {
     right: 50px;
     z-index: 10;
     transition: transform .2s ease-in-out;
+    cursor: none;
 }
 
 #menu:hover {

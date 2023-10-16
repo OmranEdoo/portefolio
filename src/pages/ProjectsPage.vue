@@ -304,10 +304,11 @@ body,
 .link {
   color: white;
   text-decoration: unset;
+  cursor: none;
 }
 
 .link:hover {
-  color: rgb(151, 235, 246);
+  color: #fb00ff;
   transform: translate(2px, -2px);
 }
 

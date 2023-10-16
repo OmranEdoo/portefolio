@@ -119,11 +119,12 @@ body,
 
 .link {
   color: #E0FFFF;
-  text-decoration: none
+  text-decoration: none;
+  cursor: none;
 }
 
 #cv:hover {
-  color: aqua;
+  color: #fb00ff;
 }
 
 .v-navigation-drawer__content::-webkit-scrollbar-track {
