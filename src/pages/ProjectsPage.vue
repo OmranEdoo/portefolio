@@ -82,6 +82,13 @@ export default {
           url: "https://gitlab.com/Jackgeo/MiniGIS",
           video: "./video/RuGIS.mp4"
         },
+        {
+          index: 3,
+          title: "Kanas Quizz",
+          technology: "Typescript",
+          url: "https://kanas-quizz.vercel.app",
+          video: "./video/kanas_quizz.mp4"
+        }
       ]
     }
   },
@@ -140,6 +147,20 @@ export default {
             "backend teams, I've work with a lot of subjects including 3D data import " +
             "and processing."
           )
+        ]
+      } else if (this.index == 3) {
+        return [
+          this.$gettext(
+            "A quick project that I made to learn and practice typescript. "
+          ),
+          this.$gettext(
+            "There are three type of caracteres in japanese: Hiragana, Katakana and Kanji. " +
+            "This website help to train to memorise Hiragana and Katakana in order to read " +
+            "and write in japanese. "
+          ),
+          this.$gettext(
+            "The code was made in Typescript with the framework Vue3. The bundler Vite was used."
+          ),
         ]
       }
       return ''
