@@ -2,51 +2,47 @@ msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 
-#: src/pages/HomePage.vue:27
+#: src/pages/HomePage.vue:17
 msgid "_about"
 msgstr ""
 
-#: src/pages/HomePage.vue:31
+#: src/pages/HomePage.vue:21
 msgid "_play"
 msgstr ""
 
-#: src/pages/HomePage.vue:22
+#: src/pages/HomePage.vue:12
 msgid "_projects"
 msgstr ""
 
-#: src/pages/HomePage.vue:81
+#: src/pages/HomePage.vue:61
 msgid "A (very) amateur chess player..."
+msgstr ""
+
+#: src/pages/ProjectsPage.vue:153
+msgid "A quick project that I made to learn and practice typescript. "
 msgstr ""
 
 #: src/pages/AboutPage.vue:8
 msgid "ABOUT"
 msgstr ""
 
-#: src/pages/HomePage.vue:79
-msgid "Developer..."
+#: src/pages/HomePage.vue:60
+msgid "Computer engineer..."
 msgstr ""
 
-#: src/pages/HomePage.vue:80
-msgid "Engineering school graduate..."
-msgstr ""
-
-#: src/pages/ProjectsPage.vue:137
+#: src/pages/ProjectsPage.vue:144
 msgid "For this project, we experiment the AGILE ans SCRUM methodologie. We were divided in two teams : the backend and the frontend. I was part of the backend teams, I've work with a lot of subjects including 3D data import and processing."
 msgstr ""
 
 #: src/pages/AboutPage.vue:48
-msgid "Hi! I'm a passionate developer with a background in geomatics engineering. A creator at heart, I'm always looking for new ways to solve problems through programming. "
+msgid "Hi! I'm a passionate developer with a background in geomatics engineering. So I have a dual background in programming and Geographic Information Systems (GIS). A creator at heart, I'm always looking for new ways to solve problems through programming. "
 msgstr ""
 
-#: src/pages/ProjectsPage.vue:98
+#: src/pages/ProjectsPage.vue:105
 msgid "I learned 3D programmation in engineering school with OpenGL and WebGL. For the project, i've used the library ThreeJs."
 msgstr ""
 
-#: src/pages/HomePage.vue:8
-msgid "loading"
-msgstr ""
-
-#: src/pages/ProjectsPage.vue:130
+#: src/pages/ProjectsPage.vue:137
 msgid "MiniGIS is a GIS Desktop application capable of displaying, manipulating, and analyzing the various forms of spatial data. MiniGIS supports Vector and Raster data format. The data represented in the application will come from web feeds, existing databases, or files from local or remote repositories."
 msgstr ""
 
@@ -58,28 +54,32 @@ msgstr ""
 msgid "Resume"
 msgstr ""
 
-#: src/pages/ProjectsPage.vue:118
+#: src/pages/ProjectsPage.vue:125
 msgid "The application provides clear, accurate 2D and 2D + 1 visualisation of data, as well as spatio-temporal analysis of trajectories. It is easy for users to learn, thanks to the various aids provided."
 msgstr ""
 
-#: src/pages/ProjectsPage.vue:110
+#: src/pages/ProjectsPage.vue:161
+msgid "The code was made in Typescript with the framework Vue3. The bundler Vite was used."
+msgstr ""
+
+#: src/pages/ProjectsPage.vue:117
 msgid "The main challenge is to find an effective way of visualising this data and providing analysis tools for race organisers and researchers interested in the data collected. To meet this challenge, the project proposes the development of a high-performance web application capable of representing the evolution of participant's pace as a function of different parameters."
 msgstr ""
 
-#: src/pages/ProjectsPage.vue:105
+#: src/pages/ProjectsPage.vue:112
 msgid "The TrailLove76200 project aims to visualise the trajectories of participants in the Oxfam Trailwalker 2021 race and to provide a spatio-temporal analysis of these trajectories."
 msgstr ""
 
-#: src/pages/ProjectsPage.vue:126
+#: src/pages/ProjectsPage.vue:156
+msgid "There are three type of caracteres in japanese: Hiragana, Katakana and Kanji. This website help to train to memorise Hiragana and Katakana in order to read and write in japanese. "
+msgstr ""
+
+#: src/pages/ProjectsPage.vue:133
 msgid "This project was a school project made with the 17 ENSG students. It consists of developing a 2D/3D GIS using C++, Qt and OpenGL. "
 msgstr ""
 
-#: src/pages/ProjectsPage.vue:95
-msgid "This Website is a brief presentation of wy work. It was made with the frameworks Vue3 and Vuex."
-msgstr ""
-
-#: src/pages/HomePage.vue:7
-msgid "Welcome on my portefolio website !"
+#: src/pages/ProjectsPage.vue:102
+msgid "This Website is a brief presentation of my work. It was made with the frameworks Vue3 and Vuex."
 msgstr ""
 
 #: src/pages/AboutPage.vue:53

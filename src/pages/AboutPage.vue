@@ -10,7 +10,7 @@
         <p v-for="text in texts" :key="text" class="normalText d-flex flex-column align-start"
           style="text-align: justify;">{{ text }}
         </p>
-        <a id="cv" href="CV_V5.pdf" target="_blank" class="d-flex justify-start mt-10 normalText link">
+        <a id="cv" href="CV_V7.pdf" target="_blank" class="d-flex justify-start mt-10 normalText link">
           <v-icon icon="mdi-subdirectory-arrow-right" class="d-flex justify-end mr-2" size="small" />
           <p v-translate>Resume</p>
         </a>
@@ -46,13 +46,12 @@ export default {
     texts() {
       return [
         this.$gettext(
-          "Hi! I'm a passionate developer with a background in geomatics engineering. A " +
-          "creator at heart, I'm always looking for new ways to solve problems through " +
-          "programming. "
+          "Hi! I'm a passionate developer with a background in geomatics engineering. " +
+          "So I have a dual background in programming and Geographic Information Systems (GIS). " +
+          "A creator at heart, I'm always looking for new ways to solve problems through programming. "
         ),
         this.$gettext(
-          "When I'm not coding, I like playing soccer, climbing, running or playing " +
-          "chess. "
+          "When I'm not coding, I like playing soccer, climbing, running or playing chess. "
         )
       ]
     }

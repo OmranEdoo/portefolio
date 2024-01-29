@@ -36,10 +36,6 @@ msgstr "ABOUT"
 msgid "Developer..."
 msgstr "Developer..."
 
-#: src/pages/HomePage.vue:80
-msgid "Engineering school graduate..."
-msgstr "Engineering school graduate..."
-
 #: src/pages/ProjectsPage.vue:137
 msgid ""
 "For this project, we experiment the AGILE ans SCRUM methodologie. We were "

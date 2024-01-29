@@ -57,8 +57,7 @@ export default {
   computed: {
     descriptions() {
       return [
-        this.$gettext("Developer..."),
-        this.$gettext("Engineering school graduate..."),
+        this.$gettext("Computer engineer..."),
         this.$gettext("A (very) amateur chess player...")
       ]
     }

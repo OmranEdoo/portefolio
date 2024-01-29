@@ -3,44 +3,44 @@ msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 3.4\n"
 
-#: src/pages/HomePage.vue:27
+#: src/pages/HomePage.vue:17
 msgid "_about"
 msgstr "_à propos"
 
-#: src/pages/HomePage.vue:31
+#: src/pages/HomePage.vue:21
 msgid "_play"
 msgstr "_jouer"
 
-#: src/pages/HomePage.vue:22
+#: src/pages/HomePage.vue:12
 msgid "_projects"
 msgstr "_projets"
 
-#: src/pages/HomePage.vue:81
+#: src/pages/HomePage.vue:61
 msgid "A (very) amateur chess player..."
-msgstr "Joueur d'échecs (très) amateur..."
+msgstr "Un joueur d'échecs (très) amateur..."
+
+#: src/pages/ProjectsPage.vue:153
+msgid "A quick project that I made to learn and practice typescript. "
+msgstr ""
+"Un projet rapide que j'ai réalisé pour apprendre et pratiquer le typescript. "
 
 #: src/pages/AboutPage.vue:8
 msgid "ABOUT"
-msgstr "À propos"
+msgstr "À PROPOS"
 
-#: src/pages/HomePage.vue:79
-msgid "Developer..."
-msgstr "Développeur..."
+#: src/pages/HomePage.vue:60
+msgid "Computer engineer..."
+msgstr "Ingénieur en informatique..."
 
-#: src/pages/HomePage.vue:80
-msgid "Engineering school graduate..."
-msgstr "Diplomé d'école d'ingénieur..."
-
-#: src/pages/ProjectsPage.vue:137
+#: src/pages/ProjectsPage.vue:144
 msgid ""
 "For this project, we experiment the AGILE ans SCRUM methodologie. We were "
 "divided in two teams : the backend and the frontend. I was part of the "
@@ -54,15 +54,18 @@ msgstr ""
 
 #: src/pages/AboutPage.vue:48
 msgid ""
-"Hi! I'm a passionate developer with a background in geomatics engineering. A "
-"creator at heart, I'm always looking for new ways to solve problems through "
-"programming. "
+"Hi! I'm a passionate developer with a background in geomatics engineering. "
+"So I have a dual background in programming and Geographic Information "
+"Systems (GIS). A creator at heart, I'm always looking for new ways to solve "
+"problems through programming. "
 msgstr ""
-"Salut, je suis un développeur passionné ayant fait une formation en "
-"ingénierie géomatique. Créateur dans l'âme, je suis toujours à la recherche "
-"de nouvelles façons de résoudre les problèmes via la programmation. "
+"Salut! Je suis un développeur passionné avec une formation d'ingénieur en "
+"géomatique. J'ai donc une double casquette en programmation et en systèmes "
+"d'information géographique (SIG). Créateur dans l'âme, je suis toujours à la "
+"recherche de nouvelles façons de résoudre les problèmes par la "
+"programmation. "
 
-#: src/pages/ProjectsPage.vue:98
+#: src/pages/ProjectsPage.vue:105
 msgid ""
 "I learned 3D programmation in engineering school with OpenGL and WebGL. For "
 "the project, i've used the library ThreeJs."
@@ -70,11 +73,7 @@ msgstr ""
 "J'ai appris la programmation 3D en école d'ingénieur avec OpenGL et WebGL. "
 "Pour ce projet, j'ai utilisé la bibliothèque ThreeJs."
 
-#: src/pages/HomePage.vue:8
-msgid "loading"
-msgstr "chargement"
-
-#: src/pages/ProjectsPage.vue:130
+#: src/pages/ProjectsPage.vue:137
 msgid ""
 "MiniGIS is a GIS Desktop application capable of displaying, manipulating, "
 "and analyzing the various forms of spatial data. MiniGIS supports Vector and "
@@ -95,18 +94,26 @@ msgstr "Projets"
 msgid "Resume"
 msgstr "CV"
 
-#: src/pages/ProjectsPage.vue:118
+#: src/pages/ProjectsPage.vue:125
 msgid ""
 "The application provides clear, accurate 2D and 2D + 1 visualisation of "
 "data, as well as spatio-temporal analysis of trajectories. It is easy for "
 "users to learn, thanks to the various aids provided."
 msgstr ""
 "L'application permet une visualisation claire et précise des données en 2D "
-"et 2D + 1, ainsi qu'une analyse spatio-temporelle des trajectoires. ainsi "
-"que l'analyse spatio-temporelle des trajectoires. Elle est facile "
-"d'utilisation pour les utilisateurs, grâce aux différentes aides fournies."
+"et 2D + 1, ainsi qu'une analyse spatio-temporelle des trajectoires. Elle est "
+"facile à prendre en main par les utilisateurs, grâce aux différentes aides "
+"fournies."
 
-#: src/pages/ProjectsPage.vue:110
+#: src/pages/ProjectsPage.vue:161
+msgid ""
+"The code was made in Typescript with the framework Vue3. The bundler Vite "
+"was used."
+msgstr ""
+"Le code a été réalisé en Typescript avec le framework Vue3. Le bundler Vite "
+"a été utilisé."
+
+#: src/pages/ProjectsPage.vue:117
 msgid ""
 "The main challenge is to find an effective way of visualising this data and "
 "providing analysis tools for race organisers and researchers interested in "
@@ -116,12 +123,12 @@ msgid ""
 msgstr ""
 "Le principal défi est de trouver un moyen efficace de visualiser ces données "
 "et de fournir des outils d'analyse aux organisateurs de courses et aux "
-"chercheurs intéressés par les données collectées. Pour répondre à ce défi, "
-"le projet propose le développement d'une application web performante capable "
-"de représenter l'évolution de l'allure des participants en fonction de "
-"différents paramètres."
+"chercheurs intéressés par les données collectées. Pour relever ce défi, le "
+"projet propose le développement d'une application web performante capable de "
+"représenter l'évolution du rythme des participants en fonction de différents "
+"paramètres."
 
-#: src/pages/ProjectsPage.vue:105
+#: src/pages/ProjectsPage.vue:112
 msgid ""
 "The TrailLove76200 project aims to visualise the trajectories of "
 "participants in the Oxfam Trailwalker 2021 race and to provide a spatio-"
@@ -131,7 +138,17 @@ msgstr ""
 "à la course Oxfam Trailwalker 2021 et à fournir une analyse spatio-"
 "temporelle de ces trajectoires."
 
-#: src/pages/ProjectsPage.vue:126
+#: src/pages/ProjectsPage.vue:156
+msgid ""
+"There are three type of caracteres in japanese: Hiragana, Katakana and "
+"Kanji. This website help to train to memorise Hiragana and Katakana in order "
+"to read and write in japanese. "
+msgstr ""
+"Il existe trois types de caractères en japonais : les Hiragana, les Katakana "
+"et les Kanji. Ce site permet de s'entraîner à mémoriser les Hiragana et les "
+"Katakana afin de pouvoir lire et écrire en japonais. "
+
+#: src/pages/ProjectsPage.vue:133
 msgid ""
 "This project was a school project made with the 17 ENSG students. It "
 "consists of developing a 2D/3D GIS using C++, Qt and OpenGL. "
@@ -139,17 +156,13 @@ msgstr ""
 "Ce projet est un projet scolaire réalisé avec les 17 étudiants de l'ENSG. Il "
 "consiste à développer un SIG 2D/3D en utilisant C++, Qt et OpenGL. "
 
-#: src/pages/ProjectsPage.vue:95
+#: src/pages/ProjectsPage.vue:102
 msgid ""
-"This Website is a brief presentation of wy work. It was made with the "
+"This Website is a brief presentation of my work. It was made with the "
 "frameworks Vue3 and Vuex."
 msgstr ""
-"Ce site web est une brève présentation de notre travail. Il a été réalisé "
-"avec les frameworks Vue3 et Vuex."
-
-#: src/pages/HomePage.vue:7
-msgid "Welcome on my portefolio website !"
-msgstr "Bienvenue sur mon site portefolio !"
+"Ce site web est une brève présentation de mon travail. Il a été réalisé avec "
+"les frameworks Vue3 et Vuex."
 
 #: src/pages/AboutPage.vue:53
 msgid ""
@@ -158,57 +171,3 @@ msgid ""
 msgstr ""
 "Lorsque je ne code pas, j'aime jouer au football, faire de l'escalade, "
 "courir ou jouer aux échecs. "
-
-#~ msgid ""
-#~ "I learned 3D programmation in engineering school with OpenGL and WebGL. \n"
-#~ "            For the project, i've used the library ThreeJs."
-#~ msgstr ""
-#~ "J'ai appris la programmation 3D en école d'ingénieur avec OpenGL et "
-#~ "WebGL. Pour ce projet, j'ai utilisé la bibliothèque ThreeJs."
-
-#~ msgid ""
-#~ "The application provides clear, accurate 2D and 2D + 1 visualisation of \n"
-#~ "                data, as well as spatio-temporal analysis of "
-#~ "trajectories. It is easy \n"
-#~ "                for users to learn, thanks to the various aids provided."
-#~ msgstr ""
-#~ "L'application permet une visualisation claire et précise des données en "
-#~ "2D et 2D + 1, ainsi qu'une analyse spatio-temporelle des trajectoires. "
-#~ "ainsi que l'analyse spatio-temporelle des trajectoires. Elle est facile "
-#~ "d'utilisation pour les utilisateurs, grâce aux différentes aides fournies."
-
-#~ msgid ""
-#~ "The TrailLove76200 project aims to visualise the trajectories of \n"
-#~ "                participants in the Oxfam Trailwalker 2021 race and to "
-#~ "provide a \n"
-#~ "                spatio-temporal analysis of these trajectories. The main "
-#~ "challenge is to \n"
-#~ "                find an effective way of visualising this data and "
-#~ "providing analysis \n"
-#~ "                tools for race organisers and researchers interested in "
-#~ "the data \n"
-#~ "                collected. To meet this challenge, the project proposes "
-#~ "the development \n"
-#~ "                of a high-performance web application capable of "
-#~ "representing the \n"
-#~ "                evolution of participant's pace as a function of "
-#~ "different parameters."
-#~ msgstr ""
-#~ "Le projet TrailLove76200 vise à visualiser les trajectoires des "
-#~ "participants à la course Oxfam Trailwalker 2021 et à fournir une analyse "
-#~ "spatio-temporelle de ces trajectoires. Le principal défi est de trouver "
-#~ "un moyen efficace de visualiser ces données et de fournir des outils "
-#~ "d'analyse aux organisateurs de la course et aux chercheurs intéressés par "
-#~ "les données collectées. Le principal défi est de trouver un moyen "
-#~ "efficace de visualiser ces données et de fournir des outils d'analyse aux "
-#~ "organisateurs de courses et aux chercheurs intéressés par les données "
-#~ "collectées. Pour répondre à ce défi, le projet propose le développement "
-#~ "d'une application web performante capable de représenter l'évolution de "
-#~ "l'allure des participants en fonction de différents paramètres."
-
-#~ msgid ""
-#~ "I learned 3D programmation in engineering school with OpenGL and WebGL. \n"
-#~ "                For the project, i've used the library ThreeJs."
-#~ msgstr ""
-#~ "J'ai appris la programmation 3D en école d'ingénieur avec OpenGL et "
-#~ "WebGL. Pour ce projet, j'ai utilisé la bibliothèque ThreeJs."
