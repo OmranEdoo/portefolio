@@ -32,7 +32,7 @@ export default {
         return {
             state: 0,
             isPlaying: false,
-            finalSpeed: 10,
+            finalSpeed: 5,
             gameAcceleration: 10,
             viewport: null,
             screenX: 0,

@@ -100,7 +100,7 @@ export default {
       if (this.index == 0) {
         return [
           this.$gettext(
-            "This Website is a brief presentation of wy work. It was made with the frameworks Vue3 and Vuex."
+            "This Website is a brief presentation of my work. It was made with the frameworks Vue3 and Vuex."
           ),
           this.$gettext(
             "I learned 3D programmation in engineering school with OpenGL and WebGL. " +
